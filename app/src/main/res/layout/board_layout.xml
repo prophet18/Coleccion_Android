@@ -1,6 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TableRow
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/score_icon"
+                android:contentDescription="Score Icon"
+                android:layout_width="118dp"
+                android:layout_height="50dp"
+                android:layout_gravity="start"
+                android:scaleType="fitStart"
+                android:src="@drawable/scoreicon" />
+
+            <ImageView
+                android:id="@+id/timer_icon"
+                android:contentDescription="Timer Icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/timericon" />
+
+        </TableRow>
+
+        <TableRow
+            >
+
+            <TextView
+                android:id="@+id/score_value"
+                android:contentDescription="Game Score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score" />
+
+            <TextView
+                android:id="@+id/time_value"
+                android:contentDescription="Game Time Left (Seconds)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time" />
+
+        </TableRow>
+
+        <TableRow
+            >
+
+
+            <ImageButton
+                android:id="@+id/pause_button"
+                android:contentDescription="Pause Button"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/pauseicon" />
+
+            <Button
+                android:id="@+id/random_button"
+                android:contentDescription="Randomize Button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Randomize Cards" />
+
+        </TableRow>
+
+
+
+
+    </TableLayout>
+
+
+
+
+
+
 </LinearLayout>
+
+</RelativeLayout>
+

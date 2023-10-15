@@ -1,7 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/ukrainelandscape">
 
-</LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/collection_logo"
+            android:contentDescription="Game (Coleccion) Logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/collection_logo_2" />
+
+        <ImageButton
+            android:id="@+id/new_game_button"
+            android:contentDescription="New Game Button"
+            android:layout_width="390dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/newgamebtn2" />
+
+        <ImageButton
+            android:id="@+id/high_score_button"
+            android:contentDescription="High Score Button"
+            android:layout_width="390dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/highscorebtn2" />
+
+        <ImageButton
+            android:id="@+id/settings_button"
+            android:contentDescription="Settings Button"
+            android:layout_width="390dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:src="@drawable/settingsbtn2" />
+
+        <ImageButton
+            android:id="@+id/help_button"
+            android:contentDescription="Help Button"
+            android:layout_width="390dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/helpbtn2" />
+
+        <Button
+            android:id="@+id/exit_button"
+            android:contentDescription="Exit Button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Exit" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
