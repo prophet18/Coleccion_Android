@@ -1,25 +1,52 @@
 package coleccion.android
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import coleccion.android.ui.theme.Coleccion_AndroidTheme
+import org.w3c.dom.Text as Text1
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent() {
 
-            R.layout.entry_screen
+        var ngButton = (Button(findViewById (R.id.es_layout)))
+       // ngButton.setOnClickListener(thi)
+
+        setContent {
+            CStuff()
+            // var ngButton = (Button(findViewById (R.id.es_layout)))
+            // ngButton.setOnClickListener(this)
+
+        }
+
+
+
+
+        }
+
+    fun newGame (view: View?) {
+        // do stuff
+    }
+
+    @Composable
+    fun SimpleComposable() {
+        val oneS = (ImageView(findViewById(R.id.collection_logo)))
+        val doView = (View(findViewById(R.id.es_layout)))
+    }
+
+    @Composable
+    @Preview
+    fun CStuff() {
+        SimpleComposable()
+    }
+
+
 
 
 
@@ -37,10 +64,11 @@ class MainActivity : ComponentActivity() {
             }
         */
 
-        }
-    }
+
+
 }
 
+/*
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -51,10 +79,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Coleccion_AndroidTheme {
-        Greeting("Android")
-    }
-}
+
+
+ */
+
+
