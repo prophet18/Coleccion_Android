@@ -14,12 +14,10 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <TableRow
-            android:gravity="center"
-            >
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/score_icon"
@@ -40,8 +38,7 @@
 
         </TableRow>
 
-        <TableRow
-            >
+        <TableRow>
 
             <TextView
                 android:id="@+id/score_value"
@@ -78,6 +75,130 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:text="Randomize Cards" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/card1"
+                android:contentDescription="Card 1"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+            <ImageButton
+                android:id="@+id/card2"
+                android:contentDescription="Card 2"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+            <ImageButton
+                android:id="@+id/card3"
+                android:contentDescription="Card 3"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/card4"
+                android:contentDescription="Card 4"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+            <ImageButton
+                android:id="@+id/card5"
+                android:contentDescription="Card 5"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+            <ImageButton
+                android:id="@+id/card6"
+                android:contentDescription="Card 6"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/card7"
+                android:contentDescription="Card 7"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+            <ImageButton
+                android:id="@+id/card8"
+                android:contentDescription="Card 8"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+            <ImageButton
+                android:id="@+id/card9"
+                android:contentDescription="Card 9"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <ImageButton
+                android:id="@+id/card10"
+                android:contentDescription="Card 10"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+            <ImageButton
+                android:id="@+id/card11"
+                android:contentDescription="Card 11"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
+
+            <ImageButton
+                android:id="@+id/card12"
+                android:contentDescription="Card 12"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/van_gogh_starry_night" />
 
         </TableRow>
 

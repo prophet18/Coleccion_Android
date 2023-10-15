@@ -1,6 +1,8 @@
 package coleccion.android
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,7 +17,14 @@ import coleccion.android.ui.theme.Coleccion_AndroidTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
+        setContent() {
+
+            R.layout.entry_screen
+
+
+
+
+        /*
             Coleccion_AndroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -23,8 +32,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Android")
+
                 }
             }
+        */
+
         }
     }
 }
@@ -35,6 +47,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
+
+
 }
 
 @Preview(showBackground = true)
