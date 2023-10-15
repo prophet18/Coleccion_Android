@@ -16,6 +16,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         var ngButton = (Button(findViewById (R.id.es_layout)))
+
+        var card1 = Card("Red", 3, "Triangle", "Empty", "mmk")
+
        // ngButton.setOnClickListener(thi)
 
         setContent {
