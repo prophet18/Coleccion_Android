@@ -1020,6 +1020,7 @@ class Deck : Stack<Card?>() {
         )
         val blueP1i = R.drawable.colecci_n_blue_parallelogram_1
 
+        /*
         val blueP2i = ImageView(FileInputStream(bP2.path))
         val blueP3i = Image(FileInputStream(bP3.path))
         val blueP1ei = Image(FileInputStream(bPE1.path))
@@ -1452,5 +1453,7 @@ class Deck : Stack<Card?>() {
         push(rTS1)
         push(rTS2)
         push(rTS3)
+
+         */
     }
 }

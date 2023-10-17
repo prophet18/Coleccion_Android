@@ -14,7 +14,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="5dp">
 
 
         <ImageView
@@ -34,6 +35,10 @@
             android:src="@drawable/newgamebtn2"
             android:onClick="newGame"/>
 
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
         <ImageButton
             android:id="@+id/high_score_button"
             android:contentDescription="High Score Button"
@@ -42,6 +47,10 @@
             android:layout_gravity="center"
             android:scaleType="fitXY"
             android:src="@drawable/highscorebtn2" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
 
         <ImageButton
             android:id="@+id/settings_button"
@@ -52,6 +61,10 @@
             android:scaleType="fitXY"
             android:src="@drawable/settingsbtn2" />
 
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
         <ImageButton
             android:id="@+id/help_button"
             android:contentDescription="Help Button"
@@ -61,13 +74,16 @@
             android:scaleType="fitCenter"
             android:src="@drawable/helpbtn2" />
 
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
         <Button
             android:id="@+id/exit_button"
             android:contentDescription="Exit Button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Exit" />
-
 
     </LinearLayout>
 
