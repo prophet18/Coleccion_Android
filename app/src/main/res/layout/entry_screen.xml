@@ -33,6 +33,7 @@
             android:layout_gravity="center"
             android:scaleType="fitXY"
             android:src="@drawable/newgamebtn2"
+            android:background="@android:color/transparent"
             android:onClick="newGame"/>
 
         <Space
@@ -46,7 +47,8 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:src="@drawable/highscorebtn2" />
+            android:src="@drawable/highscorebtn2"
+            android:background="@android:color/transparent" />
 
         <Space
             android:layout_width="20dp"
@@ -59,7 +61,8 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:src="@drawable/settingsbtn2" />
+            android:src="@drawable/settingsbtn2"
+            android:background="@android:color/transparent" />
 
         <Space
             android:layout_width="20dp"
@@ -72,7 +75,8 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
-            android:src="@drawable/helpbtn2" />
+            android:src="@drawable/helpbtn2"
+            android:background="@android:color/transparent" />
 
         <Space
             android:layout_width="20dp"
@@ -83,7 +87,8 @@
             android:contentDescription="Exit Button"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Exit" />
+            android:text="Exit"
+            />
 
     </LinearLayout>
 

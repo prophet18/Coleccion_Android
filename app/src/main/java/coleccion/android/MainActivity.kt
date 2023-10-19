@@ -1,9 +1,12 @@
 package coleccion.android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
@@ -14,76 +17,34 @@ import org.w3c.dom.Text as Text1
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.entry_screen)
 
-        var ngButton = (Button(findViewById (R.id.es_layout)))
+        var ngButton = findViewById<ImageButton>(R.id.new_game_button)
+        var hsButton = findViewById<ImageButton>(R.id.high_score_button)
+        var setButton = findViewById<ImageButton>(R.id.settings_button)
+        var helpButton = findViewById<ImageButton>(R.id.help_button)
+        var exitButton = findViewById<Button>(R.id.exit_button)
 
         var card1 = Card("Red", 3, "Triangle", "Empty", "mmk")
 
-       // ngButton.setOnClickListener(thi)
-
-        setContent {
-            CStuff()
-            // var ngButton = (Button(findViewById (R.id.es_layout)))
-            // ngButton.setOnClickListener(this)
-
+        ngButton.setOnClickListener {
+            Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show()
+        }
+        hsButton.setOnClickListener {
+            Toast.makeText(this, "fuckoff", Toast.LENGTH_SHORT).show()
+        }
+        setButton.setOnClickListener {
+            Toast.makeText(this, "moo", Toast.LENGTH_SHORT).show()
+        }
+        helpButton.setOnClickListener {
+            Toast.makeText(this, "help", Toast.LENGTH_SHORT).show()
+        }
+        exitButton.setOnClickListener {
+            val intent1 = Intent(this, NuActivity::class.java)
+            startActivity(intent1)
         }
 
 
-
-
-        }
-
-    fun newGame (view: View?) {
-        // do stuff
     }
-
-    @Composable
-    fun SimpleComposable() {
-        val oneS = (ImageView(findViewById(R.id.collection_logo)))
-        val doView = (View(findViewById(R.id.es_layout)))
-    }
-
-    @Composable
-    @Preview
-    fun CStuff() {
-        SimpleComposable()
-    }
-
-
-
-
-
-
-        /*
-            Coleccion_AndroidTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-
-                }
-            }
-        */
-
-
-
 }
-
-/*
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-
-
-}
-
-
-
- */
-
 
