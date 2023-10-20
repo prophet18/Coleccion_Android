@@ -4,31 +4,24 @@ import android.graphics.drawable.Drawable
 import coleccion.android.R.drawable.*
 
 class Card (var col: String, var num: Int, var sha: String, var fil: String, var img: Int) {
-
-        lateinit var color: String
-        var number: Int = 0
-        lateinit var shape: String
-        lateinit var fill: String
-        var image: Int = 0
-
-     // lateinit var image: Drawable
-
-        init {
-            col = color
-            num = number
-            sha = shape
-            fil = fill
-            img = image
-            // img = image
-
-        }
+    var color: String = ""
+    var number: Int = 0
+    var shape: String = ""
+    var fill: String = ""
+    var image: Int = 0
+    init {
+       col = color
+       num = number
+       sha = shape
+       fil = fill
+       img = image
+    }
 }
 
 class Deck {
 
 
     val cards: MutableList<Card> = mutableListOf()
-
 
     val	bP1	=		Card("Blue",	1,	"Parallelogram",	"Solid",	colecci_n_blue_parallelogram_1	)
     val	bP2	=		Card("Blue",	2,	"Parallelogram",	"Solid",	colecci_n_blue_parallelogram_2	)
@@ -175,7 +168,6 @@ class Deck {
     val	rTS2	=		Card("Red",	2,	"Triangle",	"Grid",	colecci_n_red_triangle_s_2	)
     val	rTS3	=		Card("Red",	3,	"Triangle",	"Grid",	colecci_n_red_triangle_s_3	)
 
-
     init {
         cards.add(	bP1	)
         cards.add(	bP2	)
@@ -321,11 +313,13 @@ class Deck {
         cards.add(	rTS1	)
         cards.add(	rTS2	)
         cards.add(	rTS3	)
-
-
+    }
+    fun shuffle() {
+        cards.shuffle()
     }
 
-
-
+    fun drawCard(): Card? {
+        return if (cards.isNotEmpty()) cards.removeAt(0) else null
+    }
 
 }
