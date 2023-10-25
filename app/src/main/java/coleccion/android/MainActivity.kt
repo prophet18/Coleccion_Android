@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         var helpButton = findViewById<ImageButton>(R.id.help_button)
         var exitButton = findViewById<Button>(R.id.exit_button)
 
-        var card1 = Card("Red", 3, "Triangle", "Empty", "mmk")
+
 
         ngButton.setOnClickListener {
             Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show()

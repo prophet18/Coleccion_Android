@@ -1,13 +1,15 @@
 package coleccion.android
 
-class Card (var col: String, var num: Int, var sha: String, var fil: String, var pat: String) {
+import android.graphics.drawable.Drawable
+
+data class Card (var col: String, var num: Int, var sha: String, var fil: String, var pat: String, var iiimg: Drawable) {
 
         var color: String = ""
         var number: Int = 0
         var shape: String = ""
         var fill: String = ""
         var path: String = ""
-        var image: Int = 0
+        lateinit var image: Drawable
 
         init {
             col = color
@@ -15,13 +17,25 @@ class Card (var col: String, var num: Int, var sha: String, var fil: String, var
             sha = shape
             fil = fill
             pat = path
-            image = R.drawable.colecci_n_blue_parallelogram_e_1
+            iiimg = image
 
         }
 
+
+        /*
         fun imgAdd (iimg: Int) {
             this.image = iimg
         }
 
+        */
+
 
 }
+
+class Deck {
+    val cards: MutableList<Card> = mutableListOf()
+}
+
+
+
+
