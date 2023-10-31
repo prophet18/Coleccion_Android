@@ -1,4 +1,7 @@
 package coleccion.android
+
+import java.util.Stack
+
 class Deck {
 
     var numNum = 0
@@ -326,7 +329,7 @@ class Deck {
     // constructor (iV : Int) {}
 
 
-fun getCard(): Card {
+fun getCard2(): Card {
     val deck = Deck()
     val decking = deck.decking
     var card = decking.first()

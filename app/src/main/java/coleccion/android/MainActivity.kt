@@ -14,8 +14,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.entry_screen)
 
-        val deck = Deck()
-        var card = deck.bP1
 
 
         var ngButton = findViewById<ImageButton>(R.id.new_game_button)

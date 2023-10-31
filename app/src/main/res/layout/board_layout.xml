@@ -104,41 +104,37 @@
             android:layout_width="10dp"
             android:layout_margin="3dp">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card1"
                 android:contentDescription="Card One"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card2"
                 android:contentDescription="Card Two"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card3"
                 android:contentDescription="Card Three"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card4"
                 android:contentDescription="Card Four"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
         </TableRow>
 
@@ -147,41 +143,37 @@
             android:layout_width="10dp"
             android:layout_margin="3dp">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card5"
                 android:contentDescription="Card Five"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card6"
                 android:contentDescription="Card Three"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card7"
                 android:contentDescription="Card One"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card8"
                 android:contentDescription="Card One"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
         </TableRow>
 
@@ -190,41 +182,37 @@
             android:layout_width="10dp"
             android:layout_margin="3dp">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card9"
                 android:contentDescription="Card Nine"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card10"
                 android:contentDescription="Card Ten"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card11"
                 android:contentDescription="Card Eleven"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/card12"
                 android:contentDescription="Card Twelve"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
                 android:layout_weight="1"
-                android:padding="1dp"
-                android:src="@drawable/colecci_n_blue_parallelogram_1" />
+                android:padding="1dp" />
 
         </TableRow>
 

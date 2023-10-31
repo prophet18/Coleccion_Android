@@ -17,9 +17,17 @@ class Card (var col: String, var num: Int, var sha: String, var fil: String, var
     }
 }
 
-fun matchCheck(): Boolean {
+fun matchCheck(uno: Card, dos: Card, tres: Card): Boolean {
+    var first = uno
+    var second = dos
+    var third = tres
+    var theCheck = CheckMatch(first, second, third)
 
-    return true
+    if (theCheck.matchCheck == true) {
+        return true
+    } else {
+        return false
+    }
 }
 
 /*
