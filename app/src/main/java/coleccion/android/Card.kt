@@ -1,40 +1,46 @@
 package coleccion.android
 
-import android.graphics.drawable.Drawable
+class Card (var col: String, var num: Int, var sha: String, var fil: String, var img: Int) {
 
-data class Card (var col: String, var num: Int, var sha: String, var fil: String, var pat: String, var iiimg: Drawable) {
-
-        var color: String = ""
-        var number: Int = 0
-        var shape: String = ""
-        var fill: String = ""
-        var path: String = ""
-        lateinit var image: Drawable
-
-        init {
-            col = color
-            num = number
-            sha = shape
-            fil = fill
-            pat = path
-            iiimg = image
-
-        }
-
-
-        /*
-        fun imgAdd (iimg: Int) {
-            this.image = iimg
-        }
-
-        */
-
-
+    var color: String = ""
+    var number: Int = 0
+    var shape: String = ""
+    var fill: String = ""
+    var path: String = ""
+    var image: Int = 0
+    init {
+        col = color
+        num = number
+        sha = shape
+        fil = fill
+        img = image
+    }
 }
 
-class Deck {
-    val cards: MutableList<Card> = mutableListOf()
+fun matchCheck(): Boolean {
+
+    return true
 }
+
+/*
+class Cards {
+    var col: String
+    var num: Int
+    var sha: String
+    var fil: String
+    var image: Int = 0
+
+    constructor(col: String, num: Int, sha: String, fil: String, img: Int) {
+        this.col = col
+        this.num = num
+        this.sha = sha
+        this.fil = fil
+        this.image = img
+    }
+}
+
+
+ */
 
 
 

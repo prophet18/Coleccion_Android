@@ -1,7 +1,6 @@
 package coleccion.android
 
 import android.os.Bundle
-import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.ComponentActivity
 
@@ -10,7 +9,10 @@ class NuActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.board_layout)
 
-        var bulge = R.drawable.colecci_n_blue_parallelogram_2
+        val deck = Deck()
+        var cards = deck.decking
+        var card = getCard()
+
 
         var nuCard1 = findViewById<ImageView>(R.id.card1)
         var nuCard2 = findViewById<ImageView>(R.id.card2)
@@ -25,15 +27,11 @@ class NuActivity : ComponentActivity() {
         var nuCard11 = findViewById<ImageView>(R.id.card11)
         var nuCard12 = findViewById<ImageView>(R.id.card12)
 
+        nuCard10.setImageResource(card.image)
+
         nuCard1.setOnClickListener {
             finish()
         }
-
-        nuCard2.setOnClickListener {
-            nuCard1.setImageResource(bulge)
-        }
-
-
 
 
 
