@@ -1,6 +1,6 @@
 package coleccion.android
 
-class Card (var col: String, var num: Int, var sha: String, var fil: String, var img: Int) {
+class Card {
 
     var color: String = ""
     var number: Int = 0
@@ -8,12 +8,23 @@ class Card (var col: String, var num: Int, var sha: String, var fil: String, var
     var fill: String = ""
     var path: String = ""
     var image: Int = 0
+
+    constructor(col: String, num: Int, sha: String, fil: String, img: Int) {
+        color = col
+        number = num
+        shape = sha
+        fill = fil
+        image = img
+    }
+    constructor(col: String, num: Int, sha: String, fil: String) {
+        color = col
+        number = num
+        shape = sha
+        fill = fil
+
+    }
     init {
-        col = color
-        num = number
-        sha = shape
-        fil = fill
-        img = image
+
     }
 }
 

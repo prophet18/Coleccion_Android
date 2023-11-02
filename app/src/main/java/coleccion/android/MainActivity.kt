@@ -1,6 +1,5 @@
 package coleccion.android
 
-import android.R.*
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -25,7 +24,8 @@ class MainActivity : ComponentActivity() {
 
 
         ngButton.setOnClickListener {
-            Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show()
+            val intent1 = Intent(this, Board::class.java)
+            startActivity(intent1)
         }
         hsButton.setOnClickListener {
             Toast.makeText(this, "fuckoff", Toast.LENGTH_SHORT).show()
@@ -37,8 +37,7 @@ class MainActivity : ComponentActivity() {
             Toast.makeText(this, "help", Toast.LENGTH_SHORT).show()
         }
         exitButton.setOnClickListener {
-            val intent1 = Intent(this, NuActivity::class.java)
-            startActivity(intent1)
+            finish()
         }
 
 

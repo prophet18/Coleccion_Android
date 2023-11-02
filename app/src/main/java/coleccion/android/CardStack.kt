@@ -1,8 +1,10 @@
 package coleccion.android
 
+import android.annotation.SuppressLint
 import coleccion.android.R.drawable
 import java.util.Stack
 
+@SuppressLint("SuspiciousIndentation")
 class CardStack : Stack<Card>() {
 
 
@@ -320,8 +322,18 @@ class CardStack : Stack<Card>() {
 
         this.shuffle()
     }
+
+    fun getCard(): Card {
+        // val deck = this
+        var card = this.peek()
+        this.pop()
+
+        return card
+    }
+
 }
 
+/*
 fun getCard(): Card {
     val deck = CardStack()
     var card = deck.peek()
@@ -330,5 +342,5 @@ fun getCard(): Card {
     return card
 }
 
-
+*/
 
