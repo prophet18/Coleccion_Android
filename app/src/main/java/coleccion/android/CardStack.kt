@@ -1,15 +1,17 @@
 package coleccion.android
 
+/*
+    Similar to Deck in original collection - all playing cards are instantiated with a constructor to make Card objects.
+    These Cards are then added to a stack (class definition) to be used during the game.
+*/
+
 import android.annotation.SuppressLint
 import coleccion.android.R.drawable
 import java.util.Stack
 
 @SuppressLint("SuspiciousIndentation")
 class CardStack : Stack<Card>() {
-
-
     init {
-
         var cNums : Int = 0
 
     val bP1 = Card("Blue", 1, "Parallelogram", "Solid", drawable.colecci_n_blue_parallelogram_1)
@@ -320,7 +322,6 @@ class CardStack : Stack<Card>() {
         this.push(	rTS2	)
         this.push(	rTS3	)
 
-        this.shuffle()
     }
 
     fun getCard(): Card {

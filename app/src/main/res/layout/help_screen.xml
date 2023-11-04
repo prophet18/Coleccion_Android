@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ukrainelandscape"
     android:id="@+id/es_layout"
-    tools:context=".MainActivity">
+    tools:context=".Entry_Screen">
 
 
     <LinearLayout

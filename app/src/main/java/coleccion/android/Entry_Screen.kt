@@ -1,5 +1,9 @@
 package coleccion.android
 
+/*
+    Similar to Game in original collection - this serves as the entry screen for the game and major buttons functionality.
+*/
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,7 +12,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 
 
-class MainActivity : ComponentActivity() {
+class Entry_Screen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.entry_screen)

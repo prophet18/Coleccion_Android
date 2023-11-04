@@ -1,5 +1,9 @@
 package coleccion.android
 
+/*
+    Similar to Card in original collection - class is created with necessary parameters / arguments.
+*/
+
 class Card {
 
     var color: String = ""

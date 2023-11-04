@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- XML setup and organization of items on the entry screen. -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +10,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ukrainelandscape"
     android:id="@+id/es_layout"
-    tools:context=".MainActivity">
+    tools:context=".Entry_Screen">
 
     <LinearLayout
         android:orientation="vertical"
