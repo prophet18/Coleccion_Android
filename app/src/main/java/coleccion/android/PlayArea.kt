@@ -19,7 +19,8 @@ class PlayArea {
 
     init {
         var gamebutton: GameButton;
-        var scoreLabel: String = ("0"); var bord = Board()
+        var scoreLabel: String = ("0");
+        var bord = Board()
         var card: Card
         deck.shuffle()
 
@@ -36,45 +37,47 @@ class PlayArea {
             ii++
         }
 
-    }
 
 
 
-    fun mechanics() {
-        for (GameButton in buttons) {
-            if (GameButton.active == true) {
-                GameButton.active = false;
+
+        fun mechanics() {
+            for (GameButton in buttons) {
+                if (GameButton.active == true) {
+                    GameButton.active = false;
                     // GameButton.getStyleClass().remove("ActiveButton")
-                nca--
-                if (nca == 1) {
-                    cardmap.remove(1)
-                    buttonmap.remove(1)
-                } else if (nca == 2) {
-                    cardmap.remove(2)
-                    buttonmap.remove(2)
-                }
-            } else {
-                GameButton.active = true;
-                nca++
-                    // GameButton.getStyleClass().add("ActiveButton")
-                if (nca == 1) {
-                    cardmap.put(1, GameButton.card)
-                    buttonmap.put(1, GameButton)
-                } else if (nca == 2) {
-                    cardmap.put(2, GameButton.card)
-                    buttonmap.put(2, GameButton)
+                    nca--
+                    if (nca == 1) {
+                        cardmap.remove(1)
+                        buttonmap.remove(1)
+                    } else if (nca == 2) {
+                        cardmap.remove(2)
+                        buttonmap.remove(2)
+                    }
                 } else {
-                    cardmap.put(3, GameButton.card)
-                    buttonmap.put(3, GameButton)
+                    GameButton.active = true;
+                    nca++
+                    // GameButton.getStyleClass().add("ActiveButton")
+                    if (nca == 1) {
+                        cardmap.put(1, GameButton.card)
+                        buttonmap.put(1, GameButton)
+                    } else if (nca == 2) {
+                        cardmap.put(2, GameButton.card)
+                        buttonmap.put(2, GameButton)
+                    } else {
+                        cardmap.put(3, GameButton.card)
+                        buttonmap.put(3, GameButton)
+                    }
                 }
-            }
 
                 if (nca == 3) {
                     var checkss = CheckMatch(cardmap.get(1)!!, cardmap.get(2)!!, cardmap.get(3)!!)
 
                     if (checkss != null) {
                         if (checkss.matchCheck == true) {
-                            score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(cardmap.get(3))
+                            score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(
+                                cardmap.get(3)
+                            )
 
                             buttonmap.get(1)?.replace(cards.get(uu));
                             buttonmap.get(2)?.replace(cards.get(uu + 1));
@@ -92,7 +95,8 @@ class PlayArea {
                     }
                     nca = 0;
                     // scoreKeep.setText(scoreLabel);
-                    buttonmap.get(1)?.active = false; buttons.get(2)?.active = false; buttons.get(3)?.active = false;
+                    buttonmap.get(1)?.active = false; buttons.get(2)?.active =
+                        false; buttons.get(3)?.active = false;
 
                     /*
                     buttons.get(1).getStyleClass().remove("ActiveButton"); buttons.get(2)
@@ -110,7 +114,7 @@ class PlayArea {
         }
 
 
-
+    }
 
 
 };

@@ -21,17 +21,9 @@ import coleccion.android.R.layout
 
 class Board : ComponentActivity() {
 
-    var buttons = ArrayList<GameButton>();
-    var cardmap = HashMap<Int, Card>();
-    var uu: Int = 13;
-    var yy: Int = 0
-    val deck = CardStack();
-    var cards = ArrayList<Card>();
-    var score = ScorePile();
-    var tt: Int = 0
-    var nca: Int = 0;
-    var ii: Int = 0;
-    var buttonmap = HashMap<Int, GameButton>()
+    var buttons = ArrayList<GameButton>();      var cardmap = HashMap<Int, Card>();      var uu: Int = 13;                              var yy: Int = 0
+    val deck = CardStack();                     var cards = ArrayList<Card>();           var score = ScorePile();                        var tt: Int = 0
+    var nca: Int = 0;                           var ii: Int = 0;                         var buttonmap = HashMap<Int, GameButton>()
 
     @SuppressLint("MissingInflatedId", "ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +31,26 @@ class Board : ComponentActivity() {
         setContentView(layout.board_layout)
 
         /**/
-        val cardArea = PlayArea()
+
+        var gamebutton: GameButton;
+        var scoreLabel: String = ("0");
+        var bord = Board()
+        var card: Card
+        deck.shuffle()
+
+        while (yy < 144) {
+            card = deck.peek()
+            deck.pop()
+            cards.add(card)
+            yy++
+        }
+
+        while (ii < 12) {
+            gamebutton = GameButton((ii + 1), cards.get(ii))
+            buttons.add(gamebutton)
+            ii++
+        }
+
 
         var kk: Int = 0;
 
@@ -59,43 +70,45 @@ class Board : ComponentActivity() {
         var nuCard11 = findViewById<ImageButton>(id.card11)
         var nuCard12 = findViewById<ImageButton>(id.card12)
 
-        nuCard1.setBackgroundResource(cardArea.buttons.get(0).card.image)
-        nuCard2.setBackgroundResource(cardArea.buttons.get(1).card.image)
-        nuCard3.setBackgroundResource(cardArea.buttons.get(2).card.image)
-        nuCard4.setBackgroundResource(cardArea.buttons.get(3).card.image)
-        nuCard5.setBackgroundResource(cardArea.buttons.get(4).card.image)
-        nuCard6.setBackgroundResource(cardArea.buttons.get(5).card.image)
-        nuCard7.setBackgroundResource(cardArea.buttons.get(6).card.image)
-        nuCard8.setBackgroundResource(cardArea.buttons.get(7).card.image)
-        nuCard9.setBackgroundResource(cardArea.buttons.get(8).card.image)
-        nuCard10.setBackgroundResource(cardArea.buttons.get(9).card.image)
-        nuCard11.setBackgroundResource(cardArea.buttons.get(10).card.image)
-        nuCard12.setBackgroundResource(cardArea.buttons.get(11).card.image)
+        nuCard1.setBackgroundResource(buttons.get(0).card.image)
+        nuCard2.setBackgroundResource(buttons.get(1).card.image)
+        nuCard3.setBackgroundResource(buttons.get(2).card.image)
+        nuCard4.setBackgroundResource(buttons.get(3).card.image)
+        nuCard5.setBackgroundResource(buttons.get(4).card.image)
+        nuCard6.setBackgroundResource(buttons.get(5).card.image)
+        nuCard7.setBackgroundResource(buttons.get(6).card.image)
+        nuCard8.setBackgroundResource(buttons.get(7).card.image)
+        nuCard9.setBackgroundResource(buttons.get(8).card.image)
+        nuCard10.setBackgroundResource(buttons.get(9).card.image)
+        nuCard11.setBackgroundResource(buttons.get(10).card.image)
+        nuCard12.setBackgroundResource(buttons.get(11).card.image)
 
 
 
-        nuCard1.setOnClickListener {mechanics(nuCard1)}
-        nuCard2.setOnClickListener {mechanics(nuCard2)}
-        nuCard3.setOnClickListener {mechanics(nuCard3)}
-        nuCard4.setOnClickListener {mechanics(nuCard4)}
-        nuCard5.setOnClickListener {mechanics(nuCard5)}
-        nuCard6.setOnClickListener {mechanics(nuCard6)}
-        nuCard7.setOnClickListener {mechanics(nuCard7)}
-        nuCard8.setOnClickListener {mechanics(nuCard8)}
-        nuCard9.setOnClickListener {mechanics(nuCard9)}
-        nuCard10.setOnClickListener {mechanics(nuCard10)}
-        nuCard11.setOnClickListener {mechanics(nuCard11)}
-        nuCard12.setOnClickListener {mechanics(nuCard12)}
+        nuCard1.setOnClickListener { mechanics(0) }
+        nuCard2.setOnClickListener { mechanics(1) }
+        nuCard3.setOnClickListener { mechanics(2) }
+        nuCard4.setOnClickListener { mechanics(3) }
+        nuCard5.setOnClickListener { mechanics(4) }
+        nuCard6.setOnClickListener { mechanics(5) }
+        nuCard7.setOnClickListener { mechanics(6) }
+        nuCard8.setOnClickListener { mechanics(7) }
+        nuCard9.setOnClickListener { mechanics(8) }
+        nuCard10.setOnClickListener { mechanics(9) }
+        nuCard11.setOnClickListener { mechanics(10) }
+        nuCard12.setOnClickListener { Toast.makeText(this, "fuckoff", Toast.LENGTH_SHORT).show() }
 
 
 
 
-    }
 
-    fun mechanics(view: View) {
-        for (GameButton in buttons) {
-            if (GameButton.active == true) {
-                GameButton.active = false;
+        }
+
+
+     fun mechanics(crd: Int) {
+
+            if (buttons.get(crd).active == true) {
+                buttons.get(crd).active = false;
                 // GameButton.getStyleClass().remove("ActiveButton")
                 nca--
                 if (nca == 1) {
@@ -106,18 +119,18 @@ class Board : ComponentActivity() {
                     buttonmap.remove(2)
                 }
             } else {
-                GameButton.active = true;
+                buttons.get(crd).active = true;
                 nca++
                 // GameButton.getStyleClass().add("ActiveButton")
                 if (nca == 1) {
-                    cardmap.put(1, GameButton.card)
-                    buttonmap.put(1, GameButton)
+                    cardmap.put(1, buttons.get(crd).card)
+                    buttonmap.put(1, buttons.get(crd))
                 } else if (nca == 2) {
-                    cardmap.put(2, GameButton.card)
-                    buttonmap.put(2, GameButton)
+                    cardmap.put(2, buttons.get(crd).card)
+                    buttonmap.put(2, buttons.get(crd))
                 } else {
-                    cardmap.put(3, GameButton.card)
-                    buttonmap.put(3, GameButton)
+                    cardmap.put(3, buttons.get(crd).card)
+                    buttonmap.put(3, buttons.get(crd))
                 }
             }
 
@@ -131,7 +144,6 @@ class Board : ComponentActivity() {
                                 3
                             )
                         )
-
                         buttonmap.get(1)?.replace(cards.get(uu));
                         buttonmap.get(2)?.replace(cards.get(uu + 1));
                         buttonmap.get(3)?.replace(cards.get(uu + 2));
@@ -161,9 +173,11 @@ class Board : ComponentActivity() {
 
                  */
             }
+
         }
+
     }
-}
+
 
 /*
     fun mechanics(view: View) {cardArea.mechanics()}
