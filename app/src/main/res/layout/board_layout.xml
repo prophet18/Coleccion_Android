@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- XML setup and organization of items on the main game board. -->
+<!-- XML setup and organization of items on the main game board.
+
+    As of 17 Nov, trying to leave out onclick and add function in Board.kt
+-->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

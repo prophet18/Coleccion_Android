@@ -48,3 +48,93 @@ class Entry_Screen : ComponentActivity() {
     }
 }
 
+
+
+
+/*
+        for (GameButton in ibuttons) {
+            if (cactivity == true) {
+                cactivity = false
+                nca--
+                if (nca == 1) {
+                    cardmap.remove(1)
+                    buttonmap.remove(1)
+                } else if (nca == 2) {
+                    cardmap.remove(2)
+            }  else {
+                cactivity = true
+                nca++
+                if (nca == 1) {
+                    cardmap.put(1, )
+                } else if (nca == 2) {
+                    cardmap.put(2, ibuttons.get(1)
+                } else {
+                    cardmap.put(3, buttons.get(crd).card)
+                    buttonmap.put(3, buttons.get(crd))
+                }
+            }
+
+        nuCard1.setImageDrawable()
+
+
+        // Instatiate ImagBbutton object
+        // val buttoning = view as ImageButton
+        // Toggle the state of the button
+        // buttoning.tag = if (buttoning.tag as Int == 1) 0 else 1
+
+        if (cactivity == true) {
+            cactivity = false
+            nca--
+            if (nca == 1) {
+                cardmap.remove(1)
+                buttonmap.remove(1)
+            } else if (nca == 2) {
+                cardmap.remove(2)
+                buttonmap.remove(2)
+            }
+        } else {
+            cactivity = true
+            nca++
+            if (nca == 1) {
+                cardmap.put(1, ibuttons.get(0))
+            } else if (nca == 2) {
+                cardmap.put(2, ibuttons.get(1)
+            } else {
+                cardmap.put(3, buttons.get(crd).card)
+                buttonmap.put(3, buttons.get(crd))
+            }
+        }
+
+
+        if (nca == 3) {
+            doTheCheck()
+        }
+    }
+    fun doTheCheck() {
+        var checkss = CheckMatch(cardmap.get(1)!!, cardmap.get(2)!!, cardmap.get(3)!!)
+        if (checkss != null) {
+            if (checkss.matchCheck == true) {
+                score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(cardmap.get(3))
+                buttonmap.get(1)?.replace(cards.get(uu));
+                buttonmap.get(2)?.replace(cards.get(uu + 1));
+                buttonmap.get(3)?.replace(cards.get(uu + 2));
+
+                uu = uu + 3;
+                var scoreLabel = score.scoreFinal();
+                // setResult.setText("Correct!");
+            } else {
+                System.out.println("Wrong");
+            }
+        }
+        nca = 0;
+        // scoreKeep.setText(scoreLabel);
+        buttonmap.get(1)?.active = false; buttons.get(2)?.active = false; buttons.get(3)?.active = false;
+
+
+    }
+
+
+}
+
+
+ */
