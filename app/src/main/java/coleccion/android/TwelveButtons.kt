@@ -1,31 +1,28 @@
 package coleccion.android
 
 import android.widget.ImageButton
+import java.util.Stack
 
-/*
-    Similar to GameButton in original collection - separate buttons with parameters for index and card.
-*/
-
-class GameButton {
+class TwelveButtons : Stack<ImageButton>() {
 
     var active: Boolean = false
-    var card: Card?
+    var card: Card? = null
     var cImg: Int = 0
-    var index: Int = 0
+
+    init {
 
 
+        var index: Int = 0
+        var iBut2: ImageButton
 
 
-
-    constructor(indx: Int, crd: Card) {
-        card = crd
-        index = indx
-        cImg = card!!.image
     }
-    constructor(crd: Card) {
-        card = crd
-        cImg = card!!.image
-    }
+
+
+
+
+
+
 
 
 
