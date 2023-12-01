@@ -4,7 +4,7 @@ package coleccion.android
     Similar to CheckMatch in original collection - this class (with constuctor) creates an object of 3 cards.
     These cards are then analyed for the conditions that constitute a set, and returns the boolean.
 */
-class CheckMatch internal constructor(first: Card, second: Card, third: Card) {
+class CheckMatch (first: Card, second: Card, third: Card) {
     var colorSame = false
     var numberSame = false
     var typeSame = false

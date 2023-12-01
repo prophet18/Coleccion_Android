@@ -6,6 +6,8 @@ package coleccion.android
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -28,13 +30,11 @@ class Board : ComponentActivity() {
     var nca: Int = 0;
     var ii: Int = 0;
     var buttonmap = HashMap<Int, GameButton>();
+    var imgsmap = HashMap<Int, ImageButton>();
     var kk: Int = 0
+    var scoreString = score.scoreFinal()
 
-    var acting: Boolean = false
-
-
-    lateinit var card: Card
-    lateinit var gameButton: GameButton
+    val backing = Card("Blfdue", 1, "Paralleldfogram", "Solfdid", R.drawable.my_button_bg2)
 
 
     @SuppressLint("MissingInflatedId", "ClickableViewAccessibility")
@@ -44,6 +44,10 @@ class Board : ComponentActivity() {
 
 
         makeDeck()
+        if(uu >= 140) {
+            makeDeck()
+            uu = 13
+        }
 
         var nuCard1 = findViewById<ImageButton>(id.card1); daImgButtons.add(nuCard1)
         var nuCard2 = findViewById<ImageButton>(id.card2); daImgButtons.add(nuCard2)
@@ -58,9 +62,14 @@ class Board : ComponentActivity() {
         var nuCard11 = findViewById<ImageButton>(id.card11); daImgButtons.add(nuCard11)
         var nuCard12 = findViewById<ImageButton>(id.card12); daImgButtons.add(nuCard12)
 
+        var rButting = findViewById<Button>(id.random_button)
+        rButting.setOnClickListener {randomCars()}
+
         /**/
         var scoreVal = findViewById<TextView>(id.score_value)
         var timeVal = findViewById<TextView>(id.time_value)
+
+        scoreVal.setText(scoreString)
 
 
         var scoreLabel: String = ("0");
@@ -68,22 +77,22 @@ class Board : ComponentActivity() {
 
 
 
-        nuCard1.setBackgroundResource(buttons.get(0).card!!.image); nuCard2.setBackgroundResource(
+        nuCard1.setImageResource(buttons.get(0).card!!.image); nuCard2.setImageResource(
             buttons.get(1).card!!.image
         )
-        nuCard3.setBackgroundResource(buttons.get(2).card!!.image); nuCard4.setBackgroundResource(
+        nuCard3.setImageResource(buttons.get(2).card!!.image); nuCard4.setImageResource(
             buttons.get(3).card!!.image
         )
-        nuCard5.setBackgroundResource(buttons.get(4).card!!.image); nuCard6.setBackgroundResource(
+        nuCard5.setImageResource(buttons.get(4).card!!.image); nuCard6.setImageResource(
             buttons.get(5).card!!.image
         )
-        nuCard7.setBackgroundResource(buttons.get(6).card!!.image); nuCard8.setBackgroundResource(
+        nuCard7.setImageResource(buttons.get(6).card!!.image); nuCard8.setImageResource(
             buttons.get(7).card!!.image
         )
-        nuCard9.setBackgroundResource(buttons.get(8).card!!.image); nuCard10.setBackgroundResource(
+        nuCard9.setImageResource(buttons.get(8).card!!.image); nuCard10.setImageResource(
             buttons.get(9).card!!.image
         )
-        nuCard11.setBackgroundResource(buttons.get(10).card!!.image); nuCard12.setBackgroundResource(
+        nuCard11.setImageResource(buttons.get(10).card!!.image); nuCard12.setImageResource(
             buttons.get(11).card!!.image
         )
 
@@ -128,6 +137,9 @@ class Board : ComponentActivity() {
     }
 
     fun makeDeck() {
+        
+        var card: Card
+        var gameButton: GameButton
 
         deck.shuffle()
 
@@ -147,221 +159,116 @@ class Board : ComponentActivity() {
 
     }
 
-    private fun doClick(ibs: ImageButton) {
-        buttons.get(3).card?.let { it1 ->
-            ibs.setBackgroundResource(it1.image)
-        }
-    }
-
     fun funDo(ib: ImageButton, idex: Int) {
-        // !ib.isSelected();
 
-        if (nca == 3) {
-            Toast.makeText(this, "fuckfgssgsdgdsgdoffgsfgdsf", Toast.LENGTH_SHORT).show()
-        }
-
-        ib.setSelected(!ib.isSelected())
 
         var nubu = buttons.get(idex)
 
-        if (!ib.isSelected()) {
-
+        if (ib.isActivated == false) {
             nca++
             // GameButton.getStyleClass().add("ActiveButton")
-            if (nca == 1) {
-                cardmap.put(1, gameButton.card!!)
-                buttonmap.put(1, gameButton)
-            } else if (nca == 2) {
-                cardmap.put(2, gameButton.card!!)
-                buttonmap.put(2, gameButton)
-            } else {
-                cardmap.put(3, gameButton.card!!)
-                buttonmap.put(3, gameButton)
-            }
-
-
-
-
-        } else {
-            nca--
-            if (nca == 1) {
-                cardmap.remove(1)
-                buttonmap.remove(1)
-            } else if (nca == 2) {
-                cardmap.remove(2)
-                buttonmap.remove(2)
-            }
-
-            Toast.makeText(this, "fgdsf", Toast.LENGTH_SHORT).show()
-
-        }
-
-
-
-
-        ib.setSelected(ib.isSelected())
-
-    }
-}
-
-
-        /*
-
-        nuCard4.setBackgroundResource(buttons.get(3).card.image)
-        nuCard5.setBackgroundResource(buttons.get(4).card.image)
-        nuCard6.setBackgroundResource(buttons.get(5).card.image)
-        nuCard7.setBackgroundResource(buttons.get(6).card.image)
-        nuCard8.setBackgroundResource(buttons.get(7).card.image)
-        nuCard9.setBackgroundResource(buttons.get(8).card.image)
-        nuCard10.setBackgroundResource(buttons.get(9).card.image)
-        nuCard11.setBackgroundResource(buttons.get(10).card.image)
-        nuCard12.setBackgroundResource(buttons.get(11).card.image)
-*/
-        /*
-        // nuCard1.setOnClickListener { mechanics(nuCard1) }
-        // nuCard2.setOnClickListener { mechanics(nuCard2) }
-        nuCard3.setOnClickListener { mechanics(nuCard3) }
-        nuCard4.setOnClickListener { mechanics(nuCard4) }
-        nuCard5.setOnClickListener { mechanics(nuCard5) }
-        nuCard6.setOnClickListener { mechanics(nuCard6) }
-        nuCard7.setOnClickListener { mechanics(nuCard7) }
-        nuCard8.setOnClickListener { mechanics(nuCard8) }
-        nuCard9.setOnClickListener { mechanics(nuCard9) }
-        nuCard10.setOnClickListener { mechanics(nuCard10) }
-        nuCard11.setOnClickListener { mechanics(nuCard11) }
-        nuCard12.setOnClickListener { Toast.makeText(this, "fuckoff", Toast.LENGTH_SHORT).show() }
-
-    }
-*/
-        /*
-    fun mechanics(imbb: ImageButton) {
-        for (GameButton in buttons) {
-
-            imbb.setBackgroundResource(GameButton.card.image)
-
-            if (GameButton.active == true) {
-                GameButton.active = false;
-                // GameButton.getStyleClass().remove("ActiveButton")
-                nca--
-                if (nca == 1) {
-                    cardmap.remove(1)
-                    buttonmap.remove(1)
-                } else if (nca == 2) {
-                    cardmap.remove(2)
-                    buttonmap.remove(2)
+            when (nca) {
+                1 -> {
+                    cardmap.put(1, nubu.card!!)
+                    buttonmap.put(1, nubu)
+                    imgsmap.put(1, ib)
+                    ib.isActivated = true
+                    ib.setBackgroundColor(0xff00ff00.toInt())
                 }
-            } else {
-                GameButton.active = true;
-                nca++
-                // GameButton.getStyleClass().add("ActiveButton")
-                if (nca == 1) {
-                    cardmap.put(1, GameButton.card)
-                    buttonmap.put(1, GameButton)
-                } else if (nca == 2) {
-                    cardmap.put(2, GameButton.card)
-                    buttonmap.put(2, GameButton)
-                } else {
-                    cardmap.put(3, GameButton.card)
-                    buttonmap.put(3, GameButton)
+                2 -> {
+                    cardmap.put(2, nubu.card!!)
+                    buttonmap.put(2, nubu)
+                    imgsmap.put(2, ib)
+                    ib.isActivated = true
+                    ib.setBackgroundColor(0xff00ff00.toInt())
                 }
-            }
+                3 -> {
+                    cardmap.put(3, nubu.card!!)
+                    buttonmap.put(3, nubu)
+                    imgsmap.put(3, ib)
 
-            if (nca == 3) {
-                var checkss = CheckMatch(cardmap.get(1)!!, cardmap.get(2)!!, cardmap.get(3)!!)
+                    if (solves() == true) {
+                        score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(cardmap.get(3))
 
-                if (checkss != null) {
-                    if (checkss.matchCheck == true) {
-                        score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(
-                            cardmap.get(3)
-                        )
-
-                        buttonmap.get(1)?.replace(cards.get(uu));
-                        buttonmap.get(2)?.replace(cards.get(uu + 1));
-                        buttonmap.get(3)?.replace(cards.get(uu + 2));
+                        buttonmap.get(1)!!.replace(cards.get(uu));
+                        buttonmap.get(2)!!.replace(cards.get(uu + 1));
+                        buttonmap.get(3)!!.replace(cards.get(uu + 2));
 
                         uu = uu + 3;
-                        var scoreLabel = score.scoreFinal();
-                        // setResult.setText("Correct!");
+
+                        imgsmap.get(1)!!.setImageResource(buttonmap.get(1)!!.card!!.image)
+                        imgsmap.get(2)!!.setImageResource(buttonmap.get(2)!!.card!!.image)
+                        imgsmap.get(3)!!.setImageResource(buttonmap.get(3)!!.card!!.image)
+
+
+
                     } else {
-                        System.out.println("Wrong");
-                        // setResult.setText("Wrong...");
-                        // GameButton.getStyleClass().remove("ActiveButton");
-                        // GameButton.getStyleClass().add("GameButton");
+                        Toast.makeText(this, "fuckoff", Toast.LENGTH_SHORT).show()
                     }
+                    imgsmap.get(1)!!.setBackgroundColor(0x00000000.toInt())
+                    imgsmap.get(2)!!.setBackgroundColor(0x00000000.toInt())
+                    imgsmap.get(3)!!.setBackgroundColor(0x00000000.toInt())
+                    nca = 0
+                    cardmap.clear(); buttonmap.clear(); imgsmap.clear()
+                    ib.isActivated = false
+
                 }
-                nca = 0;
-                // scoreKeep.setText(scoreLabel);
-                buttonmap.get(1)?.active = false; buttons.get(2)?.active =
-                    false; buttons.get(3)?.active = false;
-
-                /*
-            buttons.get(1).getStyleClass().remove("ActiveButton"); buttons.get(2)
-                .getStyleClass().remove("ActiveButton"); buttons.get(3).getStyleClass()
-                .remove("ActiveButton");
-                */
-
-                cardmap.clear(); buttons.clear();
-
-
             }
+
+        } else {
+
+            when (nca) {
+                1 -> {
+                    cardmap.remove(1)
+                    buttonmap.remove(1)
+                    imgsmap.remove(1)
+                    ib.setBackgroundColor(0x00000000.toInt())
+                    ib.isActivated = false
+
+                }
+                2 -> {
+                    cardmap.remove(2)
+                    buttonmap.remove(2)
+                    imgsmap.remove(2)
+                    ib.setBackgroundColor(0x00000000.toInt())
+                    ib.isActivated = false
+                }
+            }
+            nca--
         }
+
     }
-*/
 
+    fun solves() : Boolean {
+        var hir : Boolean
 
-            /*
-        var nuB1 = buttons.get(0).card?.let { GBnu2(it, nuCard1) }
-        var nuB2 = buttons.get(1).card?.let { GBnu2(it, nuCard2) }
-        var nuB3 = buttons.get(2).card?.let { GBnu2(it, nuCard3) }
-        var nuB4 = buttons.get(3).card?.let { GBnu2(it, nuCard4) }
-        var nuB5 = buttons.get(4).card?.let { GBnu2(it, nuCard5) }
-        var nuB6 = buttons.get(5).card?.let { GBnu2(it, nuCard6) }
-        var nuB7 = buttons.get(6).card?.let { GBnu2(it, nuCard7) }
-        var nuB8 = buttons.get(7).card?.let { GBnu2(it, nuCard8) }
-        var nuB9 = buttons.get(8).card?.let { GBnu2(it, nuCard9) }
-        var nuB10 = buttons.get(9).card?.let { GBnu2(it, nuCard10) }
-        var nuB11 = buttons.get(10).card?.let { GBnu2(it, nuCard11) }
-        var nuB12 = buttons.get(11).card?.let { GBnu2(it, nuCard12) }
+        var checkss = CheckMatch(cardmap.get(1)!!, cardmap.get(2)!!, cardmap.get(3)!!)
 
-        if (nuB1 != null) {
-            nuB1.imTwo.setOnClickListener(nuB1.)
+        if (checkss.matchCheck == true) {
+            hir = true
+        } else {
+            hir = false
         }
+        return hir
+    }
 
-     */
-
-
-
-
-    /*
-    fun makeButtons() {
-        makeDeck()
-
-
-
+    fun randomCars() {
+        var rcrc = uu
+        var crcr = uu
         for (ImageButton in daImgButtons) {
-            ImageButton.setBackgroundResource()
+            ImageButton.setImageResource(cards.get(rcrc).image)
+            rcrc++
         }
-
-        nuCard1.setBackgroundResource()
-
+        for (GameButton in buttons) {
+            GameButton.replace(cards.get(crcr));
+            crcr++
+        }
+        uu = uu + 12
     }
 
-    private fun onCardClicked(iimmgg: ImageButton) {
-        val clickedCard = (iimmgg as ImageButton).card
-
-        // Toggle the selection state
-        view.toggleSelection()
-
-        // Check for a valid set
-        if (isSetSelected()) {
-            // Handle a valid set
-            handleSetSelection()
-        }
-    }
-*/
 
 
-
+}
 
 
 
@@ -371,15 +278,3 @@ class Board : ComponentActivity() {
 */
 
 
-/*
-private val handleTouch = OnTouchListener { v, event ->
-    val x = event.x.toInt()
-    val y = event.y.toInt()
-    when (event.action) {
-        MotionEvent.ACTION_DOWN -> Log.i("TAG", "touched down")
-        MotionEvent.ACTION_MOVE -> Log.i("TAG", "moving: ($x, $y)")
-        MotionEvent.ACTION_UP -> Log.i("TAG", "touched up")
-    }
-    true
-}
-*/
