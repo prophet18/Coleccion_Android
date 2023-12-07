@@ -28,14 +28,14 @@ class Entry_Screen : ComponentActivity() {
 
 
         ngButton.setOnClickListener {
-            val intent1 = Intent(this, Board::class.java)
+            val intent1 = Intent(this, CardArea::class.java)
             startActivity(intent1)
         }
         hsButton.setOnClickListener {
-            Toast.makeText(this, "fuckoff", Toast.LENGTH_SHORT).show()
         }
         setButton.setOnClickListener {
-            Toast.makeText(this, "moo", Toast.LENGTH_SHORT).show()
+            val intent3 = Intent(this, Settings::class.java)
+            startActivity(intent3)
         }
         helpButton.setOnClickListener {
             Toast.makeText(this, "help", Toast.LENGTH_SHORT).show()

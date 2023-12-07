@@ -8,7 +8,6 @@ package coleccion.android
 import android.annotation.SuppressLint
 import java.util.Stack
 
-@SuppressLint("SuspiciousIndentation")
 class ScorePile : Stack<Card>() {
 
     var numCard:Int = 0 ; var numMatch:Int = 0;
@@ -19,19 +18,15 @@ class ScorePile : Stack<Card>() {
             numMatch = 0
         }
 
-
         fun scoreTotal(): Int {
             numCard = size
             numMatch = Math.floor((numCard / 3).toDouble()).toInt()
             return numMatch
         }
-
         fun scoreFinal(): String? {
             numCard = size
             numMatch = Math.floor((numCard / 3).toDouble()).toInt()
             numMatching = Integer.toString(numMatch)
             return numMatching
         }
-
-
 }

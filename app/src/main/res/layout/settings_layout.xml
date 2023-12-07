@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/es_layout"
+    tools:context=".Settings">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/bg_select"
+            android:contentDescription="Choose Game Background"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Select Background: " />
+
+        <Spinner
+            android:id="@+id/select_bg"
+            android:layout_width="200dp"
+            android:layout_height="100dp" />
+
+        <ImageView
+            android:id="@+id/bg_selected"
+            android:layout_width="200dp"
+            android:layout_height="100dp" />
+
+        <EditText
+            android:id="@+id/enter_time"
+            android:contentDescription="Time Entry"
+            android:layout_width="200dp"
+            android:layout_height="100dp" />
+
+        <Button
+            android:id="@+id/returns"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:text="Return to Home "/>
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>
+
+    <!--
+     <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/bgSelect"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView android:id="@+id/aurora"
+            />
+        <ImageView android:id="@+id/boston"
+            />
+        <ImageView android:id="@+id/space"
+            />
+        <ImageView android:id="@+id/sunset"
+            />
+        <ImageView android:id="@+id/mountains"
+            />
+        <ImageView android:id="@+id/forest"
+            />
+        <ImageView android:id="@+id/coast"
+            />
+    </menu>
+     -->

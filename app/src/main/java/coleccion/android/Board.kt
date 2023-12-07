@@ -5,6 +5,7 @@ package coleccion.android
 */
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -16,7 +17,7 @@ import coleccion.android.R.id
 import coleccion.android.R.layout
 
 
-class Board : ComponentActivity() {
+class Board : Activity() {
 
     var buttons = ArrayList<GameButton>();
     var cardmap = HashMap<Int, Card>();
@@ -33,8 +34,10 @@ class Board : ComponentActivity() {
     var imgsmap = HashMap<Int, ImageButton>();
     var kk: Int = 0
     var scoreString = score.scoreFinal()
+    private lateinit var scoreVal: TextView
+    private lateinit var timeVal: TextView
+    private lateinit var rButting: Button
 
-    val backing = Card("Blfdue", 1, "Paralleldfogram", "Solfdid", R.drawable.my_button_bg2)
 
 
     @SuppressLint("MissingInflatedId", "ClickableViewAccessibility")
@@ -42,9 +45,10 @@ class Board : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(layout.board_layout)
 
+        var plArea = PlayArea()
 
         makeDeck()
-        if(uu >= 140) {
+        if (uu >= 140) {
             makeDeck()
             uu = 13
         }
@@ -62,17 +66,19 @@ class Board : ComponentActivity() {
         var nuCard11 = findViewById<ImageButton>(id.card11); daImgButtons.add(nuCard11)
         var nuCard12 = findViewById<ImageButton>(id.card12); daImgButtons.add(nuCard12)
 
-        var rButting = findViewById<Button>(id.random_button)
-        rButting.setOnClickListener {randomCars()}
+        rButting = findViewById<Button>(id.random_button)
+        rButting.setOnClickListener {randomCards()}
 
         /**/
-        var scoreVal = findViewById<TextView>(id.score_value)
-        var timeVal = findViewById<TextView>(id.time_value)
 
-        scoreVal.setText(scoreString)
+        timeVal = findViewById<TextView>(id.time_value)
+
+        scoreVal = findViewById<TextView>(id.score_value)
+
+        // scoreVal.addTextChangedListener()
 
 
-        var scoreLabel: String = ("0");
+
 
 
 
@@ -133,6 +139,9 @@ class Board : ComponentActivity() {
             )
         };
 
+        buttons.get(0).linkImgButton(nuCard1)
+
+        buttons.get(0).gameImgBtn?.setOnClickListener { makeDeck() }
 
     }
 
@@ -152,7 +161,6 @@ class Board : ComponentActivity() {
 
         while (ii < 12) {
             gameButton = GameButton(cards.get(ii))
-            // gameButton = GameButton((cards.get(ii))
             buttons.add(gameButton)
             ii++
         }
@@ -160,11 +168,12 @@ class Board : ComponentActivity() {
     }
 
     fun funDo(ib: ImageButton, idex: Int) {
+        Toast.makeText(this, nca.toString(), Toast.LENGTH_SHORT).show()
 
 
         var nubu = buttons.get(idex)
 
-        if (ib.isActivated == false) {
+        if (ib.isActivated == false && nubu.active == false) {
             nca++
             // GameButton.getStyleClass().add("ActiveButton")
             when (nca) {
@@ -173,6 +182,7 @@ class Board : ComponentActivity() {
                     buttonmap.put(1, nubu)
                     imgsmap.put(1, ib)
                     ib.isActivated = true
+                    nubu.toggleSelection()
                     ib.setBackgroundColor(0xff00ff00.toInt())
                 }
                 2 -> {
@@ -180,6 +190,7 @@ class Board : ComponentActivity() {
                     buttonmap.put(2, nubu)
                     imgsmap.put(2, ib)
                     ib.isActivated = true
+                    nubu.toggleSelection()
                     ib.setBackgroundColor(0xff00ff00.toInt())
                 }
                 3 -> {
@@ -188,7 +199,9 @@ class Board : ComponentActivity() {
                     imgsmap.put(3, ib)
 
                     if (solves() == true) {
-                        score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(cardmap.get(3))
+                        score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(cardmap.get(3));
+                        updateScore(scoreString!!)
+
 
                         buttonmap.get(1)!!.replace(cards.get(uu));
                         buttonmap.get(2)!!.replace(cards.get(uu + 1));
@@ -211,6 +224,7 @@ class Board : ComponentActivity() {
                     nca = 0
                     cardmap.clear(); buttonmap.clear(); imgsmap.clear()
                     ib.isActivated = false
+                    nubu.toggleSelection()
 
                 }
             }
@@ -224,6 +238,7 @@ class Board : ComponentActivity() {
                     imgsmap.remove(1)
                     ib.setBackgroundColor(0x00000000.toInt())
                     ib.isActivated = false
+                    nubu.toggleSelection()
 
                 }
                 2 -> {
@@ -232,6 +247,7 @@ class Board : ComponentActivity() {
                     imgsmap.remove(2)
                     ib.setBackgroundColor(0x00000000.toInt())
                     ib.isActivated = false
+                    nubu.toggleSelection()
                 }
             }
             nca--
@@ -241,29 +257,28 @@ class Board : ComponentActivity() {
 
     fun solves() : Boolean {
         var hir : Boolean
-
         var checkss = CheckMatch(cardmap.get(1)!!, cardmap.get(2)!!, cardmap.get(3)!!)
-
         if (checkss.matchCheck == true) {
-            hir = true
-        } else {
-            hir = false
-        }
+            hir = true } else {
+            hir = false }
         return hir
     }
 
-    fun randomCars() {
+    private fun randomCards() {
         var rcrc = uu
         var crcr = uu
         for (ImageButton in daImgButtons) {
             ImageButton.setImageResource(cards.get(rcrc).image)
-            rcrc++
-        }
+            rcrc++ }
         for (GameButton in buttons) {
             GameButton.replace(cards.get(crcr));
-            crcr++
-        }
+            crcr++ }
         uu = uu + 12
+        nca = 0
+    }
+
+    private fun updateScore(string: String) {
+        scoreVal.text = string
     }
 
 

@@ -3,6 +3,8 @@ package coleccion.android
 import android.app.Activity
 import android.text.method.Touch
 import android.view.MotionEvent
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintSet.Motion
 import com.google.firebase.events.EventHandler
@@ -17,10 +19,25 @@ class PlayArea {
     val deck = CardStack();                     var cards = ArrayList<Card>();           var score = ScorePile();                        var tt: Int = 0
     var nca: Int = 0;                           var ii: Int = 0;                         var buttonmap = HashMap<Int, GameButton>()
 
+    private lateinit var scoreVal: TextView
+    private lateinit var timeVal: TextView
+
+    private lateinit var nucOne	: ImageButton
+    private lateinit var nucTwo	: ImageButton
+    private lateinit var nucThree	: ImageButton
+    private lateinit var nucFour	: ImageButton
+    private lateinit var nucFive	: ImageButton
+    private lateinit var nucSix	: ImageButton
+    private lateinit var nucSeven	: ImageButton
+    private lateinit var nucEight	: ImageButton
+    private lateinit var nucNine	: ImageButton
+    private lateinit var nucTen	: ImageButton
+    private lateinit var nucEleven	: ImageButton
+    private lateinit var nucTwelve	: ImageButton
+
+
     init {
-        var gamebutton: GameButton;
-        var scoreLabel: String = ("0");
-        // var bord = Board()
+        var gamebutton: GameButton
         var card: Card
         deck.shuffle()
 
