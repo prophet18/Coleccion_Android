@@ -26,29 +26,15 @@ class CardArea : ComponentActivity() {
     private lateinit var nucSeven : ImageButton ; private lateinit var nucEight : ImageButton ; private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ; private lateinit var nucEleven : ImageButton ; private lateinit var nucTwelve : ImageButton
 
-    var settings = Settings() ; val tt = settings.tim4 ; lateinit var ltlt2 : LinearLayout ; var dabgint4 : Int = settings.ppppint
+    var tt = AllDatas.gameTimeInfo ; var bgChoice = AllDatas.boardBGinfo ;   lateinit var bgbg5 : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.board_layout)
 
-
-        Toast.makeText(this, dabgint4.toString(), Toast.LENGTH_SHORT).show()
-
-
-        ltlt2 = findViewById(R.id.board_layout2)
-
-        when (dabgint4) {
-            1 -> { ltlt2.setBackgroundResource(R.drawable.aurora_over_canada_2016) }
-            2 -> { ltlt2.setBackgroundResource(R.drawable.boston_financial_district_skyline) }
-            3 -> { ltlt2.setBackgroundResource(R.drawable.dark_clouds_of_rho_ophiuchus) }
-            4 -> { ltlt2.setBackgroundResource(R.drawable.sunset_with_birds) }
-            5 -> { ltlt2.setBackgroundResource(R.drawable.train_mountains_winter) }
-            6 -> { ltlt2.setBackgroundResource(R.drawable.trees_and_mountains_and_clouds_and_sky) }
-            7 -> { ltlt2.setBackgroundResource(R.drawable.south_oregon_coast_18499357) }
+        bgbg5 = findViewById(R.id.board_layout2) ; bgbg5.setBackgroundResource(AllDatas.bgrs9)
 
 
-        }
 
         startTimer()
 
@@ -144,19 +130,13 @@ class CardArea : ComponentActivity() {
                         score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(cardmap.get(3));
                         scoreValu.setText(score.scoreFinal())
 
-
                         buttonmap.get(1)!!.replace(cards.get(uu));
                         buttonmap.get(2)!!.replace(cards.get(uu + 1));
                         buttonmap.get(3)!!.replace(cards.get(uu + 2));
-
                         uu = uu + 3;
-
                         imgsmap.get(1)!!.setImageResource(buttonmap.get(1)!!.card!!.image)
                         imgsmap.get(2)!!.setImageResource(buttonmap.get(2)!!.card!!.image)
                         imgsmap.get(3)!!.setImageResource(buttonmap.get(3)!!.card!!.image)
-
-
-
                     } else {
                         Toast.makeText(this, "fuckoff", Toast.LENGTH_SHORT).show()
                     }
@@ -165,13 +145,11 @@ class CardArea : ComponentActivity() {
                     imgsmap.get(3)!!.setBackgroundColor(0x00000000.toInt())
                     nca = 0
                     cardmap.clear(); buttonmap.clear(); imgsmap.clear()
-
                 }
             }
             nubu.active == true
 
         } else {
-
             when (nca) {
                 1 -> {
                     cardmap.remove(1)
@@ -189,13 +167,8 @@ class CardArea : ComponentActivity() {
                 }
             }
             nubu.active == false
-
-
         }
-        Toast.makeText(this, nubu.active.toString(), Toast.LENGTH_SHORT).show()
-
     }
-
     fun solves() : Boolean {
         var hir : Boolean
         var checkss = CheckMatch(cardmap.get(1)!!, cardmap.get(2)!!, cardmap.get(3)!!)
@@ -204,7 +177,6 @@ class CardArea : ComponentActivity() {
             hir = false }
         return hir
     }
-
     private fun randomCards() {
         var crcr = uu
         for (GameButton in buttons) {
@@ -214,7 +186,6 @@ class CardArea : ComponentActivity() {
         uu = uu + 12
         nca = 0
     }
-
     fun startTimer() {
         val intent1 = Intent(this, Entry_Screen::class.java)
         var cTimer = object : CountDownTimer(tt.toLong(), 1000) {

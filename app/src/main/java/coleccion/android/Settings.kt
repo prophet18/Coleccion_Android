@@ -16,13 +16,19 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 
 
-class Settings : ComponentActivity(), AdapterView.OnItemSelectedListener {
 
-    lateinit var spinning : Spinner ; var bgChosen : ImageView? = null ; lateinit var timingtwo : EditText ; var timtwo : String? = null ; var timethree : Int = 0
-    var backgrounds : Array<String> = emptyArray() ; var return2home : Button? = null ; var dabgint : Int = 0 ; var ppint : Int = 0 ; var ppppint : Int = 0
+class Settings : ComponentActivity() {
 
-    val tim4 : Int = 200000
+    lateinit var spinning : Spinner ; var bgChosen : ImageView? = null ; lateinit var timingtwo : EditText ; var timtwo : String? = null ;
+    var backgrounds : Array<String> = emptyArray() ; var return2home : Button? = null ; var ppint : Int = 0 ; var ppppint : Int = 0
 
+    lateinit var spinning2 : Spinner ; var timeopts : Array<Int> = emptyArray()
+
+    var bgSavings : String = "" ; var gameTime2 : Int = 0
+
+
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_layout)
@@ -30,13 +36,46 @@ class Settings : ComponentActivity(), AdapterView.OnItemSelectedListener {
 
 
         backgrounds = arrayOf( "Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest", "Coast" )
+        timeopts = arrayOf( 30000, 60000, 90000, 120000, 150000, 180000, 210000 )
 
         spinning = findViewById(R.id.select_bg) ; bgChosen = findViewById(R.id.bg_selected) ; timingtwo = findViewById(R.id.enter_time) ; return2home = findViewById(R.id.returns)
+        spinning2 = findViewById(R.id.select_datime)
 
-        val adapting: ArrayAdapter<String> = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, backgrounds)
+
+        val adapting = ArrayAdapter(this, android.R.layout.simple_spinner_item, backgrounds)
         adapting.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinning.setAdapter(adapting)
-        spinning.setOnItemSelectedListener(this)
+        spinning.adapter = adapting
+
+        val adapting2 = ArrayAdapter(this, android.R.layout.simple_spinner_item, timeopts)
+        adapting2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinning2.adapter = adapting2
+
+        spinning.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                bgSavings = backgrounds[position]
+                AllDatas.boardBGinfo = bgSavings
+                when (position) {
+                    0 -> { bgChosen?.setImageResource(R.drawable.aurora_over_canada_2016) ; AllDatas.bgrs9 = R.drawable.aurora_over_canada_2016 }
+                    1 -> { bgChosen?.setImageResource(R.drawable.boston_financial_district_skyline) ; AllDatas.bgrs9 = R.drawable.boston_financial_district_skyline }
+                    2 -> { bgChosen?.setImageResource(R.drawable.dark_clouds_of_rho_ophiuchus) ; AllDatas.bgrs9 = R.drawable.dark_clouds_of_rho_ophiuchus }
+                    3 -> { bgChosen?.setImageResource(R.drawable.sunset_with_birds) ; AllDatas.bgrs9 = R.drawable.sunset_with_birds }
+                    4 -> { bgChosen?.setImageResource(R.drawable.train_mountains_winter) ; AllDatas.bgrs9 = R.drawable.train_mountains_winter }
+                    5 -> { bgChosen?.setImageResource(R.drawable.trees_and_mountains_and_clouds_and_sky) ; AllDatas.bgrs9 = R.drawable.trees_and_mountains_and_clouds_and_sky }
+                    6 -> { bgChosen?.setImageResource(R.drawable.south_oregon_coast_18499357) ; AllDatas.bgrs9 = R.drawable.south_oregon_coast_18499357 }
+                }
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
+
+        spinning2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                gameTime2 = timeopts[position]
+                AllDatas.gameTimeInfo = gameTime2
+
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
+
 
         timtwo = timingtwo.getText().toString()
 
@@ -48,26 +87,6 @@ class Settings : ComponentActivity(), AdapterView.OnItemSelectedListener {
     }
 
 
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        // Toast.makeText(getApplicationContext(), "Selected Background: " + backgrounds[p2] ,Toast.LENGTH_SHORT).show();
-        // Toast.makeText(this, p2.toString(), Toast.LENGTH_SHORT).show()
-        ppint = p2
-
-        when (p2) {
-            0 -> { bgChosen?.setImageResource(R.drawable.aurora_over_canada_2016) ; dabgint = 1 }
-            1 -> { bgChosen?.setImageResource(R.drawable.boston_financial_district_skyline) ; dabgint = 2 }
-            2 -> { bgChosen?.setImageResource(R.drawable.dark_clouds_of_rho_ophiuchus) ; dabgint = 3 }
-            3 -> { bgChosen?.setImageResource(R.drawable.sunset_with_birds) ; dabgint = 4 }
-            4 -> { bgChosen?.setImageResource(R.drawable.train_mountains_winter) ; dabgint = 5 }
-            5 -> { bgChosen?.setImageResource(R.drawable.trees_and_mountains_and_clouds_and_sky) ; dabgint = 6 }
-            6 -> { bgChosen?.setImageResource(R.drawable.south_oregon_coast_18499357) ; dabgint = 7 }
-        }
-
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
 
     fun returningHome() {
         val intent1 = Intent(this, Entry_Screen::class.java)

@@ -38,10 +38,6 @@
             android:name=".Settings"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
-        <activity
-            android:name=".BoardLink"
-            android:theme="@android:style/Theme.NoTitleBar">>
-        </activity>
 
     </application>
 
