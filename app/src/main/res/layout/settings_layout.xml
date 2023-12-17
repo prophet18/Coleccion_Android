@@ -46,8 +46,6 @@
                 android:layout_width="200dp"
                 android:layout_height="100dp" />
 
-
-
         </TableRow>
 
         <TableRow
@@ -69,16 +67,12 @@
                 android:layout_width="200dp"
                 android:layout_height="100dp" />
 
-
-
         </TableRow>
 
         <TableRow
             android:gravity="center"
             android:layout_margin="1dp"
             android:padding="1dp" >
-
-
 
         </TableRow>
 
@@ -93,18 +87,11 @@
                 android:layout_height="100dp"
                 android:text="Return to Home "/>
 
-            <EditText
-                android:id="@+id/enter_time"
-                android:contentDescription="Time Entry"
-                android:layout_width="200dp"
-                android:layout_height="100dp" />
 
         </TableRow>
 
-
     </TableLayout>
 </LinearLayout>
-
 
     <!--
      <menu xmlns:android="http://schemas.android.com/apk/res/android"

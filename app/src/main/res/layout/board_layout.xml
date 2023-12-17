@@ -86,7 +86,8 @@
                 android:scaleType="fitXY"
                 android:paddingEnd="5dp"
                 android:layout_weight="1"
-                android:src="@drawable/pauseicon" />
+                android:src="@drawable/pauseicon"
+                android:background="@android:color/transparent"/>
 
             <Button
                 android:id="@+id/random_button"

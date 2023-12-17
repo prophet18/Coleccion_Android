@@ -1,7 +1,7 @@
 package coleccion.android
 
-import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
@@ -10,29 +10,34 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.annotation.RequiresApi
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileWriter
+import java.io.IOException
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class CardArea : ComponentActivity() {
 
     var buttons = ArrayList<GameButton>();      var cardmap = HashMap<Int, Card>();      var uu: Int = 13;                              var yy: Int = 0
-    var deck = CardStack();                     var cards = ArrayList<Card>();           var score = ScorePile();
+    var deck = CardStack();                     var cards = ArrayList<Card>();           var score = ScorePile()
     var nca: Int = 0;                           var ii: Int = 0;                         var buttonmap = HashMap<Int, GameButton>()
-
-    var imageButtons = ArrayList<ImageButton>(); var imgsmap = HashMap<Int, ImageButton>();
-
-    private lateinit var scoreValu: TextView; private lateinit var timeValu: TextView ; private lateinit var randButto : Button
-    private lateinit var nucOne	: ImageButton ; private lateinit var nucTwo	: ImageButton ; private lateinit var nucThree : ImageButton
-    private lateinit var nucFour : ImageButton ; private lateinit var nucFive : ImageButton ; private lateinit var nucSix : ImageButton
-    private lateinit var nucSeven : ImageButton ; private lateinit var nucEight : ImageButton ; private lateinit var nucNine : ImageButton
-    private lateinit var nucTen	: ImageButton ; private lateinit var nucEleven : ImageButton ; private lateinit var nucTwelve : ImageButton
-
-    var tt = AllDatas.gameTimeInfo ; var bgChoice = AllDatas.boardBGinfo ;   lateinit var bgbg5 : LinearLayout
+    var imageButtons = ArrayList<ImageButton>();                                         var imgsmap = HashMap<Int, ImageButton>()
+    private lateinit var scoreValu: TextView;       private lateinit var timeValu: TextView ;       private lateinit var randButto : Button
+    private lateinit var nucOne	: ImageButton ;     private lateinit var nucTwo	: ImageButton ;     private lateinit var nucThree : ImageButton
+    private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
+    private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
+    private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
+    var tt = AllDatas.gameTimeInfo ;                var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.board_layout)
 
-        bgbg5 = findViewById(R.id.board_layout2) ; bgbg5.setBackgroundResource(AllDatas.bgrs9)
+        bgLinking = findViewById(R.id.board_layout2)
+        bgLinking.setBackgroundResource(AllDatas.boardBGdrawable)
 
 
 
@@ -48,15 +53,15 @@ class CardArea : ComponentActivity() {
 
 */
 
-        nucOne	= findViewById(R.id.card1) ; nucTwo	= findViewById(R.id.card2) ; nucThree = findViewById(R.id.card3)
-        nucFour	= findViewById(R.id.card4) ; nucFive = findViewById(R.id.card5) ; nucSix = findViewById(R.id.card6)
-        nucSeven	= findViewById(R.id.card7) ; nucEight = findViewById(R.id.card8) ; nucNine = findViewById(R.id.card9)
-        nucTen	= findViewById(R.id.card10) ; nucEleven	= findViewById(R.id.card11) ; nucTwelve	= findViewById(R.id.card12)
+        nucOne	= findViewById(R.id.card1) ;        nucTwo	= findViewById(R.id.card2) ;         nucThree = findViewById(R.id.card3)
+        nucFour	= findViewById(R.id.card4) ;        nucFive = findViewById(R.id.card5) ;         nucSix = findViewById(R.id.card6)
+        nucSeven	= findViewById(R.id.card7) ;    nucEight = findViewById(R.id.card8) ;        nucNine = findViewById(R.id.card9)
+        nucTen	= findViewById(R.id.card10) ;       nucEleven	= findViewById(R.id.card11) ;    nucTwelve	= findViewById(R.id.card12)
 
         scoreValu	= findViewById(R.id.score_value) ; timeValu	= findViewById(R.id.time_value) ; randButto	= findViewById(R.id.random_button)
 
-        imageButtons.add(nucOne) ; imageButtons.add(nucTwo) ; imageButtons.add(nucThree) ; imageButtons.add(nucFour)
-        imageButtons.add(nucFive) ; imageButtons.add(nucSix) ; imageButtons.add(nucSeven) ; imageButtons.add(nucEight)
+        imageButtons.add(nucOne) ;  imageButtons.add(nucTwo) ; imageButtons.add(nucThree) ;  imageButtons.add(nucFour)
+        imageButtons.add(nucFive) ; imageButtons.add(nucSix) ; imageButtons.add(nucSeven) ;  imageButtons.add(nucEight)
         imageButtons.add(nucNine) ; imageButtons.add(nucTen) ; imageButtons.add(nucEleven) ; imageButtons.add(nucTwelve)
 
         makeDeck()
@@ -138,7 +143,7 @@ class CardArea : ComponentActivity() {
                         imgsmap.get(2)!!.setImageResource(buttonmap.get(2)!!.card!!.image)
                         imgsmap.get(3)!!.setImageResource(buttonmap.get(3)!!.card!!.image)
                     } else {
-                        Toast.makeText(this, "fuckoff", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "W R O N G", Toast.LENGTH_SHORT).show()
                     }
                     imgsmap.get(1)!!.setBackgroundColor(0x00000000.toInt())
                     imgsmap.get(2)!!.setBackgroundColor(0x00000000.toInt())
@@ -187,17 +192,93 @@ class CardArea : ComponentActivity() {
         nca = 0
     }
     fun startTimer() {
-        val intent1 = Intent(this, Entry_Screen::class.java)
+        val intent1 = Intent(this, GameOverScreen::class.java)
         var cTimer = object : CountDownTimer(tt.toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeValu.setText("Seconds Left: " + (millisUntilFinished / 1000).toString())
             }
+            @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
+                AllDatas.gameScoreInfo = score.scoreTotal()
+                CreateFile()
+                AddHighScore()
+                main2()
                 startActivity(intent1)
                 finish()
             }
         }
         cTimer.start()
+    }
+
+    fun pauseTimer() {
+
+    }
+
+    fun CreateFile() {
+        try {
+            val highScores = File("app/src/main/java/coleccion/android/HighScores.txt")
+            val csvScores = File("app/src/main/java/coleccion/android/csvHighScores.csv")
+            if (highScores!!.createNewFile()) {
+                System.out.println("File created: " + highScores!!.getName())
+            } else {
+                println("File already exists.")
+            }
+        } catch (e: IOException) {
+            println("An error occurred.")
+            e.printStackTrace()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun AddHighScore() {
+        try {
+            val addHS1 = FileWriter("app/src/main/java/coleccion/android/HighScores.txt", true)
+            val csvHS1 = FileWriter("app/src/main/java/coleccion/android/csvHighScores.csv", true)
+            val currentDateTime = LocalDateTime.now()
+            val formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss")
+            val formattedDateTime = currentDateTime.format(formatter)
+            val addHS = BufferedWriter(addHS1)
+            val csvHS = BufferedWriter(csvHS1)
+            addHS.write( "Score: " + score.scoreTotal() + "     " + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "  )
+            addHS.newLine()
+            addHS.close()
+            csvHS.write( "Score: ;" + score.scoreTotal() + ";" + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "  )
+            csvHS.newLine()
+            csvHS.close()
+            println("Successfully wrote to the file.")
+        } catch (e: IOException) {
+            println("An error occurred.")
+            e.printStackTrace()
+        }
+    }
+
+    fun main2() {
+        val fileName1 = "example`.txt"
+        val dataToWrite = "Hello, this is the data to be written to the file."
+
+        // Create a File object
+        val file1 = File(fileName1)
+
+        try {
+            // Check if the file already exists
+            if (!file1.exists()) {
+                // If the file doesn't exist, create a new file
+                file1.createNewFile()
+            }
+
+            // Create a BufferedWriter to write to the file
+            val writer = BufferedWriter(FileWriter(file1))
+
+            // Write data to the file
+            writer.write(dataToWrite)
+
+            // Close the writer
+            writer.close()
+
+            println("Data has been written to $fileName1.")
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 

@@ -25,17 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".Board"
-            android:theme="@android:style/Theme.NoTitleBar">
-        </activity>
         <activity
             android:name=".CardArea"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
         <activity
             android:name=".Settings"
+            android:theme="@android:style/Theme.NoTitleBar">>
+        </activity>
+        <activity
+            android:name=".GameOverScreen"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
 
