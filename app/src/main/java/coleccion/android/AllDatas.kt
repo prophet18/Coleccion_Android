@@ -8,4 +8,6 @@ object AllDatas {
     var gameTimeForm : Int = 0
     var boardBGdrawable : Int = 0
     var gameScoreInfo : Int = 0
+    var collectionHighScoring : Int = 0
+    var collectionTotalTime : Int = 0
 }

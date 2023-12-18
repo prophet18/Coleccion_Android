@@ -31,6 +31,7 @@ class CardArea : ComponentActivity() {
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
     var tt = AllDatas.gameTimeInfo ;                var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout
+    lateinit var highScores : File
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -200,9 +201,10 @@ class CardArea : ComponentActivity() {
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
                 AllDatas.gameScoreInfo = score.scoreTotal()
+                AllDatas.collectionHighScoring = AllDatas.collectionHighScoring + AllDatas.gameScoreInfo
+                AllDatas.collectionTotalTime = AllDatas.collectionTotalTime + AllDatas.gameTimeForm
                 CreateFile()
                 AddHighScore()
-                main2()
                 startActivity(intent1)
                 finish()
             }
@@ -216,8 +218,8 @@ class CardArea : ComponentActivity() {
 
     fun CreateFile() {
         try {
-            val highScores = File("app/src/main/java/coleccion/android/HighScores.txt")
-            val csvScores = File("app/src/main/java/coleccion/android/csvHighScores.csv")
+            highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
+            // val csvScores = File("/data/data/coleccion.android/files/example3.txt")
             if (highScores!!.createNewFile()) {
                 System.out.println("File created: " + highScores!!.getName())
             } else {
@@ -232,54 +234,27 @@ class CardArea : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun AddHighScore() {
         try {
-            val addHS1 = FileWriter("app/src/main/java/coleccion/android/HighScores.txt", true)
-            val csvHS1 = FileWriter("app/src/main/java/coleccion/android/csvHighScores.csv", true)
+            val addHS1 = BufferedWriter(FileWriter(highScores, true))
+            // val csvHS1 = FileWriter("/data/data/coleccion.android/files/example3.txt", true)
             val currentDateTime = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss")
+            val formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm")
             val formattedDateTime = currentDateTime.format(formatter)
             val addHS = BufferedWriter(addHS1)
-            val csvHS = BufferedWriter(csvHS1)
-            addHS.write( "Score: " + score.scoreTotal() + "     " + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "  )
+            // val csvHS = BufferedWriter(csvHS1)
+            addHS.write( "Score: " + score.scoreTotal() + " " + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "   )
             addHS.newLine()
             addHS.close()
-            csvHS.write( "Score: ;" + score.scoreTotal() + ";" + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "  )
-            csvHS.newLine()
-            csvHS.close()
-            println("Successfully wrote to the file.")
+            // csvHS.write( "Score: ;" + score.scoreTotal() + ";" + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "  )
+            // csvHS.newLine()
+            // csvHS.close()
+            println("Successfully wrote to the file: " + highScores)
         } catch (e: IOException) {
             println("An error occurred.")
             e.printStackTrace()
         }
     }
 
-    fun main2() {
-        val fileName1 = "example`.txt"
-        val dataToWrite = "Hello, this is the data to be written to the file."
 
-        // Create a File object
-        val file1 = File(fileName1)
-
-        try {
-            // Check if the file already exists
-            if (!file1.exists()) {
-                // If the file doesn't exist, create a new file
-                file1.createNewFile()
-            }
-
-            // Create a BufferedWriter to write to the file
-            val writer = BufferedWriter(FileWriter(file1))
-
-            // Write data to the file
-            writer.write(dataToWrite)
-
-            // Close the writer
-            writer.close()
-
-            println("Data has been written to $fileName1.")
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
 
 
 
