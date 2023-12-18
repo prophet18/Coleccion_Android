@@ -31,7 +31,7 @@ class CardArea : ComponentActivity() {
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
     var tt = AllDatas.gameTimeInfo ;                var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout
-    lateinit var highScores : File
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -218,13 +218,18 @@ class CardArea : ComponentActivity() {
 
     fun CreateFile() {
         try {
-            highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
-            // val csvScores = File("/data/data/coleccion.android/files/example3.txt")
-            if (highScores!!.createNewFile()) {
-                System.out.println("File created: " + highScores!!.getName())
+            AllDatas.highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
+            AllDatas.csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
+            if (AllDatas.highScores!!.createNewFile() && AllDatas.csvHighScores!!.createNewFile()) {
+                System.out.println("Files created ")
             } else {
-                println("File already exists.")
+                println("Files already exists.")
             }
+            val addHS = BufferedWriter(FileWriter(AllDatas.highScores, true))
+            val csvHS = BufferedWriter(FileWriter(AllDatas.csvHighScores, true))
+            csvHS.write("Score" + "," + "Date & Time" + "," + "Game Timer" )
+            csvHS.newLine()
+            csvHS.close()
         } catch (e: IOException) {
             println("An error occurred.")
             e.printStackTrace()
@@ -234,20 +239,21 @@ class CardArea : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     fun AddHighScore() {
         try {
-            val addHS1 = BufferedWriter(FileWriter(highScores, true))
-            // val csvHS1 = FileWriter("/data/data/coleccion.android/files/example3.txt", true)
+            val addHS = BufferedWriter(FileWriter(AllDatas.highScores, true))
+            val csvHS = BufferedWriter(FileWriter(AllDatas.csvHighScores, true))
             val currentDateTime = LocalDateTime.now()
             val formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm")
             val formattedDateTime = currentDateTime.format(formatter)
-            val addHS = BufferedWriter(addHS1)
-            // val csvHS = BufferedWriter(csvHS1)
             addHS.write( "Score: " + score.scoreTotal() + " " + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "   )
             addHS.newLine()
+            addHS.write("Total # of collections found: " + AllDatas.collectionHighScoring.toString() + ". Total amount of time playing: " + AllDatas.collectionTotalTime)
+            addHS.newLine()
             addHS.close()
-            // csvHS.write( "Score: ;" + score.scoreTotal() + ";" + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "  )
-            // csvHS.newLine()
-            // csvHS.close()
-            println("Successfully wrote to the file: " + highScores)
+            csvHS.write( score.scoreTotal().toString() + "," + formattedDateTime + "," + AllDatas.gameTimeForm )
+            csvHS.newLine()
+            csvHS.close()
+
+            println("Successfully wrote to the file: " + AllDatas.highScores)
         } catch (e: IOException) {
             println("An error occurred.")
             e.printStackTrace()

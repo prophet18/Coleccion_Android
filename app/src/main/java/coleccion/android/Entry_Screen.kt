@@ -32,6 +32,8 @@ class Entry_Screen : ComponentActivity() {
             startActivity(intent1)
         }
         hsButton.setOnClickListener {
+            val intent2 = Intent(this, HighScore_Screen::class.java)
+            startActivity(intent2)
         }
         setButton.setOnClickListener {
             val intent3 = Intent(this, Settings::class.java)

@@ -37,6 +37,10 @@
             android:name=".GameOverScreen"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
+        <activity
+            android:name=".HighScore_Screen"
+            android:theme="@android:style/Theme.NoTitleBar">>
+        </activity>
 
     </application>
 

@@ -1,6 +1,7 @@
 package coleccion.android
 
 import android.graphics.drawable.Drawable
+import java.io.File
 
 object AllDatas {
     var boardBGinfo : String = ""
@@ -10,4 +11,6 @@ object AllDatas {
     var gameScoreInfo : Int = 0
     var collectionHighScoring : Int = 0
     var collectionTotalTime : Int = 0
+    lateinit var highScores : File
+    lateinit var csvHighScores : File
 }
