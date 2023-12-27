@@ -17,15 +17,11 @@ class Entry_Screen : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.entry_screen)
 
-
-
         var ngButton = findViewById<ImageButton>(R.id.new_game_button)
         var hsButton = findViewById<ImageButton>(R.id.high_score_button)
         var setButton = findViewById<ImageButton>(R.id.settings_button)
         var helpButton = findViewById<ImageButton>(R.id.help_button)
         var exitButton = findViewById<Button>(R.id.exit_button)
-
-
 
         ngButton.setOnClickListener {
             val intent1 = Intent(this, CardArea::class.java)
@@ -40,7 +36,8 @@ class Entry_Screen : ComponentActivity() {
             startActivity(intent3)
         }
         helpButton.setOnClickListener {
-            Toast.makeText(this, "help", Toast.LENGTH_SHORT).show()
+            val intent4 = Intent(this, Help_Screen::class.java)
+            startActivity(intent4)
         }
         exitButton.setOnClickListener {
             finish()

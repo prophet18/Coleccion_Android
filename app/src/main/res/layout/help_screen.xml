@@ -6,9 +6,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ukrainelandscape"
-    android:id="@+id/es_layout"
-    tools:context=".Entry_Screen">
+    android:background="@drawable/question_mark_uno"
+    android:id="@+id/helps_layout"
+    tools:context=".Help_Screen">
 
 
     <LinearLayout
@@ -16,6 +16,56 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:padding="5dp" >
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/help_info1"
+                    android:contentDescription="Help Info 1"
+                    android:layout_width="390dp"
+                    android:layout_height="380dp"
+                    android:scaleType="fitXY"
+                    android:padding="5dp"
+                    android:src="@drawable/cardhelpinfo1"
+                    android:background="@android:color/transparent"/>
+
+            </TableRow>
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <Button
+                    android:id="@+id/e_button2"
+                    android:contentDescription="Exit Button"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:paddingStart="5dp"
+                    android:layout_weight="1"
+                    android:text="Exit Game" />
+
+
+            </TableRow>
+
+        </TableLayout>
     </LinearLayout>
 
 </RelativeLayout>

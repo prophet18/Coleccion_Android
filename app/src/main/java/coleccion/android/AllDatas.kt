@@ -1,7 +1,11 @@
 package coleccion.android
 
 import android.graphics.drawable.Drawable
+import android.os.Build
+import android.os.CountDownTimer
+import androidx.annotation.RequiresApi
 import java.io.File
+import android.content.Intent
 
 object AllDatas {
     var boardBGinfo : String = ""
@@ -11,6 +15,9 @@ object AllDatas {
     var gameScoreInfo : Int = 0
     var collectionHighScoring : Int = 0
     var collectionTotalTime : Int = 0
-    lateinit var highScores : File
-    lateinit var csvHighScores : File
+    var timers: CountDownTimer? = null
+    var timeRemaining: Long = 0 ;
+    var highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
+    var csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
+
 }

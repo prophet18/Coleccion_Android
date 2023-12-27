@@ -1,20 +1,27 @@
 package coleccion.android
 
-import android.content.Context
 import android.os.Bundle
+import android.os.Environment
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.activity.ComponentActivity
-import coleccion.android.AllDatas.csvHighScores
 import java.io.BufferedReader
+import java.io.File
+import java.io.FileInputStream
 import java.io.IOException
 import java.io.InputStreamReader
 
+
 class HighScore_Screen : ComponentActivity() {
 
-
     var maxScores: Int = 0
+
+
+    var fileName = "/data/data/coleccion.android/files/coleccionHighScores.csv"
+    var file = File(fileName)
+    var fileInputStream = FileInputStream(file)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +33,8 @@ class HighScore_Screen : ComponentActivity() {
 
         try {
             // Open the CSV file from the assets folder
-            val inputStream2 = assets.open(AllDatas.csvHighScores.toString())
-            val reader2 = BufferedReader(InputStreamReader(inputStream2))
+            // val inputStream2 = assets.open("/data/data/coleccion.android/files/coleccionHighScores.csv")
+            val reader2 = BufferedReader(InputStreamReader(fileInputStream))
 
             // Read the header line to get column names
             val headerLine2 = reader2.readLine()
@@ -57,7 +64,7 @@ class HighScore_Screen : ComponentActivity() {
 
             // Close the reader
             reader2.close()
-            inputStream2.close()
+            fileInputStream.close()
 
         } catch (e: IOException) {
             e.printStackTrace()
@@ -75,7 +82,7 @@ class HighScore_Screen : ComponentActivity() {
 
 
 
-
+/*
     fun readAndFindMax(context: Context, fileName: String): Int? {
 
 
@@ -115,6 +122,6 @@ class HighScore_Screen : ComponentActivity() {
 
         return maxScores
     }
-
+*/
 
 }

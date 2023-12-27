@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ukrainelandscape"
+    android:id="@+id/pscreen_layout"
+    tools:context=".PauseScreen" >
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:id="@+id/highscoren_layout" >
+
+        <Space
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+
+        <TableRow
+            android:gravity="center"
+            android:layout_margin="1dp"
+            android:padding="1dp">
+            <ImageButton
+                android:id="@+id/resume_button"
+                android:contentDescription="Resume Button"
+                android:layout_width="280dp"
+                android:layout_height="90dp"
+                android:scaleType="fitXY"
+                android:padding="5dp"
+                android:src="@drawable/resumebutton"
+                android:background="@android:color/transparent"/>
+
+        </TableRow>
+
+        <Space
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+
+        <TableRow
+            android:gravity="center"
+            android:layout_margin="1dp"
+            android:padding="1dp">
+
+            <Button
+                android:id="@+id/e_button"
+                android:contentDescription="Exit Button"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:paddingStart="5dp"
+                android:layout_weight="1"
+                android:text="Exit Game" />
+
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

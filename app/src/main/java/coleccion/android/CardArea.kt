@@ -21,17 +21,17 @@ import java.time.format.DateTimeFormatter
 
 class CardArea : ComponentActivity() {
 
-    var buttons = ArrayList<GameButton>();      var cardmap = HashMap<Int, Card>();      var uu: Int = 13;                              var yy: Int = 0
-    var deck = CardStack();                     var cards = ArrayList<Card>();           var score = ScorePile()
-    var nca: Int = 0;                           var ii: Int = 0;                         var buttonmap = HashMap<Int, GameButton>()
-    var imageButtons = ArrayList<ImageButton>();                                         var imgsmap = HashMap<Int, ImageButton>()
+    var buttons = ArrayList<GameButton>();          var cardmap = HashMap<Int, Card>();             var uu: Int = 13;                              var yy: Int = 0
+    var deck = CardStack();                         var cards = ArrayList<Card>();                  var score = ScorePile()
+    var nca: Int = 0;                               var ii: Int = 0;                                var buttonmap = HashMap<Int, GameButton>()
+    var imageButtons = ArrayList<ImageButton>();                                                    var imgsmap = HashMap<Int, ImageButton>()
     private lateinit var scoreValu: TextView;       private lateinit var timeValu: TextView ;       private lateinit var randButto : Button
     private lateinit var nucOne	: ImageButton ;     private lateinit var nucTwo	: ImageButton ;     private lateinit var nucThree : ImageButton
     private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
     var tt = AllDatas.gameTimeInfo ;                var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout
-    
+    private lateinit var pButts : ImageButton ;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,7 @@ class CardArea : ComponentActivity() {
 
 */
 
-        nucOne	= findViewById(R.id.card1) ;        nucTwo	= findViewById(R.id.card2) ;         nucThree = findViewById(R.id.card3)
+        nucOne	= findViewById(R.id.card1) ;        nucTwo	= findViewById(R.id.card2) ;         nucThree = findViewById(R.id.card3);       pButts = findViewById(R.id.pause_button)
         nucFour	= findViewById(R.id.card4) ;        nucFive = findViewById(R.id.card5) ;         nucSix = findViewById(R.id.card6)
         nucSeven	= findViewById(R.id.card7) ;    nucEight = findViewById(R.id.card8) ;        nucNine = findViewById(R.id.card9)
         nucTen	= findViewById(R.id.card10) ;       nucEleven	= findViewById(R.id.card11) ;    nucTwelve	= findViewById(R.id.card12)
@@ -86,7 +86,7 @@ class CardArea : ComponentActivity() {
         buttons.get(10).gameImgBtn.setOnClickListener { cardWorks(10) } ; buttons.get(10).gameImgBtn.setImageResource(buttons.get(10).cImg)
         buttons.get(11).gameImgBtn.setOnClickListener { cardWorks(11) } ; buttons.get(11).gameImgBtn.setImageResource(buttons.get(11).cImg)
 
-        randButto.setOnClickListener { randomCards() }
+        randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { pauseTimer() }
 
 
     }
@@ -194,32 +194,38 @@ class CardArea : ComponentActivity() {
     }
     fun startTimer() {
         val intent1 = Intent(this, GameOverScreen::class.java)
-        var cTimer = object : CountDownTimer(tt.toLong(), 1000) {
+        AllDatas.timers = object : CountDownTimer(tt.toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeValu.setText("Seconds Left: " + (millisUntilFinished / 1000).toString())
+                AllDatas.timeRemaining = millisUntilFinished
             }
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
                 AllDatas.gameScoreInfo = score.scoreTotal()
                 AllDatas.collectionHighScoring = AllDatas.collectionHighScoring + AllDatas.gameScoreInfo
                 AllDatas.collectionTotalTime = AllDatas.collectionTotalTime + AllDatas.gameTimeForm
+                AllDatas.timeRemaining = 0
                 CreateFile()
                 AddHighScore()
                 startActivity(intent1)
                 finish()
             }
         }
-        cTimer.start()
+        (AllDatas.timers as CountDownTimer).start()
     }
 
     fun pauseTimer() {
+        AllDatas.timers?.cancel()
+        val intent5 = Intent(this, PauseScreen::class.java)
+        startActivity(intent5)
+    }
 
+    fun resumeTimer() {
+        startTimer()
     }
 
     fun CreateFile() {
         try {
-            AllDatas.highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
-            AllDatas.csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
             if (AllDatas.highScores!!.createNewFile() && AllDatas.csvHighScores!!.createNewFile()) {
                 System.out.println("Files created ")
             } else {

@@ -9,7 +9,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/coleccion_icon_2"
-
+        android:label="Coleccion"
 
         android:supportsRtl="true"
         tools:targetApi="34">
@@ -39,6 +39,14 @@
         </activity>
         <activity
             android:name=".HighScore_Screen"
+            android:theme="@android:style/Theme.NoTitleBar">>
+        </activity>
+        <activity
+            android:name=".PauseScreen"
+            android:theme="@android:style/Theme.NoTitleBar">>
+        </activity>
+        <activity
+            android:name=".Help_Screen"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
 
