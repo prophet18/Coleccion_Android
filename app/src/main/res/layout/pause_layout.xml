@@ -18,9 +18,25 @@
         android:padding="5dp"
         android:id="@+id/highscoren_layout" >
 
+        <TableRow
+            android:gravity="center"
+            android:layout_margin="1dp"
+            android:padding="1dp">
+            <ImageView
+                android:id="@+id/cologo1"
+                android:contentDescription="Resume Button"
+                android:layout_width="400dp"
+                android:layout_height="90dp"
+                android:scaleType="fitXY"
+                android:padding="5dp"
+                android:src="@drawable/collection_logo_1"
+                android:background="@android:color/transparent"/>
+
+        </TableRow>
+
         <Space
-            android:layout_width="200dp"
-            android:layout_height="200dp" />
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
 
         <TableRow
             android:gravity="center"
@@ -39,8 +55,8 @@
         </TableRow>
 
         <Space
-            android:layout_width="200dp"
-            android:layout_height="200dp" />
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
 
         <TableRow
             android:gravity="center"

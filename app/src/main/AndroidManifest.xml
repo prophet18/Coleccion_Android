@@ -49,6 +49,10 @@
             android:name=".Help_Screen"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
+        <activity
+            android:name=".Help_Screen2"
+            android:theme="@android:style/Theme.NoTitleBar">>
+        </activity>
 
     </application>
 

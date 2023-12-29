@@ -32,7 +32,7 @@ class PauseScreen : ComponentActivity()  {
     fun tryTime() {
         AllDatas.timers = object : CountDownTimer(AllDatas.timeRemaining, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                AllDatas.timeRemaining = millisUntilFinished
+                AllDatas.timeRemaining = millisUntilFinished / 1000
             }
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
@@ -40,6 +40,7 @@ class PauseScreen : ComponentActivity()  {
                 finish()
             }
         }
+        AllDatas.isTimerRunning = true
         (AllDatas.timers as CountDownTimer).start()
 
         val intent6 = Intent(this, CardArea::class.java)

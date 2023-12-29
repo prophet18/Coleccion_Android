@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -40,10 +41,7 @@ class CardArea : ComponentActivity() {
         bgLinking = findViewById(R.id.board_layout2)
         bgLinking.setBackgroundResource(AllDatas.boardBGdrawable)
 
-
-
         startTimer()
-
 /*
          ;
         var setstring = settings.timtwo
@@ -51,7 +49,6 @@ class CardArea : ComponentActivity() {
         var settings = Settings()
         var setstring = settings.timtwo
         tt = setstring!!.toInt()
-
 */
 
         nucOne	= findViewById(R.id.card1) ;        nucTwo	= findViewById(R.id.card2) ;         nucThree = findViewById(R.id.card3);       pButts = findViewById(R.id.pause_button)
@@ -87,7 +84,6 @@ class CardArea : ComponentActivity() {
         buttons.get(11).gameImgBtn.setOnClickListener { cardWorks(11) } ; buttons.get(11).gameImgBtn.setImageResource(buttons.get(11).cImg)
 
         randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { pauseTimer() }
-
 
     }
 
@@ -197,7 +193,7 @@ class CardArea : ComponentActivity() {
         AllDatas.timers = object : CountDownTimer(tt.toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timeValu.setText("Seconds Left: " + (millisUntilFinished / 1000).toString())
-                AllDatas.timeRemaining = millisUntilFinished
+                AllDatas.timeRemaining = millisUntilFinished / 1000
             }
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
@@ -211,31 +207,31 @@ class CardArea : ComponentActivity() {
                 finish()
             }
         }
+        AllDatas.isTimerRunning = true
         (AllDatas.timers as CountDownTimer).start()
     }
 
     fun pauseTimer() {
         AllDatas.timers?.cancel()
+        AllDatas.isTimerRunning = false
         val intent5 = Intent(this, PauseScreen::class.java)
         startActivity(intent5)
     }
-
-    fun resumeTimer() {
-        startTimer()
-    }
-
     fun CreateFile() {
         try {
             if (AllDatas.highScores!!.createNewFile() && AllDatas.csvHighScores!!.createNewFile()) {
                 System.out.println("Files created ")
+                val addHS = BufferedWriter(FileWriter(AllDatas.highScores, true))
+                val csvHS = BufferedWriter(FileWriter(AllDatas.csvHighScores, true))
+                csvHS.write(" Score " + "," + " Date & Time " + "," + " Game Duration " )
+                csvHS.newLine()
+                csvHS.close()
+                addHS.write(" Score " + " " + " Date & Time " + " " + " Game Duration " )
+                addHS.newLine()
+                addHS.close()
             } else {
                 println("Files already exists.")
             }
-            val addHS = BufferedWriter(FileWriter(AllDatas.highScores, true))
-            val csvHS = BufferedWriter(FileWriter(AllDatas.csvHighScores, true))
-            csvHS.write("Score" + "," + "Date & Time" + "," + "Game Timer" )
-            csvHS.newLine()
-            csvHS.close()
         } catch (e: IOException) {
             println("An error occurred.")
             e.printStackTrace()
@@ -252,8 +248,8 @@ class CardArea : ComponentActivity() {
             val formattedDateTime = currentDateTime.format(formatter)
             addHS.write( "Score: " + score.scoreTotal() + " " + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "   )
             addHS.newLine()
-            addHS.write("Total # of collections found: " + AllDatas.collectionHighScoring.toString() + ". Total amount of time playing: " + AllDatas.collectionTotalTime)
-            addHS.newLine()
+            // addHS.write("Total # of collections found: " + AllDatas.collectionHighScoring.toString() + ". Total amount of time playing: " + AllDatas.collectionTotalTime)
+            // addHS.newLine()
             addHS.close()
             csvHS.write( score.scoreTotal().toString() + "," + formattedDateTime + "," + AllDatas.gameTimeForm )
             csvHS.newLine()

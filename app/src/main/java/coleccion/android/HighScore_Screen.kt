@@ -1,11 +1,15 @@
 package coleccion.android
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
+import android.widget.Button
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.compose.ui.graphics.Color
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
@@ -16,18 +20,22 @@ import java.io.InputStreamReader
 class HighScore_Screen : ComponentActivity() {
 
     var maxScores: Int = 0
-
+    private lateinit var eButto4 : Button
 
     var fileName = "/data/data/coleccion.android/files/coleccionHighScores.csv"
     var file = File(fileName)
     var fileInputStream = FileInputStream(file)
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.highscore_screen)
 
         val tableLayout: TableLayout = findViewById(R.id.highscoren_layout)
+
+        eButto4 = findViewById(R.id.e_button4)
+        eButto4.setOnClickListener { returningHome2() }
 
 
 
@@ -44,8 +52,13 @@ class HighScore_Screen : ComponentActivity() {
             val headerRow2 = TableRow(this)
             for (columnName in columnNames2) {
                 val textView2 = createTextView(columnName)
+                textView2.setBackgroundColor(getColor(android.R.color.black))
+                textView2.setTextColor(getColor(android.R.color.white))
+                textView2.gravity = android.view.Gravity.CENTER
+                textView2.textSize = 20.toFloat()
                 headerRow2.addView(textView2)
             }
+            headerRow2.gravity = android.view.Gravity.CENTER
             tableLayout.addView(headerRow2)
 
             // Read data lines and create table rows
@@ -57,6 +70,7 @@ class HighScore_Screen : ComponentActivity() {
                     val textView = createTextView(value)
                     dataRow2.addView(textView)
                 }
+                dataRow2.gravity = android.view.Gravity.CENTER
                 tableLayout.addView(dataRow2)
 
                 line2 = reader2.readLine()
@@ -76,8 +90,16 @@ class HighScore_Screen : ComponentActivity() {
     private fun createTextView(text: String): TextView {
         val textView = TextView(this)
         textView.text = text
-        textView.setPadding(8, 8, 8, 8)
+        textView.setPadding(10, 10, 10, 10)
+        textView.gravity = android.view.Gravity.CENTER
+        textView.textSize = 15.toFloat()
         return textView
+    }
+
+    fun returningHome2() {
+        val intent1 = Intent(this, Entry_Screen::class.java)
+        finish()
+        startActivity(intent1)
     }
 
 
