@@ -53,6 +53,10 @@
             android:name=".Help_Screen2"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
+        <activity
+            android:name=".TimerService"
+            android:theme="@android:style/Theme.NoTitleBar">>
+        </activity>
 
     </application>
 

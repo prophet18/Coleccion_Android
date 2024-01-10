@@ -68,6 +68,7 @@ class Settings : ComponentActivity() {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 gameTime2 = timeopts[position]
                 AllDatas.gameTimeInfo = gameTime2 * 1000
+                AllDatas.timeRemaining = (gameTime2 * 1000).toLong()
                 AllDatas.gameTimeForm = gameTime2
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}

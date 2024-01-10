@@ -1,10 +1,13 @@
 package coleccion.android
 
 import android.annotation.SuppressLint
+import android.content.ComponentName
 import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.IBinder
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.activity.ComponentActivity
@@ -14,6 +17,7 @@ class PauseScreen : ComponentActivity()  {
 
     private lateinit var eButto : Button
     private lateinit var resButto : ImageButton
+    var tService = TimerService()  ;                var isServiceBound : Boolean = false
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,28 +27,32 @@ class PauseScreen : ComponentActivity()  {
         eButto = findViewById(R.id.e_button)
         resButto = findViewById(R.id.resume_button)
 
-        eButto.setOnClickListener { finish() }
+        eButto.setOnClickListener { backToMains() }
 
         resButto.setOnClickListener { tryTime() }
 
     }
 
     fun tryTime() {
+
         AllDatas.timers = object : CountDownTimer(AllDatas.timeRemaining, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                AllDatas.timeRemaining = millisUntilFinished / 1000
+                AllDatas.timeRemaining = millisUntilFinished
             }
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
-                AllDatas.timeRemaining = 0
                 finish()
             }
         }
-        AllDatas.isTimerRunning = true
         (AllDatas.timers as CountDownTimer).start()
 
-        val intent6 = Intent(this, CardArea::class.java)
-        startActivity(intent6)
+        finish()
+    }
+    fun backToMains() {
+        val intent8 = Intent(this, Entry_Screen::class.java)
+        startActivity(intent8)
         finish()
     }
 }
+
+

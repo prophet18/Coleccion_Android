@@ -1,64 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"
-    android:padding="5dp"
-    android:background="@drawable/starfieldsimulation">
+    android:padding="5dp">
 
-    <ImageView
-        android:id="@+id/collection_logo2"
-        android:contentDescription="Game (Coleccion) Logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/collection_logo_2" />
-
-    <Space
-        android:layout_width="20dp"
-        android:layout_height="20dp" />
-
-    <TextView
-        android:id="@+id/score_value2"
-        android:contentDescription="Game Score"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:paddingEnd="10dp"
-        android:layout_weight="1"
-        android:text="Score"
-        android:background="@color/white" />
-
-    <Space
-        android:layout_width="20dp"
-        android:layout_height="20dp" />
-
-    <TextView
-        android:id="@+id/time_value2"
-        android:contentDescription="Game Time Left (Seconds)"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:paddingStart="10dp"
-        android:layout_weight="1"
-        android:text="Time"
-        android:background="@color/white" />
-
-    <Space
-        android:layout_width="20dp"
-        android:layout_height="20dp" />
-
-    <Button
-        android:id="@+id/exit_button2"
-        android:contentDescription="Exit Button"
+    <VideoView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Exit"
-        />
+        android:layout_height="match_parent"
+        android:id="@+id/dags1"
+        android:layout_centerInParent="true" />
 
-    <Space
-        android:layout_width="20dp"
-        android:layout_height="20dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
+        <ImageView
+            android:id="@+id/collection_logo2"
+            android:contentDescription="Game (Coleccion) Logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/collection_logo_2" />
 
-</LinearLayout>
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/score_value2"
+            android:contentDescription="Game Score"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:paddingEnd="10dp"
+            android:layout_weight="1"
+            android:text="Score"
+            android:background="@color/white" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/time_value2"
+            android:contentDescription="Game Time Left (Seconds)"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:paddingStart="10dp"
+            android:layout_weight="1"
+            android:text="Time"
+            android:background="@color/white" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/exit_button2"
+            android:contentDescription="Exit Button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Exit"
+            />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </LinearLayout>
+</RelativeLayout>

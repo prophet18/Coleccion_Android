@@ -50,7 +50,8 @@
                 android:scaleType="fitXY"
                 android:padding="5dp"
                 android:src="@drawable/resumebutton"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:onClick="onResumeButtonClick"/>
 
         </TableRow>
 
@@ -70,7 +71,7 @@
                 android:layout_height="60dp"
                 android:paddingStart="5dp"
                 android:layout_weight="1"
-                android:text="Exit Game" />
+                android:text="Exit to Main Menu" />
 
 
         </TableRow>
