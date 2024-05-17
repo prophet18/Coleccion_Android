@@ -37,9 +37,8 @@ class CardArea : ComponentActivity() {
     private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
-    var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout
+    var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout ;         private lateinit var rootView: ViewGroup
     private lateinit var pButts : ImageButton ;     private lateinit var pauseOverlay: View
-    private lateinit var rootView: ViewGroup
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,22 +51,7 @@ class CardArea : ComponentActivity() {
         rootView = findViewById(android.R.id.content)
         val inflater: LayoutInflater = layoutInflater
         pauseOverlay = inflater.inflate(R.layout.pause_layout, rootView, false)
-
-
-
         startTimer()
-
-
-        // AllDatas.launchTime(AllDatas.gameTimeInfo.toLong())
-
-/*
-         ;
-        var setstring = settings.timtwo
-
-        var settings = Settings()
-        var setstring = settings.timtwo
-        tt = setstring!!.toInt()
-*/
 
         nucOne	= findViewById(R.id.card1) ;        nucTwo	= findViewById(R.id.card2) ;         nucThree = findViewById(R.id.card3);       pButts = findViewById(R.id.pause_button)
         nucFour	= findViewById(R.id.card4) ;        nucFive = findViewById(R.id.card5) ;         nucSix = findViewById(R.id.card6)
@@ -102,7 +86,6 @@ class CardArea : ComponentActivity() {
         buttons.get(11).gameImgBtn.setOnClickListener { cardWorks(11) } ; buttons.get(11).gameImgBtn.setImageResource(buttons.get(11).cImg)
 
         randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { onPause() }
-
     }
 
     fun makeDeck() {
@@ -121,9 +104,7 @@ class CardArea : ComponentActivity() {
             ii++
         }
     }
-
     fun cardWorks(wId: Int) {
-
         var nubu = buttons.get(wId)
 
         if (nubu.active == false) {
@@ -168,7 +149,6 @@ class CardArea : ComponentActivity() {
                 }
             }
             nubu.active == true
-
         } else {
             when (nca) {
                 1 -> {
@@ -228,7 +208,6 @@ class CardArea : ComponentActivity() {
             }
             (AllDatas.timers as CountDownTimer).start()
     }
-
     fun pauseTimer() {
         AllDatas.timers?.cancel()
         val intent5 = Intent(this, PauseScreen::class.java)
@@ -254,7 +233,6 @@ class CardArea : ComponentActivity() {
             e.printStackTrace()
         }
     }
-
     @RequiresApi(Build.VERSION_CODES.O)
     fun AddHighScore() {
         try {
@@ -279,45 +257,34 @@ class CardArea : ComponentActivity() {
         }
     }
 
-
     override fun onPause() {
         super.onPause()
-
         // Show the pause screen overlay
         showPauseScreen()
         AllDatas.timers?.cancel()
     }
-
     private fun showPauseScreen() {
         // Add the pause screen overlay to the root view
         if (rootView != null && pauseOverlay != null && pauseOverlay.parent == null) {
             rootView.addView(pauseOverlay)
         }
     }
-
     private fun hidePauseScreen() {
         // Remove the pause screen overlay from the root view
         if (rootView != null && pauseOverlay != null && pauseOverlay.parent != null) {
             (pauseOverlay.parent as? ViewGroup)?.removeView(pauseOverlay)
         }
     }
-
     override fun onResume() {
         super.onResume()
-
         // Hide the pause screen overlay when the activity is resumed
         hidePauseScreen()
     }
-
     fun onResumeButtonClick(view: View) {
-
         startTimer()
         // Handle the resume action here
         hidePauseScreen() // You might want to hide the pause screen
         // Add any additional actions you need when the game is resumed
     }
-
-
-
 
 }
