@@ -7,11 +7,9 @@ package coleccion.android
 
 import android.annotation.SuppressLint
 import java.util.Stack
-import kotlin.math.floor
 
 class ScorePile : Stack<Card>() {
 
-<<<<<<< Updated upstream
     var numCard:Int = 0 ; var numMatch:Int = 0;
     var numMatching:String = " "; lateinit var card:Card;
 
@@ -20,20 +18,15 @@ class ScorePile : Stack<Card>() {
             numMatch = 0
         }
 
-=======
-    private var numCard : Int = 0
-    private var numMatch : Int = 0
-    private var numMatching : String = " "
->>>>>>> Stashed changes
         fun scoreTotal(): Int {
             numCard = size
-            numMatch = floor((numCard / 3).toDouble()).toInt()
+            numMatch = Math.floor((numCard / 3).toDouble()).toInt()
             return numMatch
         }
-        fun scoreFinal(): String {
+        fun scoreFinal(): String? {
             numCard = size
-            numMatch = floor((numCard / 3).toDouble()).toInt()
-            numMatching = numMatch.toString()
+            numMatch = Math.floor((numCard / 3).toDouble()).toInt()
+            numMatching = Integer.toString(numMatch)
             return numMatching
         }
 }

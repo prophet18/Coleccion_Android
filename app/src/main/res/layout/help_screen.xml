@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/question_mark_uno"
     android:id="@+id/helps_layout"
-    tools:context=".HelpScreen">
+    tools:context=".Help_Screen">
 
     <LinearLayout
         android:orientation="vertical"

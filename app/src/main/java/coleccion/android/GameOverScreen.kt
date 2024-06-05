@@ -1,16 +1,19 @@
 package coleccion.android
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.media.Image
+import android.media.audiofx.DynamicsProcessing
+import android.net.Uri
 import android.os.Bundle
+import android.transition.Scene
+import android.view.TextureView
 import android.widget.Button
 import android.widget.TextView
+import android.widget.VideoView
 import androidx.activity.ComponentActivity
-<<<<<<< Updated upstream
 import com.google.firebase.annotations.concurrent.Background
 import java.io.FileInputStream
-=======
-import com.bumptech.glide.Glide
->>>>>>> Stashed changes
 
 
 class GameOverScreen : ComponentActivity() {
@@ -18,18 +21,11 @@ class GameOverScreen : ComponentActivity() {
     private lateinit var scoreReport: TextView
     private lateinit var timingReport: TextView
     private lateinit var backToEntry: Button
-<<<<<<< Updated upstream
     lateinit var scoreReport2 : String
     lateinit var timeReport2 : String
     lateinit var dagos2 : VideoView
 
     @SuppressLint("MissingInflatedId")
-=======
-    private lateinit var scoreReport2 : String
-    private lateinit var timeReport2 : String
-    private lateinit var dagos2 : ImageView
-
->>>>>>> Stashed changes
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_over_layout)
@@ -47,17 +43,16 @@ class GameOverScreen : ComponentActivity() {
         scoreReport2 = AllDatas.gameScoreInfo.toString()
         timeReport2 = AllDatas.gameTimeForm.toString()
 
-        scoreReport.text = scoreReport2
-        timingReport.text = timeReport2
+        scoreReport.setText(scoreReport2)
+        timingReport.setText(timeReport2)
 
-        backToEntry.setOnClickListener { returningHome() }         
+        backToEntry.setOnClickListener { returningHome() }
     }
 
-    private fun returningHome() {
-        val intent1 = Intent(this, EntryScreen::class.java)
-        startActivity(intent1)
+    fun returningHome() {
+        val intent1 = Intent(this, Entry_Screen::class.java)
         finish()
-        AllDatas.timeRemaining = 30000
+        startActivity(intent1)
     }
 
 }

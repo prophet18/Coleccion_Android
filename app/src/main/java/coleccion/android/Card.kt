@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream:app/src/main/java/coleccion/android/Card.kt
 package coleccion.android
-=======
-package coleccion.android.cards
->>>>>>> Stashed changes:app/src/main/java/coleccion/android/cards/Card.kt
 
 /*
     Similar to Card in original collection - class is created with necessary parameters / arguments.
@@ -29,6 +25,23 @@ class Card {
         number = num
         shape = sha
         fill = fil
+
+    }
+    init {
+
+    }
+}
+
+fun matchCheck(uno: Card, dos: Card, tres: Card): Boolean {
+    var first = uno
+    var second = dos
+    var third = tres
+    var theCheck = CheckMatch(first, second, third)
+
+    if (theCheck.matchCheck == true) {
+        return true
+    } else {
+        return false
     }
 }
 
@@ -49,4 +62,9 @@ class Cards {
     }
 }
 
+
  */
+
+
+
+

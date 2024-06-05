@@ -1,24 +1,30 @@
 package coleccion.android
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Spinner
+import android.widget.TableLayout
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 
 class Settings : ComponentActivity() {
 
-    private lateinit var spinning : Spinner
+    lateinit var spinning : Spinner 
     var bgChosen : ImageView? = null
+    var timtwo : String? = null 
     var backgrounds : Array<String> = emptyArray()
-    private var return2home : Button? = null
-    private var ppint : Int = 0
-    private var ppppint : Int = 0
-    private lateinit var spinning2 : Spinner
+    var return2home : Button? = null
+    var ppint : Int = 0
+    var ppppint : Int = 0
+    lateinit var spinning2 : Spinner
     var timeopts : Array<Int> = emptyArray()
     var bgSavings : String = "" 
     var gameTime2 : Int = 0
@@ -73,8 +79,8 @@ class Settings : ComponentActivity() {
         return2home!!.setOnClickListener { returningHome() }
     }
 
-    private fun returningHome() {
-        val intent1 = Intent(this, EntryScreen::class.java)
+    fun returningHome() {
+        val intent1 = Intent(this, Entry_Screen::class.java)
         finish()
         startActivity(intent1)
     }

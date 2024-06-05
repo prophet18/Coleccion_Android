@@ -3,11 +3,13 @@ package coleccion.android
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.compose.ui.graphics.Color
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
@@ -15,7 +17,7 @@ import java.io.IOException
 import java.io.InputStreamReader
 
 
-class HighScoreScreen : ComponentActivity() {
+class HighScore_Screen : ComponentActivity() {
 
     var maxScores: Int = 0
     private lateinit var eButto4 : Button
@@ -95,7 +97,7 @@ class HighScoreScreen : ComponentActivity() {
     }
 
     fun returningHome2() {
-        val intent1 = Intent(this, EntryScreen::class.java)
+        val intent1 = Intent(this, Entry_Screen::class.java)
         finish()
         startActivity(intent1)
     }

@@ -1,6 +1,5 @@
 package coleccion.android
 
-<<<<<<< Updated upstream
 import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Intent
@@ -12,21 +11,13 @@ import android.os.IBinder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-=======
-import android.content.Intent
-import android.os.Build
-import android.os.Bundle
-import android.os.CountDownTimer
->>>>>>> Stashed changes
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.ViewFlipper
 import androidx.activity.ComponentActivity
 import androidx.annotation.RequiresApi
-<<<<<<< Updated upstream
 import coleccion.android.TimerService.LocalBinder
 import java.io.BufferedWriter
 import java.io.FileWriter
@@ -34,28 +25,18 @@ import java.io.IOException
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-=======
-import coleccion.android.cards.Card
-import coleccion.android.cards.Deck
->>>>>>> Stashed changes
 
 class CardArea : ComponentActivity() {
 
-    var buttons = ArrayList<GameButton>();          var cardmap = HashMap<Int, Card>();             var uu: Int = 13 ;                              var yy: Int = 0
-    var deck = Deck();                         var cards = ArrayList<Card>();                  var score = ScorePile()
+    var buttons = ArrayList<GameButton>();          var cardmap = HashMap<Int, Card>();             var uu: Int = 13;                              var yy: Int = 0
+    var deck = CardStack();                         var cards = ArrayList<Card>();                  var score = ScorePile()
     var nca: Int = 0;                               var ii: Int = 0;                                var buttonmap = HashMap<Int, GameButton>()
-<<<<<<< Updated upstream
     var imageButtons = ArrayList<ImageButton>();                                                    var imgsmap = HashMap<Int, ImageButton>()
     private lateinit var scoreValu: TextView;       private lateinit var timeValu: TextView ;       private lateinit var randButto : Button
-=======
-    var imageButtons = ArrayList<ImageButton>() ;   lateinit var timersss : GameTimer ;                var imgsmap = HashMap<Int, ImageButton>()
-    private lateinit var scoreValu: TextView ;      private lateinit var timeValu: TextView ;       private lateinit var randButto : Button
->>>>>>> Stashed changes
     private lateinit var nucOne	: ImageButton ;     private lateinit var nucTwo	: ImageButton ;     private lateinit var nucThree : ImageButton
     private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
-<<<<<<< Updated upstream
     var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout ;         private lateinit var rootView: ViewGroup
     private lateinit var pButts : ImageButton ;     private lateinit var pauseOverlay: View
 
@@ -63,32 +44,16 @@ class CardArea : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.board_layout)
-=======
-    lateinit var bgLinking : LinearLayout ;         private lateinit var pButts : ImageButton ;     private lateinit var viewFlip : ViewFlipper
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.play_layout)
-
-        viewFlip = findViewById(R.id.playFlipper)
->>>>>>> Stashed changes
 
         bgLinking = findViewById(R.id.board_layout2)
         bgLinking.setBackgroundResource(AllDatas.boardBGdrawable)
 
-<<<<<<< Updated upstream
         rootView = findViewById(android.R.id.content)
         val inflater: LayoutInflater = layoutInflater
         pauseOverlay = inflater.inflate(R.layout.pause_layout, rootView, false)
         startTimer()
 
         nucOne	= findViewById(R.id.card1) ;        nucTwo	= findViewById(R.id.card2) ;         nucThree = findViewById(R.id.card3);       pButts = findViewById(R.id.pause_button)
-=======
-        // startTimer()
-        createCountDownTimer()
-
-        nucOne	= findViewById(R.id.card1) ;        nucTwo	= findViewById(R.id.card2) ;         nucThree = findViewById(R.id.card3);
->>>>>>> Stashed changes
         nucFour	= findViewById(R.id.card4) ;        nucFive = findViewById(R.id.card5) ;         nucSix = findViewById(R.id.card6)
         nucSeven	= findViewById(R.id.card7) ;    nucEight = findViewById(R.id.card8) ;        nucNine = findViewById(R.id.card9)
         nucTen	= findViewById(R.id.card10) ;       nucEleven	= findViewById(R.id.card11) ;    nucTwelve	= findViewById(R.id.card12)
@@ -100,15 +65,12 @@ class CardArea : ComponentActivity() {
         imageButtons.add(nucNine) ; imageButtons.add(nucTen) ; imageButtons.add(nucEleven) ; imageButtons.add(nucTwelve)
 
         makeDeck()
-<<<<<<< Updated upstream
 
         if (uu >= 140) {
             deck = CardStack()
             makeDeck()
             uu = 13
         }
-=======
->>>>>>> Stashed changes
 
         buttons.get(0).gameImgBtn.setOnClickListener { cardWorks(0) } ; buttons.get(0).gameImgBtn.setImageResource(buttons.get(0).cImg)
         buttons.get(1).gameImgBtn.setOnClickListener { cardWorks(1) } ; buttons.get(1).gameImgBtn.setImageResource(buttons.get(1).cImg)
@@ -204,17 +166,7 @@ class CardArea : ComponentActivity() {
                     nca--
                 }
             }
-<<<<<<< Updated upstream
             nubu.active == false
-=======
-            nubu.active = false
-        }
-
-        if (uu >= 140) {
-            deck = Deck()
-            makeDeck()
-            uu = 13
->>>>>>> Stashed changes
         }
     }
     fun solves() : Boolean {
@@ -233,20 +185,10 @@ class CardArea : ComponentActivity() {
             crcr++ }
         uu = uu + 12
         nca = 0
-<<<<<<< Updated upstream
-=======
-
-        if (uu >= 140) {
-            deck = Deck()
-            makeDeck()
-            uu = 13
-        }
->>>>>>> Stashed changes
     }
     fun startTimer() {
         val intent1 = Intent(this, GameOverScreen::class.java)
 
-<<<<<<< Updated upstream
             AllDatas.timers = object : CountDownTimer(AllDatas.timeRemaining, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     timeValu.setText("Seconds Left: " + (millisUntilFinished / 1000).toString())
@@ -260,28 +202,12 @@ class CardArea : ComponentActivity() {
                     AllDatas.timeRemaining = 0
                     CreateFile()
                     AddHighScore()
-=======
-            timersss = object : GameTimer(AllDatas.timeRemaining, 1000) {
-
-                override fun onTimerTick(millisUntilFinished: Long) {
-                    timeValu.text = (millisUntilFinished / 1000).toString()
-                    AllDatas.timeRemaining = millisUntilFinished
-                }
-                @RequiresApi(Build.VERSION_CODES.O)
-                override fun onTimerFinish() {
-                    AllDatas.collectionHighScoring = AllDatas.collectionHighScoring + AllDatas.gameScoreInfo
-                    AllDatas.collectionTotalTime = AllDatas.collectionTotalTime + AllDatas.gameTimeForm
-                    AllDatas.CreateFile()
-                    AllDatas.AddHighScore()
->>>>>>> Stashed changes
                     startActivity(intent1)
                     finish()
                 }
-
             }
-            timersss.start()
+            (AllDatas.timers as CountDownTimer).start()
     }
-<<<<<<< Updated upstream
     fun pauseTimer() {
         AllDatas.timers?.cancel()
         val intent5 = Intent(this, PauseScreen::class.java)
@@ -323,48 +249,14 @@ class CardArea : ComponentActivity() {
             csvHS.write( score.scoreTotal().toString() + "," + formattedDateTime + "," + AllDatas.gameTimeForm )
             csvHS.newLine()
             csvHS.close()
-=======
 
-    fun createCountDownTimer() {
-        val intent1 = Intent(this, GameOverScreen::class.java)
->>>>>>> Stashed changes
-
-        AllDatas.finalTimer = object : CountDownTimer(AllDatas.timeRemaining, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                AllDatas.timeRemaining = millisUntilFinished
-                timeValu.text = (millisUntilFinished / 1000).toString()
-
-            }
-            @RequiresApi(Build.VERSION_CODES.O)
-            override fun onFinish() {
-                AllDatas.collectionHighScoring = AllDatas.collectionHighScoring + AllDatas.gameScoreInfo
-                AllDatas.collectionTotalTime = AllDatas.collectionTotalTime + AllDatas.gameTimeForm
-                AllDatas.CreateFile()
-                AllDatas.AddHighScore()
-                startActivity(intent1)
-                finish()
-            }
-        }
-        AllDatas.finalTimer.start()
-    }
-
-    private fun switchToSecondaryLayout() {
-        viewFlip.showNext()
-
-        var timeValu4 : TextView = findViewById(R.id.time_valuing)
-
-        timeValu4.text = (AllDatas.timeRemaining / 1000).toString()
-
-        // Initialize the button to switch back to the main layout
-        val backButton: ImageButton = findViewById(R.id.resume_button)
-        backButton.setOnClickListener {
-            viewFlip.showPrevious()
-            createCountDownTimer()
-            // timersss.resume()
+            println("Successfully wrote to the file: " + AllDatas.highScores)
+        } catch (e: IOException) {
+            println("An error occurred.")
+            e.printStackTrace()
         }
     }
 
-<<<<<<< Updated upstream
     override fun onPause() {
         super.onPause()
         // Show the pause screen overlay
@@ -394,16 +286,5 @@ class CardArea : ComponentActivity() {
         hidePauseScreen() // You might want to hide the pause screen
         // Add any additional actions you need when the game is resumed
     }
-=======
-    fun onPaused() {
-        // timersss.pause()
-        AllDatas.finalTimer.cancel()
-        switchToSecondaryLayout()
-    }
-
-
-
-
->>>>>>> Stashed changes
 
 }

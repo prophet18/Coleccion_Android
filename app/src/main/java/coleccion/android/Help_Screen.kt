@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.ComponentActivity
 
-class HelpScreen : ComponentActivity() {
+class Help_Screen : ComponentActivity() {
 
     private lateinit var eButto2 : Button
     private lateinit var eButto22 : Button
@@ -22,12 +22,12 @@ class HelpScreen : ComponentActivity() {
         eButto22.setOnClickListener { nextHelp() }
     }
     fun returningHome() {
-        val intent1 = Intent(this, EntryScreen::class.java)
+        val intent1 = Intent(this, Entry_Screen::class.java)
         finish()
         startActivity(intent1)
     }
     fun nextHelp() {
-        val intent2 = Intent(this, HelpScreen2::class.java)
+        val intent2 = Intent(this, Help_Screen2::class.java)
         finish()
         startActivity(intent2)
     }

@@ -6,39 +6,38 @@ package coleccion.android
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 
-class EntryScreen : ComponentActivity() {
+
+class Entry_Screen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.entry_screen)
 
-        val ngButton = findViewById<ImageButton>(R.id.new_game_button)
-        val hsButton = findViewById<ImageButton>(R.id.high_score_button)
-        val setButton = findViewById<ImageButton>(R.id.settings_button)
-        val helpButton = findViewById<ImageButton>(R.id.help_button)
-        val exitButton = findViewById<ImageButton>(R.id.exit_button)
+        var ngButton = findViewById<ImageButton>(R.id.new_game_button)
+        var hsButton = findViewById<ImageButton>(R.id.high_score_button)
+        var setButton = findViewById<ImageButton>(R.id.settings_button)
+        var helpButton = findViewById<ImageButton>(R.id.help_button)
+        var exitButton = findViewById<Button>(R.id.exit_button)
 
         ngButton.setOnClickListener {
             val intent1 = Intent(this, CardArea::class.java)
             startActivity(intent1)
-            finish()
         }
         hsButton.setOnClickListener {
-            val intent2 = Intent(this, HighScoreScreen::class.java)
+            val intent2 = Intent(this, HighScore_Screen::class.java)
             startActivity(intent2)
-            finish()
         }
         setButton.setOnClickListener {
             val intent3 = Intent(this, Settings::class.java)
             startActivity(intent3)
-            finish()
         }
         helpButton.setOnClickListener {
-            val intent4 = Intent(this, HelpScreens::class.java)
+            val intent4 = Intent(this, Help_Screen::class.java)
             startActivity(intent4)
-            finish()
         }
         exitButton.setOnClickListener {
             finish()

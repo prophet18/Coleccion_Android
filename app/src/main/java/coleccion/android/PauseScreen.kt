@@ -16,28 +16,14 @@ import androidx.annotation.RequiresApi
 class PauseScreen : ComponentActivity()  {
 
     private lateinit var eButto : Button
-<<<<<<< Updated upstream
     private lateinit var resButto : ImageButton
     var tService = TimerService()  ;                var isServiceBound : Boolean = false
-=======
-    private lateinit var eButto2 : Button
-    lateinit var timer : GameTimer
-
-    private lateinit var timeValu3 : TextView
->>>>>>> Stashed changes
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pause_layout)
 
-<<<<<<< Updated upstream
-=======
-        timeValu3 = findViewById(R.id.time_valuing)
-
-
-        resButto = findViewById(R.id.resume_button)
->>>>>>> Stashed changes
         eButto = findViewById(R.id.e_button)
         resButto = findViewById(R.id.resume_button)
 
@@ -47,7 +33,6 @@ class PauseScreen : ComponentActivity()  {
 
     }
 
-<<<<<<< Updated upstream
     fun tryTime() {
 
         AllDatas.timers = object : CountDownTimer(AllDatas.timeRemaining, 1000) {
@@ -63,11 +48,8 @@ class PauseScreen : ComponentActivity()  {
 
         finish()
     }
-=======
-
->>>>>>> Stashed changes
     fun backToMains() {
-        val intent8 = Intent(this, EntryScreen::class.java)
+        val intent8 = Intent(this, Entry_Screen::class.java)
         startActivity(intent8)
         finish()
     }
