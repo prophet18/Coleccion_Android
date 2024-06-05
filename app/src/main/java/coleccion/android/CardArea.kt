@@ -33,7 +33,7 @@ class CardArea : ComponentActivity() {
     private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
-    var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout
+    lateinit var bgLinking : LinearLayout
     private lateinit var pButts : ImageButton ;
 
     @SuppressLint("SetTextI18n")
@@ -272,7 +272,7 @@ class CardArea : ComponentActivity() {
     }
 
 
-    
+
 
 
 
