@@ -29,7 +29,7 @@ class Help_Screen2 : ComponentActivity() {
     }
 
     fun returningHome() {
-        val intent1 = Intent(this, Entry_Screen::class.java)
+        val intent1 = Intent(this, EntryScreen::class.java)
         finish()
         startActivity(intent1)
     }

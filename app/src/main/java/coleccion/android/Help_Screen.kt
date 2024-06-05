@@ -22,7 +22,7 @@ class Help_Screen : ComponentActivity() {
         eButto22.setOnClickListener { nextHelp() }
     }
     fun returningHome() {
-        val intent1 = Intent(this, Entry_Screen::class.java)
+        val intent1 = Intent(this, EntryScreen::class.java)
         finish()
         startActivity(intent1)
     }

@@ -15,7 +15,7 @@
         tools:targetApi="34">
 
         <activity
-            android:name=".Entry_Screen"
+            android:name=".EntryScreen"
             android:theme="@android:style/Theme.NoTitleBar"
             android:exported="true"
             >
@@ -38,7 +38,7 @@
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
         <activity
-            android:name=".HighScore_Screen"
+            android:name=".HighScoreScreen"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
         <activity
@@ -51,10 +51,6 @@
         </activity>
         <activity
             android:name=".Help_Screen2"
-            android:theme="@android:style/Theme.NoTitleBar">>
-        </activity>
-        <activity
-            android:name=".TimerService"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
 

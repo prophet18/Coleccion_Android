@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/helpFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/question_mark_dos"
+        android:id="@+id/helps_layout1"
+        tools:context=".HelpScreens" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:padding="1dp" >
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageView
+                    android:id="@+id/help_info111"
+                    android:contentDescription="@string/help_info_111"
+                    android:layout_width="400dp"
+                    android:layout_height="90dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/how_2_play_icon1"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageView
+                    android:id="@+id/help_info3"
+                    android:contentDescription="@string/help_logo"
+                    android:layout_width="400dp"
+                    android:layout_height="300dp"
+                    android:src="@drawable/col_h2p3"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageView
+                    android:id="@+id/help_info4"
+                    android:contentDescription="@string/help_info_4"
+                    android:layout_width="230dp"
+                    android:layout_height="280dp"
+                    android:src="@drawable/cardhelpinfo1"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp"
+                android:layout_width="400dp"
+                android:layout_height="100dp">
+                <ImageButton
+                    android:id="@+id/e_button2"
+                    android:contentDescription="@string/exit_button"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:src="@drawable/back_2_menu2" />
+                <ImageButton
+                    android:id="@+id/e_button22"
+                    android:contentDescription="@string/next_button"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:src="@drawable/nextpage1" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/question_mark_uno"
+        android:id="@+id/helps_layout2"
+        tools:context=".HelpScreens" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageView
+                    android:id="@+id/help_info2"
+                    android:contentDescription="@string/help_logo"
+                    android:layout_width="400dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/col_h2p2"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageView
+                    android:id="@+id/help_info11"
+                    android:contentDescription="@string/help_info_4"
+                    android:layout_width="400dp"
+                    android:layout_height="530dp"
+                    android:src="@drawable/col_h2p4"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp"
+                android:layout_width="400dp"
+                android:layout_height="100dp">
+                <ImageButton
+                    android:id="@+id/e_button3"
+                    android:contentDescription="@string/back_to_help_1"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:src="@drawable/previouspage1" />
+                <ImageButton
+                    android:id="@+id/e_button33"
+                    android:contentDescription="@string/exit_button"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:src="@drawable/back_2_menu1" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</ViewFlipper>

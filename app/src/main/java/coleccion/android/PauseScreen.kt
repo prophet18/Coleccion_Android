@@ -1,13 +1,10 @@
 package coleccion.android
 
 import android.annotation.SuppressLint
-import android.content.ComponentName
 import android.content.Intent
-import android.content.ServiceConnection
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.IBinder
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.activity.ComponentActivity
@@ -17,7 +14,6 @@ class PauseScreen : ComponentActivity()  {
 
     private lateinit var eButto : Button
     private lateinit var resButto : ImageButton
-    var tService = TimerService()  ;                var isServiceBound : Boolean = false
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +45,7 @@ class PauseScreen : ComponentActivity()  {
         finish()
     }
     fun backToMains() {
-        val intent8 = Intent(this, Entry_Screen::class.java)
+        val intent8 = Intent(this, EntryScreen::class.java)
         startActivity(intent8)
         finish()
     }

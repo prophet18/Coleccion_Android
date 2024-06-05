@@ -2,10 +2,8 @@ package coleccion.android
 
 import java.util.Stack
 
-class Deck {
+class Deck : Stack<Card>() {
 
-    var numNum = 0
-    val decks = arrayOf<Card>()
     val decking = ArrayDeque<Card>()
 
     val bP1 = Card("Blue", 1, "Parallelogram", "Solid", R.drawable.colecci_n_blue_parallelogram_1)
@@ -328,14 +326,6 @@ class Deck {
 
     // constructor (iV : Int) {}
 
-
-fun getCard2(): Card {
-    val deck = Deck()
-    val decking = deck.decking
-    var card = decking.first()
-    decking.removeFirst()
-    return card
-}
 
 
 /*

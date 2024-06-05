@@ -8,11 +8,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 
 
-class Entry_Screen : ComponentActivity() {
+class EntryScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.entry_screen)
@@ -28,7 +27,7 @@ class Entry_Screen : ComponentActivity() {
             startActivity(intent1)
         }
         hsButton.setOnClickListener {
-            val intent2 = Intent(this, HighScore_Screen::class.java)
+            val intent2 = Intent(this, HighScoreScreen::class.java)
             startActivity(intent2)
         }
         setButton.setOnClickListener {
