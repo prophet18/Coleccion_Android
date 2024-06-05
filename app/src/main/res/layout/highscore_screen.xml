@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/screensaver_solarwinds"
     android:id="@+id/hsscreen_layout"
-    tools:context=".HighScore_Screen" >
+    tools:context=".HighScoreScreen" >
 
     <ImageView
         android:id="@+id/hScores"

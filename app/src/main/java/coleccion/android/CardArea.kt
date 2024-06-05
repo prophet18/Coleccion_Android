@@ -1,13 +1,10 @@
 package coleccion.android
 
 import android.annotation.SuppressLint
-import android.content.ComponentName
 import android.content.Intent
-import android.content.ServiceConnection
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.IBinder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +15,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.annotation.RequiresApi
-import coleccion.android.TimerService.LocalBinder
 import java.io.BufferedWriter
 import java.io.FileWriter
 import java.io.IOException
@@ -38,8 +34,7 @@ class CardArea : ComponentActivity() {
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
     var bgChoice = AllDatas.boardBGinfo ;           lateinit var bgLinking : LinearLayout
-    private lateinit var pButts : ImageButton ;     private lateinit var pauseOverlay: View
-    private lateinit var rootView: ViewGroup
+    private lateinit var pButts : ImageButton ;
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,9 +44,6 @@ class CardArea : ComponentActivity() {
         bgLinking = findViewById(R.id.board_layout2)
         bgLinking.setBackgroundResource(AllDatas.boardBGdrawable)
 
-        rootView = findViewById(android.R.id.content)
-        val inflater: LayoutInflater = layoutInflater
-        pauseOverlay = inflater.inflate(R.layout.pause_layout, rootView, false)
 
 
 
@@ -280,42 +272,7 @@ class CardArea : ComponentActivity() {
     }
 
 
-    override fun onPause() {
-        super.onPause()
-
-        // Show the pause screen overlay
-        showPauseScreen()
-        AllDatas.timers?.cancel()
-    }
-
-    private fun showPauseScreen() {
-        // Add the pause screen overlay to the root view
-        if (rootView != null && pauseOverlay != null && pauseOverlay.parent == null) {
-            rootView.addView(pauseOverlay)
-        }
-    }
-
-    private fun hidePauseScreen() {
-        // Remove the pause screen overlay from the root view
-        if (rootView != null && pauseOverlay != null && pauseOverlay.parent != null) {
-            (pauseOverlay.parent as? ViewGroup)?.removeView(pauseOverlay)
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        // Hide the pause screen overlay when the activity is resumed
-        hidePauseScreen()
-    }
-
-    fun onResumeButtonClick(view: View) {
-
-        startTimer()
-        // Handle the resume action here
-        hidePauseScreen() // You might want to hide the pause screen
-        // Add any additional actions you need when the game is resumed
-    }
+    
 
 
 

@@ -10,7 +10,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ukrainelandscape"
     android:id="@+id/es_layout"
-    tools:context=".Entry_Screen">
+    tools:context=".EntryScreen">
 
     <LinearLayout
         android:orientation="vertical"

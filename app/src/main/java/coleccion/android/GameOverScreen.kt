@@ -2,18 +2,12 @@ package coleccion.android
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.Image
-import android.media.audiofx.DynamicsProcessing
 import android.net.Uri
 import android.os.Bundle
-import android.transition.Scene
-import android.view.TextureView
 import android.widget.Button
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.activity.ComponentActivity
-import com.google.firebase.annotations.concurrent.Background
-import java.io.FileInputStream
 
 
 class GameOverScreen : ComponentActivity() {
@@ -50,7 +44,7 @@ class GameOverScreen : ComponentActivity() {
     }
 
     fun returningHome() {
-        val intent1 = Intent(this, Entry_Screen::class.java)
+        val intent1 = Intent(this, EntryScreen::class.java)
         finish()
         startActivity(intent1)
     }
