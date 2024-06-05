@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -22,6 +21,7 @@
             android:gravity="center"
             android:layout_margin="1dp"
             android:padding="1dp">
+
             <ImageView
                 android:id="@+id/cologo1"
                 android:contentDescription="Resume Button"
@@ -42,6 +42,7 @@
             android:gravity="center"
             android:layout_margin="1dp"
             android:padding="1dp">
+
             <ImageButton
                 android:id="@+id/resume_button"
                 android:contentDescription="Resume Button"
@@ -50,8 +51,7 @@
                 android:scaleType="fitXY"
                 android:padding="5dp"
                 android:src="@drawable/resumebutton"
-                android:background="@android:color/transparent"
-                android:onClick="onResumeButtonClick"/>
+                android:background="@android:color/transparent"/>
 
         </TableRow>
 

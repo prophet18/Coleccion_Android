@@ -64,7 +64,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.activity:activity-ktx:1.8.1")
     implementation("com.google.firebase:firebase-components:17.1.5")
     implementation("androidx.core:core-ktx:+")

@@ -15,10 +15,16 @@
         tools:targetApi="34">
 
         <activity
+<<<<<<< Updated upstream
             android:name=".Entry_Screen"
             android:theme="@android:style/Theme.NoTitleBar"
             android:exported="true"
             >
+=======
+            android:name=".EntryScreen"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:exported="true">
+>>>>>>> Stashed changes
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +33,11 @@
         </activity>
         <activity
             android:name=".CardArea"
+<<<<<<< Updated upstream
             android:theme="@android:style/Theme.NoTitleBar">>
+=======
+            android:theme="@android:style/Theme.NoTitleBar">
+>>>>>>> Stashed changes
         </activity>
         <activity
             android:name=".Settings"
@@ -38,14 +48,21 @@
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
         <activity
+<<<<<<< Updated upstream
             android:name=".HighScore_Screen"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
+=======
+            android:name=".HighScoreScreen"
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+>>>>>>> Stashed changes
         <activity
             android:name=".PauseScreen"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
         <activity
+<<<<<<< Updated upstream
             android:name=".Help_Screen"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
@@ -57,6 +74,18 @@
             android:name=".TimerService"
             android:theme="@android:style/Theme.NoTitleBar">>
         </activity>
+=======
+            android:name=".HelpScreens"
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <activity
+            android:name=".HelpScreen"
+            android:theme="@android:style/Theme.NoTitleBar" />
+
+        <activity
+            android:name=".HelpScreen2"
+            android:theme="@android:style/Theme.NoTitleBar" />
+>>>>>>> Stashed changes
 
     </application>
 
