@@ -5,12 +5,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
-<<<<<<< Updated upstream
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-=======
->>>>>>> Stashed changes
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -19,15 +13,6 @@ import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.activity.ComponentActivity
 import androidx.annotation.RequiresApi
-<<<<<<< Updated upstream
-import java.io.BufferedWriter
-import java.io.FileWriter
-import java.io.IOException
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-
-=======
->>>>>>> Stashed changes
 
 class CardArea : ComponentActivity() {
 
@@ -40,13 +25,8 @@ class CardArea : ComponentActivity() {
     private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
-<<<<<<< Updated upstream
-    lateinit var bgLinking : LinearLayout
-    private lateinit var pButts : ImageButton ;
-=======
     lateinit var bgLinking : LinearLayout ; private lateinit var rButts : ImageButton
     private lateinit var pButts : ImageButton ; private lateinit var viewFlip : ViewFlipper
->>>>>>> Stashed changes
 
     @SuppressLint("SetTextI18n", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,25 +38,6 @@ class CardArea : ComponentActivity() {
         bgLinking = findViewById(R.id.board_layout2)
         bgLinking.setBackgroundResource(AllDatas.boardBGdrawable)
 
-<<<<<<< Updated upstream
-
-
-
-        startTimer()
-=======
->>>>>>> Stashed changes
-
-
-        // AllDatas.launchTime(AllDatas.gameTimeInfo.toLong())
-
-/*
-         ;
-        var setstring = settings.timtwo
-
-        var settings = Settings()
-        var setstring = settings.timtwo
-        tt = setstring!!.toInt()
-*/
 
         nucOne	= findViewById(R.id.card1) ;        nucTwo	= findViewById(R.id.card2) ;         nucThree = findViewById(R.id.card3);       pButts = findViewById(R.id.pause_button)
         nucFour	= findViewById(R.id.card4) ;        nucFive = findViewById(R.id.card5) ;         nucSix = findViewById(R.id.card6)
@@ -106,12 +67,7 @@ class CardArea : ComponentActivity() {
         buttons.get(10).gameImgBtn.setOnClickListener { cardWorks(10) } ; buttons.get(10).gameImgBtn.setImageResource(buttons.get(10).cImg)
         buttons.get(11).gameImgBtn.setOnClickListener { cardWorks(11) } ; buttons.get(11).gameImgBtn.setImageResource(buttons.get(11).cImg)
 
-<<<<<<< Updated upstream
-        randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { onPause() }
-
-=======
         randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { onPaused() } ; rButts.setOnClickListener { onResumed() }
->>>>>>> Stashed changes
     }
 
     fun makeDeck() {
@@ -130,14 +86,8 @@ class CardArea : ComponentActivity() {
             ii++
         }
     }
-
     fun cardWorks(wId: Int) {
-<<<<<<< Updated upstream
-
-        var nubu = buttons.get(wId)
-=======
         val nubu = buttons.get(wId)
->>>>>>> Stashed changes
 
         if (nubu.active == false) {
             nca++
@@ -181,12 +131,7 @@ class CardArea : ComponentActivity() {
                     nuDeck()
                 }
             }
-<<<<<<< Updated upstream
-            nubu.active == true
-
-=======
             nubu.active
->>>>>>> Stashed changes
         } else {
             when (nca) {
                 1 -> {
@@ -238,58 +183,6 @@ class CardArea : ComponentActivity() {
                 AllDatas.timeRemaining = millisUntilFinished
                 timeValu.text = (millisUntilFinished / 1000).toString()
             }
-<<<<<<< Updated upstream
-            (AllDatas.timers as CountDownTimer).start()
-    }
-
-    fun pauseTimer() {
-        AllDatas.timers?.cancel()
-        val intent5 = Intent(this, PauseScreen::class.java)
-        startActivity(intent5)
-    }
-    fun CreateFile() {
-        try {
-            if (AllDatas.highScores!!.createNewFile() && AllDatas.csvHighScores!!.createNewFile()) {
-                System.out.println("Files created ")
-                val addHS = BufferedWriter(FileWriter(AllDatas.highScores, true))
-                val csvHS = BufferedWriter(FileWriter(AllDatas.csvHighScores, true))
-                csvHS.write(" Score " + "," + " Date & Time " + "," + " Game Duration " )
-                csvHS.newLine()
-                csvHS.close()
-                addHS.write(" Score " + " " + " Date & Time " + " " + " Game Duration " )
-                addHS.newLine()
-                addHS.close()
-            } else {
-                println("Files already exists.")
-            }
-        } catch (e: IOException) {
-            println("An error occurred.")
-            e.printStackTrace()
-        }
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun AddHighScore() {
-        try {
-            val addHS = BufferedWriter(FileWriter(AllDatas.highScores, true))
-            val csvHS = BufferedWriter(FileWriter(AllDatas.csvHighScores, true))
-            val currentDateTime = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm")
-            val formattedDateTime = currentDateTime.format(formatter)
-            addHS.write( "Score: " + score.scoreTotal() + " " + " on " + formattedDateTime + " in " + AllDatas.gameTimeForm + " seconds. "   )
-            addHS.newLine()
-            // addHS.write("Total # of collections found: " + AllDatas.collectionHighScoring.toString() + ". Total amount of time playing: " + AllDatas.collectionTotalTime)
-            // addHS.newLine()
-            addHS.close()
-            csvHS.write( score.scoreTotal().toString() + "," + formattedDateTime + "," + AllDatas.gameTimeForm )
-            csvHS.newLine()
-            csvHS.close()
-
-            println("Successfully wrote to the file: " + AllDatas.highScores)
-        } catch (e: IOException) {
-            println("An error occurred.")
-            e.printStackTrace()
-=======
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
                 AllDatas.collectionHighScoring = AllDatas.collectionHighScoring + AllDatas.gameScoreInfo
@@ -299,23 +192,14 @@ class CardArea : ComponentActivity() {
                 startActivity(intent1)
                 finish()
             }
->>>>>>> Stashed changes
         }
         AllDatas.finalTimer.start()
     }
 
-<<<<<<< Updated upstream
-
-
-
-
-
-=======
     fun onPaused() {
         AllDatas.finalTimer.cancel()
         viewFlip.showNext()
     }
->>>>>>> Stashed changes
 
     fun onResumed() {
         createCountDownTimer()
