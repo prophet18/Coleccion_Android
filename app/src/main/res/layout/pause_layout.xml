@@ -6,37 +6,38 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ukrainelandscape"
+    android:background="@drawable/coleccion_background_p_grid_1"
     android:id="@+id/pscreen_layout"
     tools:context=".PauseScreen" >
-
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:padding="5dp"
-        android:id="@+id/highscoren_layout" >
+        android:id="@+id/pscreen2_layout" >
+
+        <Space
+            android:layout_height="40dp" />
 
         <TableRow
             android:gravity="center"
             android:layout_margin="1dp"
-            android:padding="1dp">
+            android:padding="1dp" >
             <ImageView
                 android:id="@+id/cologo1"
-                android:contentDescription="Resume Button"
+                android:contentDescription="@string/coleccion_logo"
                 android:layout_width="400dp"
-                android:layout_height="90dp"
+                android:layout_height="80dp"
                 android:scaleType="fitXY"
-                android:padding="5dp"
-                android:src="@drawable/collection_logo_1"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:src="@drawable/coleccion_logo_b"
                 android:background="@android:color/transparent"/>
-
         </TableRow>
 
         <Space
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="70dp" />
 
         <TableRow
             android:gravity="center"
@@ -44,36 +45,52 @@
             android:padding="1dp">
             <ImageButton
                 android:id="@+id/resume_button"
-                android:contentDescription="Resume Button"
-                android:layout_width="280dp"
-                android:layout_height="90dp"
+                android:contentDescription="@string/resume_button"
+                android:layout_width="380dp"
+                android:layout_height="120dp"
                 android:scaleType="fitXY"
-                android:padding="5dp"
-                android:src="@drawable/resumebutton"
-                android:background="@android:color/transparent"
-                android:onClick="onResumeButtonClick"/>
-
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:src="@drawable/resume_parallelogram"
+                android:background="@android:color/transparent"/>
         </TableRow>
 
         <Space
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="50dp" />
 
         <TableRow
             android:gravity="center"
             android:layout_margin="1dp"
             android:padding="1dp">
-
-            <Button
+            <ImageButton
                 android:id="@+id/e_button"
-                android:contentDescription="Exit Button"
-                android:layout_width="180dp"
-                android:layout_height="60dp"
-                android:paddingStart="5dp"
-                android:layout_weight="1"
-                android:text="Exit to Main Menu" />
+                android:contentDescription="@string/exit_button"
+                android:layout_width="280dp"
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:src="@drawable/exit_to_menu_triangle"
+                android:background="@android:color/transparent" />
+        </TableRow>
 
+        <Space
+            android:layout_height="60dp" />
 
+        <TableRow
+            android:gravity="center"
+            android:layout_margin="1dp"
+            android:padding="1dp">
+            <ImageButton
+                android:id="@+id/e_button2"
+                android:contentDescription="@string/exit_button"
+                android:layout_width="280dp"
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:src="@drawable/exit_game_semicircle"
+                android:background="@android:color/transparent" />
         </TableRow>
 
     </TableLayout>

@@ -8,62 +8,57 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/coleccion_icon_2"
+        android:icon="@drawable/coleccion_icon_3"
         android:label="Coleccion"
-
         android:supportsRtl="true"
         tools:targetApi="34">
 
         <activity
             android:name=".EntryScreen"
             android:theme="@android:style/Theme.NoTitleBar"
-            android:exported="true"
-            >
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".CardArea"
-            android:theme="@android:style/Theme.NoTitleBar">>
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+
         <activity
             android:name=".Settings"
-            android:theme="@android:style/Theme.NoTitleBar">>
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+
         <activity
             android:name=".GameOverScreen"
-            android:theme="@android:style/Theme.NoTitleBar">>
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+
         <activity
             android:name=".HighScoreScreen"
-            android:theme="@android:style/Theme.NoTitleBar">>
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+
         <activity
             android:name=".PauseScreen"
-            android:theme="@android:style/Theme.NoTitleBar">>
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+
         <activity
             android:name=".Help_Screen"
-            android:theme="@android:style/Theme.NoTitleBar">>
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+
         <activity
             android:name=".Help_Screen2"
-            android:theme="@android:style/Theme.NoTitleBar">>
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
 
     </application>
 
 </manifest>
 
-<!--
-deck = CardStack()
-
-android:label="@string/app_name"
-
-android:theme="@style/Theme.Coleccion_Android"
-
-android:roundIcon="@drawable/coleccion_icon_2"
--->

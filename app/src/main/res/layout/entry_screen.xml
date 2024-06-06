@@ -1,41 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- XML setup and organization of items on the entry screen. -->
+<!-- XML setup and organization of items on the entry screen.
+    412 x 915 dp -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ukrainelandscape"
+    android:background="@drawable/coleccion_background_p_spiral_1"
     android:id="@+id/es_layout"
-    tools:context=".EntryScreen">
+    tools:context=".EntryScreen" >
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="1dp"
-        android:padding="1dp">
+        android:padding="1dp" >
 
         <ImageView
             android:id="@+id/collection_logo"
-            android:contentDescription="Game (Coleccion) Logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:contentDescription="@string/coleccion_logo"
+            android:layout_width="390dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
             android:src="@drawable/collection_logo_2" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
 
         <ImageButton
             android:id="@+id/new_game_button"
-            android:contentDescription="New Game Button"
-            android:layout_width="390dp"
+            android:contentDescription="@string/new_game_button"
+            android:layout_width="380dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:src="@drawable/newgamebtn2"
-            android:background="@android:color/transparent"
-            android:onClick="newGame"/>
+            android:src="@drawable/new_game_parallelogram"
+            android:background="@android:color/transparent" />
 
         <Space
             android:layout_width="20dp"
@@ -43,12 +47,12 @@
 
         <ImageButton
             android:id="@+id/high_score_button"
-            android:contentDescription="High Score Button"
-            android:layout_width="390dp"
+            android:contentDescription="@string/high_score_button"
+            android:layout_width="370dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:src="@drawable/highscorebtn2"
+            android:src="@drawable/high_scores_triangle"
             android:background="@android:color/transparent" />
 
         <Space
@@ -57,12 +61,12 @@
 
         <ImageButton
             android:id="@+id/settings_button"
-            android:contentDescription="Settings Button"
-            android:layout_width="390dp"
+            android:contentDescription="@string/settings_button"
+            android:layout_width="330dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:src="@drawable/settingsbtn2"
+            android:src="@drawable/settings_semicircle"
             android:background="@android:color/transparent" />
 
         <Space
@@ -71,25 +75,27 @@
 
         <ImageButton
             android:id="@+id/help_button"
-            android:contentDescription="Help Button"
+            android:contentDescription="@string/help_button"
             android:layout_width="390dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
-            android:src="@drawable/helpbtn2"
+            android:src="@drawable/help_rectangle"
             android:background="@android:color/transparent" />
 
         <Space
             android:layout_width="20dp"
             android:layout_height="20dp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/exit_button"
-            android:contentDescription="Exit Button"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Exit"
-            />
+            android:contentDescription="@string/exit_button"
+            android:layout_width="390dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/exit_pentagon"
+            android:background="@android:color/transparent" />
 
     </LinearLayout>
 
