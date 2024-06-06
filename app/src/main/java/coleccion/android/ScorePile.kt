@@ -5,28 +5,25 @@ package coleccion.android
     Functions for ScorePile include calculations for number of matches and cards, and reporting them.
 */
 
-import android.annotation.SuppressLint
 import java.util.Stack
+import kotlin.math.floor
 
 class ScorePile : Stack<Card>() {
 
-    var numCard:Int = 0 ; var numMatch:Int = 0;
-    var numMatching:String = " "; lateinit var card:Card;
+    private var numCard : Int = 0
+    private var numMatch : Int = 0
+    private var numMatching : String = " "
 
-        fun ScorePile() {
-            numCard = 0
-            numMatch = 0
-        }
+    fun scoreTotal(): Int {
+        numCard = size
+        numMatch = floor((numCard / 3).toDouble()).toInt()
+        return numMatch
+    }
 
-        fun scoreTotal(): Int {
-            numCard = size
-            numMatch = Math.floor((numCard / 3).toDouble()).toInt()
-            return numMatch
-        }
-        fun scoreFinal(): String? {
-            numCard = size
-            numMatch = Math.floor((numCard / 3).toDouble()).toInt()
-            numMatching = Integer.toString(numMatch)
-            return numMatching
-        }
+    fun scoreFinal(): String {
+        numCard = size
+        numMatch = floor((numCard / 3).toDouble()).toInt()
+        numMatching = numMatch.toString()
+        return numMatching
+    }
 }

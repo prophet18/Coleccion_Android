@@ -40,7 +40,11 @@
 
         <activity
             android:name=".HighScoreScreen"
+<<<<<<< Updated upstream
             android:theme="@android:style/Theme.NoTitleBar">
+=======
+            android:theme="@android:style/Theme.NoTitleBar">>
+>>>>>>> Stashed changes
         </activity>
 
         <activity
@@ -54,9 +58,16 @@
         </activity>
 
         <activity
+<<<<<<< Updated upstream
             android:name=".HelpScreen2"
             android:theme="@android:style/Theme.NoTitleBar">
         </activity>
+=======
+            android:name=".Help_Screen2"
+            android:theme="@android:style/Theme.NoTitleBar">>
+        </activity>
+
+>>>>>>> Stashed changes
 
     </application>
 

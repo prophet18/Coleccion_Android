@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">Coleccion_Android</string>
+    <string name="exit_button">Leave Game</string>
+    <string name="help_button">Information</string>
+    <string name="settings_button">Game Options</string>
+    <string name="high_score_button">Top Results</string>
+    <string name="new_game_button">Find Coleccions</string>
+    <string name="game_coleccion_logo">Banner</string>
+    <string name="score_icon">Points</string>
+    <string name="timer_icon">Clock</string>
+    <string name="game_score">Point Count</string>
+    <string name="score">Score</string>
+    <string name="game_time_left_seconds">Clock Count</string>
+    <string name="time">Time</string>
+    <string name="pause_button">Break</string>
+    <string name="randomize_button">Swap</string>
+    <string name="randomize_cards">Randomize Cards</string>
+    <string name="coleccion_logo">Game Header</string>
+    <string name="card_one">Card One</string>
+    <string name="card_two">Card Two</string>
+    <string name="card_three">Card Three</string>
+    <string name="card_four">Card Four</string>
+    <string name="card_five">Card Five</string>
+    <string name="card_six">Card Six</string>
+    <string name="card_seven">Card Seven</string>
+    <string name="card_eight">Card Eight</string>
+    <string name="card_nine">Card Nine</string>
+    <string name="card_ten">Card Ten</string>
+    <string name="card_eleven">Card Eleven</string>
+    <string name="card_twelve">Card Twelve</string>
+    <string name="resume_button">Back to Game</string>
+    <string name="help_info_111">Instructions I</string>
+    <string name="help_logo">Instructions Header</string>
+    <string name="help_info_4">Instructions II</string>
+    <string name="next_button">Next Button</string>
+    <string name="back_to_help_1">Back To help 1</string>
 </resources>

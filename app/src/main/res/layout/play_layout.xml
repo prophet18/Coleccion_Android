@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ViewFlipper
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/playFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CardArea"
+        android:id="@+id/board_layout2">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:id="@+id/board_layout3" >
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/score_icon"
+                    android:contentDescription="@string/score_icon"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:src="@drawable/scoreicon" />
+
+                <ImageView
+                    android:id="@+id/timer_icon"
+                    android:contentDescription="@string/timer_icon"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:src="@drawable/timericon" />
+
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <TextView
+                    android:id="@+id/score_value"
+                    android:contentDescription="@string/game_score"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/score" />
+
+                <TextView
+                    android:id="@+id/time_value"
+                    android:contentDescription="@string/game_time_left_seconds"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/time" />
+
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <ImageButton
+                    android:id="@+id/pause_button"
+                    android:contentDescription="@string/pause_button"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitXY"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/pauseicon"
+                    android:background="@android:color/transparent"/>
+
+                <ImageButton
+                    android:id="@+id/random_button"
+                    android:contentDescription="@string/randomize_button"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:layout_weight="1" />
+
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_width="1dp"
+                android:layout_margin="1dp">
+
+                <ImageButton
+                    android:id="@+id/card1"
+                    android:contentDescription="@string/card_one"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card2"
+                    android:contentDescription="@string/card_two"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card3"
+                    android:contentDescription="@string/card_three"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card4"
+                    android:contentDescription="@string/card_four"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+            </TableRow>
+
+            <TableRow
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/card5"
+                    android:contentDescription="@string/card_five"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card6"
+                    android:contentDescription="@string/card_six"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card7"
+                    android:contentDescription="@string/card_seven"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card8"
+                    android:contentDescription="@string/card_eight"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+            </TableRow>
+
+            <TableRow
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/card9"
+                    android:contentDescription="@string/card_nine"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card10"
+                    android:contentDescription="@string/card_ten"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card11"
+                    android:contentDescription="@string/card_eleven"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+                <ImageButton
+                    android:id="@+id/card12"
+                    android:contentDescription="@string/card_twelve"
+                    android:layout_width="0dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:padding="1dp"
+                    android:scaleType="fitXY" />
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ukrainelandscape"
+        android:id="@+id/pscreen_layout"
+        tools:context=".PauseScreen" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:id="@+id/pscreen2_layout" >
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/cologo1"
+                    android:contentDescription="@string/coleccion_logo"
+                    android:layout_width="400dp"
+                    android:layout_height="90dp"
+                    android:scaleType="fitXY"
+                    android:padding="5dp"
+                    android:src="@drawable/collection_logo_1"
+                    android:background="@android:color/transparent"/>
+
+            </TableRow>
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/timer_icon2"
+                    android:contentDescription="@string/timer_icon"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp" />
+
+                <TextView
+                    android:id="@+id/time_valuing"
+                    android:contentDescription="@string/game_time_left_seconds"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:layout_weight="1"
+                    android:text="@string/time" />
+
+            </TableRow>
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <ImageButton
+                    android:id="@+id/resume_button"
+                    android:contentDescription="@string/resume_button"
+                    android:layout_width="280dp"
+                    android:layout_height="90dp"
+                    android:scaleType="fitXY"
+                    android:padding="5dp"
+                    android:src="@drawable/resumebutton"
+                    android:background="@android:color/transparent"/>
+
+            </TableRow>
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <ImageButton
+                    android:id="@+id/e_button"
+                    android:contentDescription="@string/exit_button"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp" />
+
+            </TableRow>
+
+            <Space
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+
+                <ImageButton
+                    android:id="@+id/e_button2"
+                    android:contentDescription="@string/exit_button"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+</ViewFlipper>
