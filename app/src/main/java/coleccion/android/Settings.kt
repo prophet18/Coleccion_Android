@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Spinner
 import androidx.activity.ComponentActivity
@@ -14,11 +14,8 @@ class Settings : ComponentActivity() {
 
     lateinit var spinning : Spinner 
     var bgChosen : ImageView? = null
-    var timtwo : String? = null 
     var backgrounds : Array<String> = emptyArray()
-    var return2home : Button? = null
-    var ppint : Int = 0
-    var ppppint : Int = 0
+    var return2home : ImageButton? = null
     lateinit var spinning2 : Spinner
     var timeopts : Array<Int> = emptyArray()
     var bgSavings : String = "" 
@@ -69,7 +66,6 @@ class Settings : ComponentActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
 
-        ppppint = ppint
 
         return2home!!.setOnClickListener { returningHome() }
     }

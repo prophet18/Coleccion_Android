@@ -23,32 +23,10 @@ class PauseScreen : ComponentActivity()  {
         eButto = findViewById(R.id.e_button)
         resButto = findViewById(R.id.resume_button)
 
-        eButto.setOnClickListener { backToMains() }
 
-        resButto.setOnClickListener { tryTime() }
 
     }
 
-    fun tryTime() {
-
-        AllDatas.timers = object : CountDownTimer(AllDatas.timeRemaining, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                AllDatas.timeRemaining = millisUntilFinished
-            }
-            @RequiresApi(Build.VERSION_CODES.O)
-            override fun onFinish() {
-                finish()
-            }
-        }
-        (AllDatas.timers as CountDownTimer).start()
-
-        finish()
-    }
-    fun backToMains() {
-        val intent8 = Intent(this, EntryScreen::class.java)
-        startActivity(intent8)
-        finish()
-    }
 }
 
 

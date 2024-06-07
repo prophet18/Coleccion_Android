@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/van_gogh_starry_night">
+    android:background="@drawable/coleccion_background_p_z_1">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -14,7 +14,6 @@
         android:padding="1dp" >
 
         <Space
-            android:layout_width="10dp"
             android:layout_height="10dp" />
 
         <TableRow
@@ -24,7 +23,7 @@
 
             <ImageView
                 android:id="@+id/cologo2"
-                android:contentDescription="Coleccion Logo"
+                android:contentDescription="@string/game_coleccion_logo"
                 android:layout_width="390dp"
                 android:layout_height="90dp"
                 android:scaleType="fitXY"
@@ -33,7 +32,6 @@
         </TableRow>
 
         <Space
-            android:layout_width="10dp"
             android:layout_height="10dp" />
 
         <TableRow
@@ -43,7 +41,7 @@
 
             <TextView
                 android:id="@+id/bg_select"
-                android:contentDescription="Choose Game Background"
+                android:contentDescription="@string/choose_game_background"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
@@ -58,7 +56,6 @@
         </TableRow>
 
         <Space
-            android:layout_width="10dp"
             android:layout_height="10dp" />
 
         <TableRow
@@ -69,12 +66,12 @@
             <ImageView
                 android:id="@+id/bg_selected"
                 android:layout_width="200dp"
-                android:layout_height="100dp" />
+                android:layout_height="100dp"
+                android:contentDescription="@string/choose_game_background" />
 
         </TableRow>
 
         <Space
-            android:layout_width="10dp"
             android:layout_height="10dp" />
 
         <TableRow
@@ -84,11 +81,11 @@
 
             <TextView
                 android:id="@+id/time2_select"
-                android:contentDescription="Choose Game Duration"
+                android:contentDescription="@string/time"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:text="Select Game Length (in seconds): "
+                android:text="@string/choose_gt"
                 android:background="@color/black"/>
 
             <Spinner
@@ -99,7 +96,6 @@
         </TableRow>
 
         <Space
-            android:layout_width="10dp"
             android:layout_height="10dp" />
 
         <TableRow
@@ -111,12 +107,13 @@
                 android:id="@+id/returns"
                 android:contentDescription="@string/exit_button"
                 android:layout_width="390dp"
-                android:layout_height="150dp"
+                android:layout_height="120dp"
                 android:scaleType="fitXY"
                 android:layout_weight="1"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
-                android:src="@drawable/return_home1" />
+                android:src="@drawable/return_home1"
+                android:background="@android:color/transparent" />
 
 
         </TableRow>
@@ -124,25 +121,3 @@
     </TableLayout>
 </LinearLayout>
 
-    <!--
-     <menu xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/bgSelect"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView android:id="@+id/aurora"
-            />
-        <ImageView android:id="@+id/boston"
-            />
-        <ImageView android:id="@+id/space"
-            />
-        <ImageView android:id="@+id/sunset"
-            />
-        <ImageView android:id="@+id/mountains"
-            />
-        <ImageView android:id="@+id/forest"
-            />
-        <ImageView android:id="@+id/coast"
-            />
-    </menu>
-     -->

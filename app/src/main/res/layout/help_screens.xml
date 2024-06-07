@@ -70,22 +70,24 @@
                     android:id="@+id/e_button2"
                     android:contentDescription="@string/exit_button"
                     android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:scaleType="fitXY"
                     android:layout_weight="1"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:src="@drawable/back_2_menu2" />
+                    android:src="@drawable/back_2_menu2"
+                    android:background="@android:color/transparent"/>
                 <ImageButton
                     android:id="@+id/e_button22"
                     android:contentDescription="@string/next_button"
                     android:layout_width="390dp"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:scaleType="fitXY"
                     android:layout_weight="1"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:src="@drawable/nextpage1" />
+                    android:src="@drawable/nextpage1"
+                    android:background="@android:color/transparent"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>
@@ -138,22 +140,24 @@
                     android:id="@+id/e_button3"
                     android:contentDescription="@string/back_to_help_1"
                     android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:scaleType="fitXY"
                     android:layout_weight="1"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:src="@drawable/previouspage1" />
+                    android:src="@drawable/previouspage1"
+                    android:background="@android:color/transparent"/>
                 <ImageButton
                     android:id="@+id/e_button33"
                     android:contentDescription="@string/exit_button"
                     android:layout_width="390dp"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:scaleType="fitXY"
                     android:layout_weight="1"
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
-                    android:src="@drawable/back_2_menu1" />
+                    android:src="@drawable/back_2_menu1"
+                    android:background="@android:color/transparent"/>
             </TableRow>
         </TableLayout>
     </LinearLayout>

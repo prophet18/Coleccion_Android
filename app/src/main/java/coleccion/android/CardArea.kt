@@ -20,7 +20,7 @@ class CardArea : ComponentActivity() {
     var deck = Deck();                         var cards = ArrayList<Card>();                  var score = ScorePile()
     var nca: Int = 0;                               var ii: Int = 0;                                var buttonmap = HashMap<Int, GameButton>()
     var imageButtons = ArrayList<ImageButton>();                                                    var imgsmap = HashMap<Int, ImageButton>()
-    private lateinit var scoreValu: TextView;       private lateinit var timeValu: TextView ;       private lateinit var randButto : Button
+    private lateinit var scoreValu: TextView;       private lateinit var timeValu: TextView ;       private lateinit var randButto : ImageButton
     private lateinit var nucOne	: ImageButton ;     private lateinit var nucTwo	: ImageButton ;     private lateinit var nucThree : ImageButton
     private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
@@ -28,7 +28,6 @@ class CardArea : ComponentActivity() {
     lateinit var bgLinking : LinearLayout ; private lateinit var rButts : ImageButton
     private lateinit var pButts : ImageButton ; private lateinit var viewFlip : ViewFlipper
 
-    @SuppressLint("SetTextI18n", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.play_layout)
@@ -86,6 +85,7 @@ class CardArea : ComponentActivity() {
             ii++
         }
     }
+
     fun cardWorks(wId: Int) {
         val nubu = buttons.get(wId)
 
@@ -111,7 +111,7 @@ class CardArea : ComponentActivity() {
 
                     if (solves() == true) {
                         score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(cardmap.get(3))
-                        scoreValu.setText(score.scoreFinal())
+                        scoreValu.text = score.scoreFinal()
 
                         buttonmap.get(1)!!.replace(cards.get(uu))
                         buttonmap.get(2)!!.replace(cards.get(uu + 1))
@@ -152,10 +152,12 @@ class CardArea : ComponentActivity() {
             !nubu.active
         }
     }
+
     fun solves() : Boolean {
         val checkss = CheckMatch(cardmap.get(1)!!, cardmap.get(2)!!, cardmap.get(3)!!)
         return checkss.matchCheck
     }
+
     private fun randomCards() {
         var crcr = uu
         for (GameButton in buttons) {
@@ -167,6 +169,7 @@ class CardArea : ComponentActivity() {
 
         nuDeck()
     }
+
     fun nuDeck() {
         if (uu >= 140) {
             deck = Deck()
@@ -185,6 +188,7 @@ class CardArea : ComponentActivity() {
             }
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
+                AllDatas.gameScoreInfo = score.scoreTotal()
                 AllDatas.collectionHighScoring = AllDatas.collectionHighScoring + AllDatas.gameScoreInfo
                 AllDatas.collectionTotalTime = AllDatas.collectionTotalTime + AllDatas.gameTimeForm
                 AllDatas.CreateFile()

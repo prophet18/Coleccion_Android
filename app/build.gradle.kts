@@ -75,4 +75,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation("io.coil-kt:coil:2.1.0")
+    implementation("io.coil-kt:coil-gif:2.1.0")
 }

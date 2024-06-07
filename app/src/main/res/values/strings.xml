@@ -34,4 +34,6 @@
     <string name="help_info_4">Instructions II</string>
     <string name="next_button">Next Button</string>
     <string name="back_to_help_1">Back To help 1</string>
+    <string name="choose_game_background">Select Board Picture</string>
+    <string name="choose_gt">Select Game Length (in seconds):</string>
 </resources>

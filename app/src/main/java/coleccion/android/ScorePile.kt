@@ -19,6 +19,7 @@ class ScorePile : Stack<Card>() {
         numMatch = floor((numCard / 3).toDouble()).toInt()
         return numMatch
     }
+
     fun scoreFinal(): String {
         numCard = size
         numMatch = floor((numCard / 3).toDouble()).toInt()

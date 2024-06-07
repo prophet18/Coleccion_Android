@@ -1,13 +1,9 @@
 package coleccion.android
 
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.CountDownTimer
 import androidx.annotation.RequiresApi
 import java.io.File
-import android.content.Intent
-import android.os.Handler
-import android.widget.TextView
 import java.io.BufferedWriter
 import java.io.FileWriter
 import java.io.IOException
@@ -16,9 +12,9 @@ import java.time.format.DateTimeFormatter
 
 object AllDatas {
 
-    var boardBGinfo : String = ""
+    var boardBGinfo : String = "Aurora"
     var gameTimeInfo : Int = 30000
-    var gameTimeForm : Int = 0
+    var gameTimeForm : Int = 30
     var boardBGdrawable : Int = 0
     var gameScoreInfo : Int = 0
     var collectionHighScoring : Int = 0
@@ -30,14 +26,14 @@ object AllDatas {
 
     fun CreateFile() {
         try {
-            if (highScores!!.createNewFile() && csvHighScores!!.createNewFile()) {
-                System.out.println("Files created ")
+            if (highScores.createNewFile() && csvHighScores.createNewFile()) {
+                println("Files created ")
                 val addHS = BufferedWriter(FileWriter(highScores, true))
                 val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
-                csvHS.write(" Score " + "," + " Date & Time " + "," + " Game Duration " )
+                csvHS.write(" Date & Time " + "," + " Score " + "," + " Game Duration " + "," + " Background " )
                 csvHS.newLine()
                 csvHS.close()
-                addHS.write(" Score " + " " + " Date & Time " + " " + " Game Duration " )
+                addHS.write(" Date & Time " + " " + " Score " + " " + " Game Duration " + " " + " Background " )
                 addHS.newLine()
                 addHS.close()
             } else {
@@ -48,6 +44,7 @@ object AllDatas {
             e.printStackTrace()
         }
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     fun AddHighScore() {
         try {
@@ -58,10 +55,8 @@ object AllDatas {
             val formattedDateTime = currentDateTime.format(formatter)
             addHS.write(formattedDateTime + " " + gameScoreInfo + " " + gameTimeForm + " " + boardBGinfo)
             addHS.newLine()
-            // addHS.write("Total # of collections found: " + AllDatas.collectionHighScoring.toString() + ". Total amount of time playing: " + AllDatas.collectionTotalTime)
-            // addHS.newLine()
             addHS.close()
-            csvHS.write(formattedDateTime + "," + gameScoreInfo.toString() + "," + gameTimeForm + "," + boardBGinfo)
+            csvHS.write(formattedDateTime + "," + gameScoreInfo + "," + gameTimeForm + "," + boardBGinfo)
             csvHS.newLine()
             csvHS.close()
 

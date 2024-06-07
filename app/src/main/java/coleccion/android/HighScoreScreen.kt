@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -18,7 +19,7 @@ import java.io.InputStreamReader
 class HighScoreScreen : ComponentActivity() {
 
     var maxScores: Int = 0
-    private lateinit var eButto4 : Button
+    private lateinit var eButto4 : ImageButton
 
     var fileName = "/data/data/coleccion.android/files/coleccionHighScores.csv"
     var file = File(fileName)

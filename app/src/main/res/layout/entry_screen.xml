@@ -25,7 +25,7 @@
             android:layout_width="390dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
-            android:src="@drawable/collection_logo_2" />
+            android:src="@drawable/coleccion_logo_b" />
 
         <Space
             android:layout_width="10dp"
