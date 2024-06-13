@@ -1,4 +1,4 @@
-package coleccion.android
+package coleccion.android.cards
 
 /*
     Similar to ScorePile in original collection - originally empty stack that is used to hold cards from successful matches.

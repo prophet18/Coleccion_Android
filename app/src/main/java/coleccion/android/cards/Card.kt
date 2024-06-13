@@ -1,4 +1,4 @@
-package coleccion.android
+package coleccion.android.cards
 
 /*
     Similar to Card in original collection - class is created with necessary parameters / arguments.

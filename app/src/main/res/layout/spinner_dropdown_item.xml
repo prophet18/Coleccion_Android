@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/ocraextended"
+        android:textColor="@android:color/black"
+        android:gravity="center_vertical"
+        android:layout_gravity="center" />
+
+    <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+
+        style="?android:attr/spinnerDropDownItemStyle"
+        android:singleLine="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ellipsize="marquee"/>
+
+</LinearLayout>
+
+    <!--
+    /* //device/apps/common/assets/res/any/layout/simple_spinner_item.xml
+
+    <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    style="?android:attr/spinnerDropDownItemStyle"
+    android:singleLine="true"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/dropdownListPreferredItemHeight"
+    android:ellipsize="marquee"/>
+
+    TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:textSize="18sp"
+    android:fontFamily="@font/ocraextended"
+    android:textColor="@android:color/black"
+    android:gravity="center_vertical"
+    android:layout_gravity="center" />
+
+    */
+    -->

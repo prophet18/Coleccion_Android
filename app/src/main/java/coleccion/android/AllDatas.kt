@@ -3,6 +3,7 @@ package coleccion.android
 import android.os.Build
 import android.os.CountDownTimer
 import androidx.annotation.RequiresApi
+import coleccion.android.cards.ScorePile
 import java.io.File
 import java.io.BufferedWriter
 import java.io.FileWriter
@@ -15,7 +16,7 @@ object AllDatas {
     var boardBGinfo : String = "Aurora"
     var gameTimeInfo : Int = 30000
     var gameTimeForm : Int = 30
-    var boardBGdrawable : Int = 0
+    var boardBGdrawable : Int = R.drawable.aurora_over_canada_2016
     var gameScoreInfo : Int = 0
     var collectionHighScoring : Int = 0
     var collectionTotalTime : Int = 0
@@ -23,6 +24,8 @@ object AllDatas {
     var highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
     var csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
     lateinit var finalTimer : CountDownTimer
+
+    var scoreTrack = ScorePile()
 
     fun CreateFile() {
         try {

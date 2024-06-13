@@ -1,4 +1,6 @@
-package coleccion.android
+package coleccion.android.cards
+
+import coleccion.android.cards.Card
 
 /*
     Similar to CheckMatch in original collection - this class (with constuctor) creates an object of 3 cards.

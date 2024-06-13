@@ -1,6 +1,7 @@
-package coleccion.android
+package coleccion.android.cards
 
 import android.widget.ImageButton
+import coleccion.android.cards.Card
 
 /*
     Similar to GameButton in original collection - separate buttons with parameters for index and card.

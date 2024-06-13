@@ -1,5 +1,6 @@
 package coleccion.android
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -21,22 +22,24 @@ class Settings : ComponentActivity() {
     var bgSavings : String = "" 
     var gameTime2 : Int = 0
 
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_layout)
 
-        backgrounds = arrayOf( "Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest", "Coast" )
-        timeopts = arrayOf( 30, 60, 90, 120, 150, 180, 210, 240 )
+        backgrounds = arrayOf("Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest", "Coast")
+        timeopts = arrayOf(30, 60, 90, 120, 150, 180, 210, 240)
 
         spinning = findViewById(R.id.select_bg) ;   bgChosen = findViewById(R.id.bg_selected) ;     return2home = findViewById(R.id.returns)
         spinning2 = findViewById(R.id.select_datime)
 
-        val adapting = ArrayAdapter(this, android.R.layout.simple_spinner_item, backgrounds)
-        adapting.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapting = ArrayAdapter(this, R.layout.spinner_item, backgrounds)
+        adapting.setDropDownViewResource(R.layout.spinner_dropdown_item)
         spinning.adapter = adapting
 
-        val adapting2 = ArrayAdapter(this, android.R.layout.simple_spinner_item, timeopts)
-        adapting2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapting2 = ArrayAdapter(this, R.layout.spinner_item, timeopts)
+        adapting2.setDropDownViewResource(R.layout.spinner_dropdown_item)
         spinning2.adapter = adapting2
 
         spinning.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -68,6 +71,8 @@ class Settings : ComponentActivity() {
 
 
         return2home!!.setOnClickListener { returningHome() }
+
+
     }
 
     fun returningHome() {

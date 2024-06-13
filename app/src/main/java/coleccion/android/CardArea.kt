@@ -1,11 +1,9 @@
 package coleccion.android
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -13,11 +11,16 @@ import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.activity.ComponentActivity
 import androidx.annotation.RequiresApi
+import coleccion.android.cards.Card
+import coleccion.android.cards.CheckMatch
+import coleccion.android.cards.Deck
+import coleccion.android.cards.GameButton
+import coleccion.android.cards.ScorePile
 
 class CardArea : ComponentActivity() {
 
     var buttons = ArrayList<GameButton>();          var cardmap = HashMap<Int, Card>();             var uu: Int = 13;                              var yy: Int = 0
-    var deck = Deck();                         var cards = ArrayList<Card>();                  var score = ScorePile()
+    var deck = Deck();                              var cards = ArrayList<Card>();                  var score = ScorePile()
     var nca: Int = 0;                               var ii: Int = 0;                                var buttonmap = HashMap<Int, GameButton>()
     var imageButtons = ArrayList<ImageButton>();                                                    var imgsmap = HashMap<Int, ImageButton>()
     private lateinit var scoreValu: TextView;       private lateinit var timeValu: TextView ;       private lateinit var randButto : ImageButton
@@ -25,8 +28,8 @@ class CardArea : ComponentActivity() {
     private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
     private lateinit var nucTen	: ImageButton ;     private lateinit var nucEleven : ImageButton ;  private lateinit var nucTwelve : ImageButton
-    lateinit var bgLinking : LinearLayout ; private lateinit var rButts : ImageButton
-    private lateinit var pButts : ImageButton ; private lateinit var viewFlip : ViewFlipper
+    lateinit var bgLinking : LinearLayout ;         private lateinit var rButts : ImageButton ;     private lateinit var eButts1 : ImageButton
+    private lateinit var pButts : ImageButton ;     private lateinit var viewFlip : ViewFlipper ;   private lateinit var eButts2 : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +46,8 @@ class CardArea : ComponentActivity() {
         nucSeven	= findViewById(R.id.card7) ;    nucEight = findViewById(R.id.card8) ;        nucNine = findViewById(R.id.card9)
         nucTen	= findViewById(R.id.card10) ;       nucEleven	= findViewById(R.id.card11) ;    nucTwelve	= findViewById(R.id.card12)
 
-        scoreValu	= findViewById(R.id.score_value) ; timeValu	= findViewById(R.id.time_value) ; randButto	= findViewById(R.id.random_button)
-        rButts = findViewById(R.id.resume_button)
+        scoreValu = findViewById(R.id.score_value) ; timeValu	= findViewById(R.id.time_value) ; randButto	= findViewById(R.id.random_button)
+        rButts = findViewById(R.id.resume_button) ; eButts1	= findViewById(R.id.e_button) ; eButts2	= findViewById(R.id.e_button2)
 
         imageButtons.add(nucOne) ;  imageButtons.add(nucTwo) ; imageButtons.add(nucThree) ;  imageButtons.add(nucFour)
         imageButtons.add(nucFive) ; imageButtons.add(nucSix) ; imageButtons.add(nucSeven) ;  imageButtons.add(nucEight)
@@ -52,6 +55,7 @@ class CardArea : ComponentActivity() {
 
         makeDeck()
         createCountDownTimer()
+        scoreValu.text = AllDatas.scoreTrack.scoreFinal()
 
         buttons.get(0).gameImgBtn.setOnClickListener { cardWorks(0) } ; buttons.get(0).gameImgBtn.setImageResource(buttons.get(0).cImg)
         buttons.get(1).gameImgBtn.setOnClickListener { cardWorks(1) } ; buttons.get(1).gameImgBtn.setImageResource(buttons.get(1).cImg)
@@ -67,6 +71,7 @@ class CardArea : ComponentActivity() {
         buttons.get(11).gameImgBtn.setOnClickListener { cardWorks(11) } ; buttons.get(11).gameImgBtn.setImageResource(buttons.get(11).cImg)
 
         randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { onPaused() } ; rButts.setOnClickListener { onResumed() }
+        eButts1.setOnClickListener { returnMenuHome() } ; eButts2.setOnClickListener { returnAndroidHome() }
     }
 
     fun makeDeck() {
@@ -111,7 +116,9 @@ class CardArea : ComponentActivity() {
 
                     if (solves() == true) {
                         score.push(cardmap.get(1)); score.push(cardmap.get(2)); score.push(cardmap.get(3))
-                        scoreValu.text = score.scoreFinal()
+                        AllDatas.scoreTrack.push(cardmap.get(1)); AllDatas.scoreTrack.push(cardmap.get(2)); AllDatas.scoreTrack.push(cardmap.get(3))
+                        scoreValu.text = AllDatas.scoreTrack.scoreFinal()
+                        AllDatas.gameScoreInfo = AllDatas.scoreTrack.scoreTotal()
 
                         buttonmap.get(1)!!.replace(cards.get(uu))
                         buttonmap.get(2)!!.replace(cards.get(uu + 1))
@@ -188,7 +195,6 @@ class CardArea : ComponentActivity() {
             }
             @RequiresApi(Build.VERSION_CODES.O)
             override fun onFinish() {
-                AllDatas.gameScoreInfo = score.scoreTotal()
                 AllDatas.collectionHighScoring = AllDatas.collectionHighScoring + AllDatas.gameScoreInfo
                 AllDatas.collectionTotalTime = AllDatas.collectionTotalTime + AllDatas.gameTimeForm
                 AllDatas.CreateFile()
@@ -208,5 +214,15 @@ class CardArea : ComponentActivity() {
     fun onResumed() {
         createCountDownTimer()
         viewFlip.showPrevious()
+    }
+
+    fun returnMenuHome() {
+        val intent1 = Intent(this, EntryScreen::class.java)
+        finish()
+        startActivity(intent1)
+    }
+
+    fun returnAndroidHome() {
+        finish()
     }
 }
