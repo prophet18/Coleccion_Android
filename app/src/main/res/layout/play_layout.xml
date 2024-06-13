@@ -63,6 +63,10 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:layout_weight="1"
+                    android:textSize="26sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="#2A52BE"
                     android:text="@string/score" />
 
                 <TextView
@@ -73,6 +77,10 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:layout_weight="1"
+                    android:textSize="26sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="#FF4500"
                     android:text="@string/time" />
 
             </TableRow>

@@ -63,7 +63,7 @@ class GameOverScreen : ComponentActivity() {
             .build()
 
         val request = ImageRequest.Builder(this)
-            .data(R.drawable.digital_rain) // or use URI/URL to load the gif from internet
+            .data(R.raw.starfieldsimulation) // or use URI/URL to load the gif from internet
             .target(bgView)
             .build()
 

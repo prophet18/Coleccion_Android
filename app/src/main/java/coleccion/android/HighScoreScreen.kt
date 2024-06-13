@@ -2,41 +2,40 @@ package coleccion.android
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Typeface
+import android.os.Build
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.annotation.RequiresApi
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
 import java.io.IOException
 import java.io.InputStreamReader
 
-
 class HighScoreScreen : ComponentActivity() {
 
-    var maxScores: Int = 0
     private lateinit var eButto4 : ImageButton
 
     var fileName = "/data/data/coleccion.android/files/coleccionHighScores.csv"
     var file = File(fileName)
     var fileInputStream = FileInputStream(file)
 
-
+    @RequiresApi(Build.VERSION_CODES.O)
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.highscore_screen)
 
         val tableLayout: TableLayout = findViewById(R.id.highscoren_layout)
+        val typeFont : Typeface = resources.getFont(R.font.ocraextended)
 
         eButto4 = findViewById(R.id.e_button4)
         eButto4.setOnClickListener { returningHome2() }
-
-
 
         try {
             // Open the CSV file from the assets folder
@@ -53,8 +52,8 @@ class HighScoreScreen : ComponentActivity() {
                 val textView2 = createTextView(columnName)
                 textView2.setBackgroundColor(getColor(android.R.color.black))
                 textView2.setTextColor(getColor(android.R.color.white))
-                textView2.gravity = android.view.Gravity.CENTER
                 textView2.textSize = 20.toFloat()
+                textView2.setTypeface(typeFont)
                 headerRow2.addView(textView2)
             }
             headerRow2.gravity = android.view.Gravity.CENTER
@@ -67,6 +66,7 @@ class HighScoreScreen : ComponentActivity() {
                 val dataRow2 = TableRow(this)
                 for (value in values2) {
                     val textView = createTextView(value)
+                    textView.setTypeface(typeFont)
                     dataRow2.addView(textView)
                 }
                 dataRow2.gravity = android.view.Gravity.CENTER
@@ -82,7 +82,6 @@ class HighScoreScreen : ComponentActivity() {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
 
     }
 
