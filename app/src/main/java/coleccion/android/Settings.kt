@@ -13,15 +13,14 @@ import androidx.activity.ComponentActivity
 
 class Settings : ComponentActivity() {
 
-    lateinit var spinning : Spinner 
+    private lateinit var spinning : Spinner
     var bgChosen : ImageView? = null
     var backgrounds : Array<String> = emptyArray()
-    var return2home : ImageButton? = null
-    lateinit var spinning2 : Spinner
+    private var return2home : ImageButton? = null
+    private lateinit var spinning2 : Spinner
     var timeopts : Array<Int> = emptyArray()
     var bgSavings : String = "" 
     var gameTime2 : Int = 0
-
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,15 +30,15 @@ class Settings : ComponentActivity() {
         backgrounds = arrayOf("Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest", "Coast")
         timeopts = arrayOf(30, 60, 90, 120, 150, 180, 210, 240)
 
-        spinning = findViewById(R.id.select_bg) ;   bgChosen = findViewById(R.id.bg_selected) ;     return2home = findViewById(R.id.returns)
-        spinning2 = findViewById(R.id.select_datime)
+        spinning = findViewById(R.id.select_bg) ;       bgChosen = findViewById(R.id.bg_selected)
+        spinning2 = findViewById(R.id.select_datime);   return2home = findViewById(R.id.returns)
 
         val adapting = ArrayAdapter(this, R.layout.spinner_item, backgrounds)
-        adapting.setDropDownViewResource(R.layout.spinner_dropdown_item)
+        adapting.setDropDownViewResource(R.layout.spinner_item)
         spinning.adapter = adapting
 
         val adapting2 = ArrayAdapter(this, R.layout.spinner_item, timeopts)
-        adapting2.setDropDownViewResource(R.layout.spinner_dropdown_item)
+        adapting2.setDropDownViewResource(R.layout.spinner_item)
         spinning2.adapter = adapting2
 
         spinning.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -68,14 +67,10 @@ class Settings : ComponentActivity() {
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
-
-
         return2home!!.setOnClickListener { returningHome() }
-
-
     }
 
-    fun returningHome() {
+    private fun returningHome() {
         val intent1 = Intent(this, EntryScreen::class.java)
         finish()
         startActivity(intent1)

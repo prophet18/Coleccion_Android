@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/coleccion_background_p_z_1">
 
+    <ImageView
+        android:id="@+id/cologo2"
+        android:contentDescription="@string/game_coleccion_logo"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/coleccion_logo_i"
+        android:background="@android:color/transparent"/>
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,25 +23,7 @@
         android:padding="1dp" >
 
         <Space
-            android:layout_height="10dp" />
-
-        <TableRow
-            android:gravity="center"
-            android:layout_margin="1dp"
-            android:padding="1dp" >
-
-            <ImageView
-                android:id="@+id/cologo2"
-                android:contentDescription="@string/game_coleccion_logo"
-                android:layout_width="400dp"
-                android:layout_height="90dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/coleccion_logo_i"
-                android:background="@android:color/transparent"/>
-        </TableRow>
-
-        <Space
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
         <TableRow
             android:gravity="center"
@@ -62,7 +53,7 @@
         </TableRow>
 
         <Space
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
         <TableRow
             android:gravity="center"
@@ -78,7 +69,7 @@
         </TableRow>
 
         <Space
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
         <TableRow
             android:gravity="center"
@@ -108,12 +99,12 @@
         </TableRow>
 
         <Space
-            android:layout_height="10dp" />
+            android:layout_height="20dp" />
 
         <TableRow
             android:gravity="center"
-            android:layout_margin="1dp"
-            android:padding="1dp" >
+            android:layout_margin="3dp"
+            android:padding="3dp" >
 
             <ImageButton
                 android:id="@+id/returns"

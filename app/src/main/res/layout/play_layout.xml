@@ -23,8 +23,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp">
+                android:layout_margin="3dp"
+                android:padding="3dp" >
 
                 <ImageView
                     android:id="@+id/score_icon"
@@ -52,8 +52,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp">
+                android:layout_margin="3dp"
+                android:padding="3dp">
 
                 <TextView
                     android:id="@+id/score_value"
@@ -89,8 +89,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp">
+                android:layout_margin="3dp"
+                android:padding="3dp">
 
                 <ImageButton
                     android:id="@+id/pause_button"
@@ -120,8 +120,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_width="1dp"
-                android:layout_margin="1dp">
+                android:layout_margin="1dp"
+                android:padding="1dp" >
 
                 <ImageButton
                     android:id="@+id/card1"
@@ -162,7 +162,9 @@
             </TableRow>
 
             <TableRow
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp" >
 
                 <ImageButton
                     android:id="@+id/card5"
@@ -203,7 +205,9 @@
             </TableRow>
 
             <TableRow
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp" >
 
                 <ImageButton
                     android:id="@+id/card9"

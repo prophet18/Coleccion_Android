@@ -25,25 +25,28 @@ class EntryScreen : ComponentActivity() {
             startActivity(intent1)
             finish()
         }
+
         hsButton.setOnClickListener {
             val intent2 = Intent(this, HighScoreScreen::class.java)
+            AllDatas.createFile()
             startActivity(intent2)
             finish()
         }
+
         setButton.setOnClickListener {
             val intent3 = Intent(this, Settings::class.java)
             startActivity(intent3)
             finish()
         }
+
         helpButton.setOnClickListener {
             val intent4 = Intent(this, HelpScreens::class.java)
             startActivity(intent4)
             finish()
         }
+
         exitButton.setOnClickListener {
             finish()
         }
-
     }
 }
-

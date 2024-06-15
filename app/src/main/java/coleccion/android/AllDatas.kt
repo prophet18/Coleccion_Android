@@ -27,20 +27,24 @@ object AllDatas {
 
     var scoreTrack = ScorePile()
 
-    fun CreateFile() {
+    fun createFile() {
+        val dAndTime = "Date &\nTime" ;     val scoreString = "Score"
+        val gDuration = "Game\nDuration" ;  val bgStrins = "Background"
         try {
             if (highScores.createNewFile() && csvHighScores.createNewFile()) {
                 println("Files created ")
                 val addHS = BufferedWriter(FileWriter(highScores, true))
                 val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
-                csvHS.write(" Date & Time " + "," + " Score " + "," + " Game Duration " + "," + " Background " )
+                // csvHS.write("$dAndTime,$scoreString,$gDuration,$bgStrins")
+                csvHS.write(escapeCsvCell(dAndTime) + "," + escapeCsvCell(scoreString) + "," +
+                        escapeCsvCell(gDuration) + "," + escapeCsvCell(bgStrins))
                 csvHS.newLine()
                 csvHS.close()
-                addHS.write(" Date & Time " + " " + " Score " + " " + " Game Duration " + " " + " Background " )
+                addHS.write("Date &\nTime" + " " + "Score" + " " + "Game\nDuration" + " " + "Background")
                 addHS.newLine()
                 addHS.close()
             } else {
-                println("Files already exists.")
+                println("Files already exist.")
             }
         } catch (e: IOException) {
             println("An error occurred.")
@@ -49,29 +53,33 @@ object AllDatas {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun AddHighScore() {
+    fun addHighScore() {
         try {
             val addHS = BufferedWriter(FileWriter(highScores, true))
             val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
             val currentDateTime = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("dd-MMMM-yyyy HH:mm")
+            val formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy\nHH:mm")
             val formattedDateTime = currentDateTime.format(formatter)
-            addHS.write(formattedDateTime + " " + gameScoreInfo + " " + gameTimeForm + " " + boardBGinfo)
+            addHS.write("$formattedDateTime $gameScoreInfo $gameTimeForm $boardBGinfo")
             addHS.newLine()
             addHS.close()
-            csvHS.write(formattedDateTime + "," + gameScoreInfo + "," + gameTimeForm + "," + boardBGinfo)
+            // csvHS.write("$formattedDateTime,$gameScoreInfo,$gameTimeForm,$boardBGinfo")
+            csvHS.write(escapeCsvCell(formattedDateTime) + "," + escapeCsvCell(gameScoreInfo.toString()) + "," +
+                    escapeCsvCell(gameTimeForm.toString()) + "," + escapeCsvCell(boardBGinfo))
             csvHS.newLine()
             csvHS.close()
 
-            println("Successfully wrote to the file: " + highScores)
+            println("Successfully wrote to the files: " + highScores)
         } catch (e: IOException) {
             println("An error occurred.")
             e.printStackTrace()
         }
     }
 
-
-
-
-
+    fun escapeCsvCell(cell: String): String {
+        // Escape double quotes by replacing " with ""
+        val escapedCell = cell.replace("\"", "\"\"")
+        // Enclose the cell content in double quotes if it contains special characters
+        return "\"$escapedCell\""
+    }
 }

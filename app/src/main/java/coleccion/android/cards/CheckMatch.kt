@@ -1,11 +1,10 @@
 package coleccion.android.cards
 
-import coleccion.android.cards.Card
-
 /*
     Similar to CheckMatch in original collection - this class (with constuctor) creates an object of 3 cards.
     These cards are then analyed for the conditions that constitute a set, and returns the boolean.
 */
+
 class CheckMatch (first: Card, second: Card, third: Card) {
     private var colorSame = false
     private var numberSame = false
@@ -20,6 +19,7 @@ class CheckMatch (first: Card, second: Card, third: Card) {
     private var typeCheck = false
     private var fillCheck = false
     var matchCheck = false
+
     init {
         colorCheck = sameColor(first, second, third) == true || differentColor(first, second, third) == true
         numberCheck = sameNumber(first, second, third) == true || differentNumber(first, second, third) == true
@@ -28,6 +28,7 @@ class CheckMatch (first: Card, second: Card, third: Card) {
         matchCheck =
             colorCheck == true && numberCheck == true && typeCheck == true && fillCheck == true
     }
+
     // Functions to assess identical properties
     private fun sameColor (cardOne: Card, cardTwo: Card, cardThree: Card): Boolean {
         colorSame = cardOne.color == cardTwo.color && cardThree.color == cardTwo.color
@@ -49,7 +50,7 @@ class CheckMatch (first: Card, second: Card, third: Card) {
         return fillSame
     }
 
-    // private functions to assess discordant properties
+    // Functions to assess discordant properties
 
     private fun differentColor (cardOne: Card, cardTwo: Card, cardThree: Card): Boolean {
         colorDifferent =

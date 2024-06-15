@@ -19,17 +19,17 @@ class HelpScreens : ComponentActivity() {
         setContentView(R.layout.help_screens)
 
         viewFlip = findViewById(R.id.helpFlipper)
-
         eButto2 = findViewById(R.id.e_button2)
         eButto22 = findViewById(R.id.e_button22)
-        eButto2.setOnClickListener { returningHome() }
-        eButto22.setOnClickListener { viewFlip.showNext() }
-
         eButto3 = findViewById(R.id.e_button3)
         eButto33 = findViewById(R.id.e_button33)
+
+        eButto2.setOnClickListener { returningHome() }
+        eButto22.setOnClickListener { viewFlip.showNext() }
         eButto3.setOnClickListener { viewFlip.showPrevious() }
         eButto33.setOnClickListener { returningHome() }
     }
+
     private fun returningHome() {
         val intent1 = Intent(this, EntryScreen::class.java)
         finish()

@@ -17,9 +17,9 @@ class GameOverScreen : ComponentActivity() {
     private lateinit var scoreReport: TextView
     private lateinit var timingReport: TextView
     private lateinit var backToEntry: ImageButton
-    lateinit var scoreReport2 : String
-    lateinit var timeReport2 : String
-    lateinit var bgView : ImageView
+    private lateinit var scoreReport2 : String
+    private lateinit var timeReport2 : String
+    private lateinit var bgView : ImageView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,14 +42,15 @@ class GameOverScreen : ComponentActivity() {
         gifWorkings()
     }
 
-    fun returningHome() {
+    private fun returningHome() {
         val intent1 = Intent(this, EntryScreen::class.java)
         AllDatas.timeRemaining = 30000
+        AllDatas.gameScoreInfo = 0
         finish()
         startActivity(intent1)
     }
 
-    fun gifWorkings() {
+    private fun gifWorkings() {
         val imageLoader = ImageLoader.Builder(this)
             .components {
                 add(GifDecoder.Factory())
@@ -69,5 +70,4 @@ class GameOverScreen : ComponentActivity() {
 
         imageLoader.enqueue(request)
     }
-
 }
