@@ -24,7 +24,6 @@ object AllDatas {
     var highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
     var csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
     lateinit var finalTimer : CountDownTimer
-
     var scoreTrack = ScorePile()
 
     fun createFile() {

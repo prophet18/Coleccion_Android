@@ -21,7 +21,7 @@ class EntryScreen : ComponentActivity() {
         val exitButton = findViewById<ImageButton>(R.id.exit_button)
 
         ngButton.setOnClickListener {
-            val intent1 = Intent(this, CardArea::class.java)
+            val intent1 = Intent(this, CardAreaTwo::class.java)
             startActivity(intent1)
             finish()
         }

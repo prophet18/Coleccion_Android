@@ -46,6 +46,7 @@ class GameOverScreen : ComponentActivity() {
         val intent1 = Intent(this, EntryScreen::class.java)
         AllDatas.timeRemaining = 30000
         AllDatas.gameScoreInfo = 0
+        AllDatas.scoreTrack.clear()
         finish()
         startActivity(intent1)
     }

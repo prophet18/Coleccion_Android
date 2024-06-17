@@ -20,10 +20,10 @@ import coleccion.android.cards.ScorePile
 class CardArea : ComponentActivity() {
 
     var buttons = ArrayList<GameButton>();          var cardmap = HashMap<Int, Card>();             var uu: Int = 11
-    var deck = Deck();                              var cards = ArrayList<Card>();                  var score = ScorePile()
+    var deck = Deck();                              var cards = ArrayList<Card>();                  private val cardStates = HashMap<Int, Boolean>() ; var buttonMapping = HashMap<Int, GameButton>()
     var nca: Int = 0;                               var ii: Int = 0 ;                               var yy: Int = 0
-    var imageButtons = ArrayList<ImageButton>();    var imgsmap = HashMap<Int, ImageButton>() ;     var buttonmap = HashMap<Int, GameButton>()
-    private lateinit var scoreValu: TextView;       private lateinit var timeValu: TextView ;       private lateinit var randButto : ImageButton
+    var imageButtons = ArrayList<ImageButton>();    var imgsmap = HashMap<Int, ImageButton>() ;     var buttonmap = HashMap<Int, GameButton>() ; var buttonActive = HashMap<GameButton, Boolean>()
+    private lateinit var scoreValu: TextView;       private lateinit var timeValu: TextView ;       private lateinit var randButto : ImageButton ; var buttonState = HashMap<GameButton, Boolean>()
     private lateinit var nucOne	: ImageButton ;     private lateinit var nucTwo	: ImageButton ;     private lateinit var nucThree : ImageButton
     private lateinit var nucFour : ImageButton ;    private lateinit var nucFive : ImageButton ;    private lateinit var nucSix : ImageButton
     private lateinit var nucSeven : ImageButton ;   private lateinit var nucEight : ImageButton ;   private lateinit var nucNine : ImageButton
@@ -96,14 +96,18 @@ class CardArea : ComponentActivity() {
         while (ii < 12) {
             gameButton = GameButton(imageButtons[ii], cards[ii])
             buttons.add(gameButton)
+            buttonActive[gameButton] = false
+            buttonMapping[ii] = gameButton
+            cardStates[ii] = false
             ii++
         }
     }
 
-    private fun cardWorks(wId: Int) {
-        val nubu = buttons[wId]
+    fun cardWorks(wId: Int) {
+        var nubu = buttons[wId]
 
-        if (!nubu.active) {
+        if (nubu.active == false) {
+            nubu.active == true
             nca++
             when (nca) {
                 1 -> {
@@ -125,7 +129,7 @@ class CardArea : ComponentActivity() {
 
                     if (solves() == true) {
                         nuDeck()
-                        score.push(cardmap[1]); score.push(cardmap[2]); score.push(cardmap[3])
+                        // score.push(cardmap[1]); score.push(cardmap[2]); score.push(cardmap[3])
                         AllDatas.scoreTrack.push(cardmap[1]); AllDatas.scoreTrack.push(cardmap[2]); AllDatas.scoreTrack.push(
                             cardmap[3]
                         )
@@ -149,26 +153,28 @@ class CardArea : ComponentActivity() {
                     cardmap.clear(); buttonmap.clear(); imgsmap.clear()
                 }
             }
-            nubu.active
+
         } else {
+            nubu.active == false
             when (nca) {
                 1 -> {
                     cardmap.remove(1)
                     buttonmap.remove(1)
                     imgsmap.remove(1)
                     nubu.gameImgBtn.setBackgroundColor(0x00000000)
-                    nca--
+                    --nca
                 }
                 2 -> {
                     cardmap.remove(2)
                     buttonmap.remove(2)
                     imgsmap.remove(2)
                     nubu.gameImgBtn.setBackgroundColor(0x00000000)
-                    nca--
+                    --nca
                 }
             }
-            !nubu.active
+
         }
+        Toast.makeText(this, nca.toString(), Toast.LENGTH_SHORT).show()
     }
 
     private fun solves() : Boolean {
