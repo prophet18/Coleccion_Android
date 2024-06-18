@@ -1,5 +1,6 @@
 package coleccion.android
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.activity.ComponentActivity
 import androidx.annotation.RequiresApi
+import androidx.compose.ui.graphics.Color
 import coleccion.android.cards.Card
 import coleccion.android.cards.CheckMatch
 import coleccion.android.cards.Deck
@@ -24,12 +26,12 @@ class CardAreaTwo : ComponentActivity() {
     var uu: Int = 12
     var deck = Deck()
     var cards = ArrayList<Card>()
-    var cardMap = HashMap<Int, Card>()
-    private val buttonStates = HashMap<Int, Boolean>()
+    var buttonStates = HashMap<Int, Boolean>()
     var buttonMapping = HashMap<Int, GameButton>()
     var imageButtons = HashMap<Int, ImageButton>()
     var imagesMap = HashMap<Int, ImageButton>()
     var buttonMap = HashMap<Int, GameButton>()
+    var cardMap = HashMap<Int, Card>()
     private lateinit var scoreValu: TextView
     private lateinit var timeValu: TextView
     private lateinit var randButto: ImageButton
@@ -76,7 +78,7 @@ class CardAreaTwo : ComponentActivity() {
         createCountDownTimer()
         scoreValu.text = AllDatas.scoreTrack.scoreFinal()
 
-        randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { onPaused() } ; rButts.setOnClickListener { onResumed() }
+        randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { giveHint(buttonMapping) } ; rButts.setOnClickListener { onResumed() }
         eButts1.setOnClickListener { returnMenuHome() } ; eButts2.setOnClickListener { returnAndroidHome() }
 
         buttonMapping[0]!!.gameImgBtn.setOnClickListener { toggleCardState(0) }
@@ -126,18 +128,19 @@ class CardAreaTwo : ComponentActivity() {
         yy = 0
     }
     
-    private fun toggleCardState(cardId: Int) {
+    fun toggleCardState(cardId: Int) {
         // Toggle the state
-        val currentState = buttonStates[cardId] ?: false
-        val newState = !currentState
+        val currentState = buttonStates[cardId]
+        val newState = !currentState!!
         buttonStates[cardId] = newState
 
         // Update the UI
         updateCardUI(cardId, newState)
     }
 
-    private fun updateCardUI(cardId: Int, isActive: Boolean) {
+    fun updateCardUI(cardId: Int, isActive: Boolean) {
         val cardButton = buttonMapping[cardId]
+
         if (isActive) {
             // Change to active state
             nca++
@@ -146,18 +149,21 @@ class CardAreaTwo : ComponentActivity() {
                     cardMap[1] = cardButton?.card!!
                     buttonMap[1] = cardButton
                     imageButtons[1] = cardButton.gameImgBtn
+                    AllDatas.indexKeep.add(cardId)
                     cardButton.gameImgBtn.setBackgroundColor(0xff00ff00.toInt())
                 }
                 2 -> {
                     cardMap[2] = cardButton?.card!!
                     buttonMap[2] = cardButton
                     imageButtons[2] = cardButton.gameImgBtn
+                    AllDatas.indexKeep.add(cardId)
                     cardButton.gameImgBtn.setBackgroundColor(0xff00ff00.toInt())
                 }
                 3 -> {
                     cardMap[3] = cardButton?.card!!
                     buttonMap[3] = cardButton
                     imageButtons[3] = cardButton.gameImgBtn
+                    AllDatas.indexKeep.add(cardId)
 
                     if (solves()) {
                         nuDeck()
@@ -178,11 +184,7 @@ class CardAreaTwo : ComponentActivity() {
                     } else {
                         Toast.makeText(this, "W R O N G", Toast.LENGTH_SHORT).show()
                     }
-                    imageButtons[1]!!.setBackgroundColor(0x00000000)
-                    imageButtons[2]!!.setBackgroundColor(0x00000000)
-                    imageButtons[3]!!.setBackgroundColor(0x00000000)
-                    nca = 0
-                    cardMap.clear(); buttonMap.clear(); imageButtons.clear()
+                    resetBoard()
                 }
             }
         } else {
@@ -192,6 +194,7 @@ class CardAreaTwo : ComponentActivity() {
                     cardMap.remove(1)
                     buttonMap.remove(1)
                     imagesMap.remove(1)
+                    AllDatas.indexKeep.remove(cardId)
                     cardButton!!.gameImgBtn.setBackgroundColor(0x00000000)
                     --nca
                 }
@@ -199,6 +202,7 @@ class CardAreaTwo : ComponentActivity() {
                     cardMap.remove(2)
                     buttonMap.remove(2)
                     imagesMap.remove(2)
+                    AllDatas.indexKeep.remove(cardId)
                     cardButton!!.gameImgBtn.setBackgroundColor(0x00000000)
                     --nca
                 }
@@ -276,5 +280,91 @@ class CardAreaTwo : ComponentActivity() {
 
     private fun returnAndroidHome() {
         finish()
+    }
+
+    fun findPossibleMatches(gameButtons: HashMap<Int, GameButton>): List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>> {
+        val cards = gameButtons.toList()
+        val matches = mutableListOf<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>>()
+
+        for (i in cards.indices) {
+            for (j in i + 1 until cards.size) {
+                for (k in j + 1 until cards.size) {
+                    val card1 = cards[i]
+                    val card2 = cards[j]
+                    val card3 = cards[k]
+
+                    if (CheckMatch(card1.second.card!!, card2.second.card!!, card3.second.card!!).matchCheck) {
+                        matches.add(Triple(card1, card2, card3))
+                    }
+                }
+            }
+        }
+        return matches
+    }
+
+    fun selectMatch(matches: List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>>): Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>? {
+        return if (matches.isNotEmpty()) {
+            matches.random()
+        } else {
+            null
+        }
+    }
+
+    fun highlightTwoCards(match: Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>) {
+        when (nca) {
+            1 -> {
+                cardMap.remove(1)
+                buttonMap.remove(1)
+                imagesMap.remove(1)
+            }
+            2 -> {
+                cardMap.remove(1)
+                buttonMap.remove(1)
+                imagesMap.remove(1)
+                cardMap.remove(2)
+                buttonMap.remove(2)
+                imagesMap.remove(2)
+            }
+        }
+
+        val gbHint1 = match.first.second
+        val gbHint2 = match.second.second
+
+        cardMap[1] = gbHint1.card!!
+        buttonMap[1] = gbHint1
+        imageButtons[1] = gbHint1.gameImgBtn
+        gbHint1.gameImgBtn.setBackgroundColor(0xffff0000.toInt())
+        AllDatas.indexKeep.add(match.first.first)
+
+        cardMap[2] = gbHint2.card!!
+        buttonMap[2] = gbHint2
+        imageButtons[2] = gbHint2.gameImgBtn
+        gbHint2.gameImgBtn.setBackgroundColor(0xffff0000.toInt())
+        AllDatas.indexKeep.add(match.second.first)
+
+        nca = 2
+    }
+
+    fun giveHint(gameButtons: HashMap<Int, GameButton>) {
+        val matches = findPossibleMatches(gameButtons)
+        val selectedMatch = selectMatch(matches)
+
+        selectedMatch?.let {
+            highlightTwoCards(it)
+        } ?: run {
+            println("No matches found.")
+            Toast.makeText(this, "No matches found, randomize cards", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun resetBoard() {
+        imageButtons[1]!!.setBackgroundColor(0x00000000)
+        imageButtons[2]!!.setBackgroundColor(0x00000000)
+        imageButtons[3]!!.setBackgroundColor(0x00000000)
+        nca = 0
+        buttonStates[AllDatas.indexKeep[0]] = false
+        buttonStates[AllDatas.indexKeep[1]] = false
+        buttonStates[AllDatas.indexKeep[2]] = false
+        cardMap.clear(); buttonMap.clear(); imageButtons.clear(); AllDatas.indexKeep.clear()
     }
 }

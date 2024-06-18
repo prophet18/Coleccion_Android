@@ -3,6 +3,7 @@ package coleccion.android
 import android.os.Build
 import android.os.CountDownTimer
 import androidx.annotation.RequiresApi
+import coleccion.android.cards.Card
 import coleccion.android.cards.ScorePile
 import java.io.File
 import java.io.BufferedWriter
@@ -25,10 +26,13 @@ object AllDatas {
     var csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
     lateinit var finalTimer : CountDownTimer
     var scoreTrack = ScorePile()
+    var indexKeep : MutableList<Int> = mutableListOf()
+    var testingKeep : MutableList<Card> = mutableListOf()
 
     fun createFile() {
         val dAndTime = "Date &\nTime" ;     val scoreString = "Score"
         val gDuration = "Game\nDuration" ;  val bgStrins = "Background"
+
         try {
             if (highScores.createNewFile() && csvHighScores.createNewFile()) {
                 println("Files created ")
