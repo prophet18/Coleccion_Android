@@ -23,8 +23,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp">
+                android:layout_margin="2dp"
+                android:padding="2dp">
                 <ImageView
                     android:id="@+id/help_info111"
                     android:contentDescription="@string/help_info_111"
@@ -36,8 +36,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp">
+                android:layout_margin="2dp"
+                android:padding="2dp">
                 <ImageView
                     android:id="@+id/help_info3"
                     android:contentDescription="@string/help_logo"
@@ -49,8 +49,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp">
+                android:layout_margin="2dp"
+                android:padding="2dp">
                 <ImageView
                     android:id="@+id/help_info4"
                     android:contentDescription="@string/help_info_4"
@@ -62,8 +62,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp"
+                android:layout_margin="2dp"
+                android:padding="2dp"
                 android:layout_width="400dp"
                 android:layout_height="100dp">
                 <ImageButton
@@ -106,8 +106,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp">
+                android:layout_margin="2dp"
+                android:padding="2dp">
                 <ImageView
                     android:id="@+id/help_info2"
                     android:contentDescription="@string/help_logo"
@@ -119,8 +119,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp">
+                android:layout_margin="2dp"
+                android:padding="2dp">
                 <ImageView
                     android:id="@+id/help_info11"
                     android:contentDescription="@string/help_info_4"
@@ -132,8 +132,8 @@
 
             <TableRow
                 android:gravity="center"
-                android:layout_margin="1dp"
-                android:padding="1dp"
+                android:layout_margin="2dp"
+                android:padding="2dp"
                 android:layout_width="400dp"
                 android:layout_height="100dp">
                 <ImageButton

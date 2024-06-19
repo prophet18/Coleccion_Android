@@ -37,4 +37,5 @@
     <string name="choose_game_background">Select Board Picture:</string>
     <string name="choose_gt">Select Game Length (seconds):</string>
     <string name="scoretwo">Score</string>
+    <string name="hint">Assistance</string>
 </resources>

@@ -1,6 +1,5 @@
 package coleccion.android
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -22,13 +21,12 @@ class Settings : ComponentActivity() {
     var bgSavings : String = "" 
     var gameTime2 : Int = 0
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_layout)
 
-        backgrounds = arrayOf("Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest", "Coast")
-        timeopts = arrayOf(30, 60, 90, 120, 150, 180, 210, 240)
+        backgrounds = arrayOf("Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest", "Coast", "Starry Night", "River Scene", "Ukraine")
+        timeopts = arrayOf(30, 60, 90, 120, 150, 180, 210, 240, 270, 300)
 
         spinning = findViewById(R.id.select_bg) ;       bgChosen = findViewById(R.id.bg_selected)
         spinning2 = findViewById(R.id.select_datime);   return2home = findViewById(R.id.returns)
@@ -53,6 +51,9 @@ class Settings : ComponentActivity() {
                     4 -> { bgChosen?.setImageResource(R.drawable.train_mountains_winter) ;                  AllDatas.boardBGdrawable = R.drawable.train_mountains_winter }
                     5 -> { bgChosen?.setImageResource(R.drawable.trees_and_mountains_and_clouds_and_sky) ;  AllDatas.boardBGdrawable = R.drawable.trees_and_mountains_and_clouds_and_sky }
                     6 -> { bgChosen?.setImageResource(R.drawable.south_oregon_coast_18499357) ;             AllDatas.boardBGdrawable = R.drawable.south_oregon_coast_18499357 }
+                    7 -> { bgChosen?.setImageResource(R.drawable.van_gogh_starry_night) ;                   AllDatas.boardBGdrawable = R.drawable.van_gogh_starry_night }
+                    8 -> { bgChosen?.setImageResource(R.drawable.swanscrollart) ;                           AllDatas.boardBGdrawable = R.drawable.swanscrollart }
+                    9 -> { bgChosen?.setImageResource(R.drawable.ukrainelandscape2) ;                       AllDatas.boardBGdrawable = R.drawable.ukrainelandscape2 }
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {}

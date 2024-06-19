@@ -52,19 +52,21 @@ class CardAreaTwo : ComponentActivity() {
     private lateinit var pButts: ImageButton
     private lateinit var viewFlip: ViewFlipper
     private lateinit var eButts2: ImageButton
+    private lateinit var hintButt: ImageButton
     lateinit var bgLinking: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.play_layout)
 
-        viewFlip = findViewById(R.id.playFlipper); bgLinking = findViewById(R.id.board_layout2)
+        viewFlip = findViewById(R.id.playFlipper)
+        bgLinking = findViewById(R.id.board_layout2)
         bgLinking.setBackgroundResource(AllDatas.boardBGdrawable)
 
-        nucOne = findViewById(R.id.card1); nucTwo = findViewById(R.id.card2); nucThree = findViewById(R.id.card3); pButts = findViewById(R.id.pause_button)
-        nucFour = findViewById(R.id.card4); nucFive = findViewById(R.id.card5); nucSix = findViewById(R.id.card6)
-        nucSeven = findViewById(R.id.card7); nucEight = findViewById(R.id.card8); nucNine = findViewById(R.id.card9)
-        nucTen = findViewById(R.id.card10); nucEleven = findViewById(R.id.card11); nucTwelve = findViewById(R.id.card12)
+        nucOne = findViewById(R.id.card1);      nucTwo = findViewById(R.id.card2);      nucThree = findViewById(R.id.card3)
+        nucFour = findViewById(R.id.card4);     nucFive = findViewById(R.id.card5);     nucSix = findViewById(R.id.card6)
+        nucSeven = findViewById(R.id.card7);    nucEight = findViewById(R.id.card8);    nucNine = findViewById(R.id.card9)
+        nucTen = findViewById(R.id.card10);     nucEleven = findViewById(R.id.card11);  nucTwelve = findViewById(R.id.card12)
 
         imagesMap[0] = nucOne ; imagesMap[1] = nucTwo ; imagesMap[2] = nucThree ; imagesMap[3] = nucFour
         imagesMap[4] = nucFive ; imagesMap[5] = nucSix ; imagesMap[6] = nucSeven ; imagesMap[7] = nucEight
@@ -73,12 +75,14 @@ class CardAreaTwo : ComponentActivity() {
         scoreValu = findViewById(R.id.score_value); timeValu = findViewById(R.id.time_value)
         randButto = findViewById(R.id.random_button) ; rButts = findViewById(R.id.resume_button)
         eButts1 = findViewById(R.id.e_button); eButts2 = findViewById(R.id.e_button2)
+        pButts = findViewById(R.id.pause_button) ; hintButt = findViewById(R.id.hint_button)
 
         makeDeck()
         createCountDownTimer()
         scoreValu.text = AllDatas.scoreTrack.scoreFinal()
 
-        randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { giveHint(buttonMapping) } ; rButts.setOnClickListener { onResumed() }
+        randButto.setOnClickListener { randomCards() } ; pButts.setOnClickListener { onPaused() }
+        rButts.setOnClickListener { onResumed() } ; hintButt.setOnClickListener { giveHint(buttonMapping) }
         eButts1.setOnClickListener { returnMenuHome() } ; eButts2.setOnClickListener { returnAndroidHome() }
 
         buttonMapping[0]!!.gameImgBtn.setOnClickListener { toggleCardState(0) }
@@ -168,9 +172,9 @@ class CardAreaTwo : ComponentActivity() {
                     if (solves()) {
                         nuDeck()
                         // score.push(cardmap[1]); score.push(cardmap[2]); score.push(cardmap[3])
-                        AllDatas.scoreTrack.push(cardMap[1]); AllDatas.scoreTrack.push(cardMap[2]); AllDatas.scoreTrack.push(
-                            cardMap[3]
-                        )
+                        AllDatas.scoreTrack.push(cardMap[1])
+                        AllDatas.scoreTrack.push(cardMap[2])
+                        AllDatas.scoreTrack.push(cardMap[3])
                         scoreValu.text = AllDatas.scoreTrack.scoreFinal()
                         AllDatas.gameScoreInfo = AllDatas.scoreTrack.scoreTotal()
 
@@ -188,7 +192,6 @@ class CardAreaTwo : ComponentActivity() {
                 }
             }
         } else {
-            // Change to inactive state
             when (nca) {
                 1 -> {
                     cardMap.remove(1)
@@ -282,7 +285,8 @@ class CardAreaTwo : ComponentActivity() {
         finish()
     }
 
-    fun findPossibleMatches(gameButtons: HashMap<Int, GameButton>): List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>> {
+    fun findPossibleMatches(gameButtons: HashMap<Int, GameButton>):
+            List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>> {
         val cards = gameButtons.toList()
         val matches = mutableListOf<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>>()
 
@@ -302,7 +306,8 @@ class CardAreaTwo : ComponentActivity() {
         return matches
     }
 
-    fun selectMatch(matches: List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>>): Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>? {
+    fun selectMatch(matches: List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>>):
+            Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>? {
         return if (matches.isNotEmpty()) {
             matches.random()
         } else {
