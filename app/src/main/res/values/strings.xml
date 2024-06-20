@@ -38,4 +38,7 @@
     <string name="choose_gt">Select Game Length (seconds):</string>
     <string name="scoretwo">Score</string>
     <string name="hint">Assistance</string>
+    <string name="examples">\u00A0Card Examples\u00A0</string>
+    <string name="playgame">\u00A0Gameplay\u00A0Overview\u00A0</string>
+    <string name="hmsge">\u00A0Good\u00A0Luck,\u00A0and\u00A0Have\u00A0Fun!\u00A0</string>
 </resources>
