@@ -7,6 +7,7 @@ package coleccion.android
     CardArea contains all of the major functions comprising gameplay.
 */
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -18,6 +19,7 @@ import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.activity.ComponentActivity
 import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
 import coleccion.android.cards.Card
 import coleccion.android.cards.CheckMatch
 import coleccion.android.cards.Deck
@@ -57,12 +59,14 @@ class CardArea : ComponentActivity() {
     private lateinit var pButts: ImageButton
     private lateinit var eButts2: ImageButton
     private lateinit var hintButt: ImageButton
-    lateinit var bgLinking: LinearLayout
+    // lateinit var bgLinking: LinearLayout
+    lateinit var bgLinking: ConstraintLayout
     private lateinit var viewFlip: ViewFlipper
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.play_layout)
+        setContentView(R.layout.play_layoutthree)
 
         viewFlip = findViewById(R.id.playFlipper)
         bgLinking = findViewById(R.id.board_layout2)
