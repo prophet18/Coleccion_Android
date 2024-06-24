@@ -2,7 +2,7 @@ package coleccion.android.cards
 
 /*
     Similar to CheckMatch in original collection - this class (with constuctor) creates an object of 3 cards.
-    These cards are then analyed for the conditions that constitute a set, and returns the boolean.
+    These cards are then analyzed for the conditions that constitute a set, and returns the boolean.
 */
 
 class CheckMatch (first: Card, second: Card, third: Card) {
@@ -30,6 +30,7 @@ class CheckMatch (first: Card, second: Card, third: Card) {
     }
 
     // Functions to assess identical properties
+
     private fun sameColor (cardOne: Card, cardTwo: Card, cardThree: Card): Boolean {
         colorSame = cardOne.color == cardTwo.color && cardThree.color == cardTwo.color
         return colorSame

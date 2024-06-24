@@ -52,8 +52,8 @@
             android:layout_height="50dp"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
-            android:textColor="#800080"
-            android:textSize="30sp"
+            android:textColor="#FFFF00"
+            android:textSize="40sp"
             android:gravity="center"
             android:layout_gravity="center"
             android:fontFamily="@font/ocraextended" />
@@ -84,7 +84,7 @@
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
             android:textColor="#FFFF00"
-            android:textSize="30sp"
+            android:textSize="40sp"
             android:gravity="center"
             android:layout_gravity="center"
             android:fontFamily="@font/ocraextended" />

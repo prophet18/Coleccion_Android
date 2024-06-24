@@ -8,7 +8,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/coleccion_icon_3"
+        android:icon="@drawable/logoscol52"
         android:label="Coleccion"
         android:supportsRtl="true"
         tools:targetApi="34">
@@ -25,11 +25,6 @@
 
         <activity
             android:name=".CardArea"
-            android:theme="@android:style/Theme.NoTitleBar">
-        </activity>
-
-        <activity
-            android:name=".CardAreaTwo"
             android:theme="@android:style/Theme.NoTitleBar">
         </activity>
 

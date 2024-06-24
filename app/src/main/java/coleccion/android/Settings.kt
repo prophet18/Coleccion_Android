@@ -1,5 +1,10 @@
 package coleccion.android
 
+/*
+    Settings controls the options available to the player.
+    Using Spinners, players can select the background and game duration they desire.
+*/
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -28,7 +33,7 @@ class Settings : ComponentActivity() {
         backgrounds = arrayOf("Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest", "Coast", "Starry Night", "River Scene", "Ukraine")
         timeopts = arrayOf(30, 60, 90, 120, 150, 180, 210, 240, 270, 300)
 
-        spinning = findViewById(R.id.select_bg) ;       bgChosen = findViewById(R.id.bg_selected)
+        spinning = findViewById(R.id.select_bg);        bgChosen = findViewById(R.id.bg_selected)
         spinning2 = findViewById(R.id.select_datime);   return2home = findViewById(R.id.returns)
 
         val adapting = ArrayAdapter(this, R.layout.spinner_item, backgrounds)

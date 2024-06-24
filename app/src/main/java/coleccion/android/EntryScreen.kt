@@ -1,7 +1,7 @@
 package coleccion.android
 
 /*
-    Similar to Game in original collection - this serves as the entry screen for the game and major buttons functionality.
+    Similar to Game in original collection - this serves as the entry screen for the game and navigation buttons functionality.
 */
 
 import android.content.Intent
@@ -21,7 +21,7 @@ class EntryScreen : ComponentActivity() {
         val exitButton = findViewById<ImageButton>(R.id.exit_button)
 
         ngButton.setOnClickListener {
-            val intent1 = Intent(this, CardAreaTwo::class.java)
+            val intent1 = Intent(this, CardArea::class.java)
             startActivity(intent1)
             finish()
         }

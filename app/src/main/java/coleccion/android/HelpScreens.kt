@@ -1,6 +1,10 @@
 package coleccion.android
 
-import android.annotation.SuppressLint
+/*
+    HelpScreens is the class which controls the display and navigation of the help pages of the app.
+    Using a ViewFlipper, the class switches between the different help screen layouts.
+*/
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
@@ -17,7 +21,6 @@ class HelpScreens : ComponentActivity() {
     private lateinit var eButto33 : ImageButton
     private lateinit var viewFlip : ViewFlipper
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.help_layout)

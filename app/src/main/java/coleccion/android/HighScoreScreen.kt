@@ -1,5 +1,11 @@
 package coleccion.android
 
+/*
+    HighScoreScreen is the class which displays the high score layout (highscore_screen).
+    The functions contained within the class are responsible for building the TableLayout which displays scores,
+    time, and background info.
+*/
+
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Build

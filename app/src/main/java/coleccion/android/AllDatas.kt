@@ -1,9 +1,14 @@
 package coleccion.android
 
+/*
+    AllDatas is the main information storage Object for the game.
+    Background, Time, Score, and related info, are kept as variables here.
+    The Object also contains the functions (methods) to create and append the high score files.
+*/
+
 import android.os.Build
 import android.os.CountDownTimer
 import androidx.annotation.RequiresApi
-import coleccion.android.cards.Card
 import coleccion.android.cards.ScorePile
 import java.io.File
 import java.io.BufferedWriter
@@ -27,7 +32,6 @@ object AllDatas {
     lateinit var finalTimer : CountDownTimer
     var scoreTrack = ScorePile()
     var indexKeep : MutableList<Int> = mutableListOf()
-    var testingKeep : MutableList<Card> = mutableListOf()
 
     fun createFile() {
         val dAndTime = "Date &\nTime" ;     val scoreString = "Score"

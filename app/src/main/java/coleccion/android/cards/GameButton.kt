@@ -1,14 +1,13 @@
 package coleccion.android.cards
 
-import android.widget.ImageButton
-
 /*
-    Similar to GameButton in original collection - separate buttons with parameters for index and card.
+    Similar to GameButton in original collection - button with parameters for ImageButton and Card.
 */
+
+import android.widget.ImageButton
 
 class GameButton(giBtn: ImageButton, crd: Card) {
 
-    var active: Boolean = false
     var card: Card? = crd
     var cImg: Int = 0
     var gameImgBtn: ImageButton = giBtn

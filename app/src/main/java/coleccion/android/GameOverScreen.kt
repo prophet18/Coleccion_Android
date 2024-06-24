@@ -1,5 +1,11 @@
 package coleccion.android
 
+/*
+    GameOverScreen is the transition layout that appears after a game has completed, and before returning to the main menu.
+    It displays the Game Score, Game Timer, and resets those parameters.
+    The Coil utility is implemented to render a gif which serves as the background of the screen.
+*/
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -65,7 +71,7 @@ class GameOverScreen : ComponentActivity() {
             .build()
 
         val request = ImageRequest.Builder(this)
-            .data(R.raw.starfieldsimulation) // or use URI/URL to load the gif from internet
+            .data(R.raw.starfieldsimulation_rotate) // or use URI/URL to load the gif from internet
             .target(bgView)
             .build()
 
