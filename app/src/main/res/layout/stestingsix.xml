@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/helps_layout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/question_mark_dos"
+    tools:context=".HelpScreens">
+
+    <ImageView
+        android:id="@+id/help_info111"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/help_info_111"
+        android:scaleType="fitXY"
+        android:src="@drawable/how_2_play_icon1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/help_info6"
+        android:layout_width="wrap_content"
+        android:layout_height="129dp"
+        android:paddingBottom="5dp"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/help_logo"
+        android:src="@drawable/nuruleheader1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_info111"
+        app:layout_constraintBottom_toTopOf="@+id/help_info3"/>
+
+    <ImageView
+        android:id="@+id/help_info3"
+        android:contentDescription="@string/help_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:src="@drawable/rulesnuprops3"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_info6"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRow"/>
+
+    <TableRow
+        android:id="@+id/buttonRow"
+        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:padding="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/e_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/exit_button"
+            android:paddingStart="1dp"
+            android:paddingEnd="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/back_2_menu2" />
+
+        <ImageButton
+            android:id="@+id/e_button22"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/next_button"
+            android:paddingStart="1dp"
+            android:paddingEnd="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/nextpage1" />
+    </TableRow>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,6 @@ class GameOverScreen : ComponentActivity() {
     private lateinit var timeReport2 : String
     private lateinit var bgView : ImageView
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_over_layout)
