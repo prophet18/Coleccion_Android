@@ -84,7 +84,6 @@
                 android:layout_weight="1"
                 android:text="@string/choose_gt"
                 android:textColor="@color/yellow"
-
                 android:fontFamily="@font/ocraextended"
                 android:textSize="28sp"
                 android:gravity="center"
