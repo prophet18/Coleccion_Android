@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/coleccion_background_p_z_1"
+    android:orientation="vertical"
+    tools:context=".Settings">
+
+    <ImageView
+        android:id="@+id/cologo2"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:paddingBottom="10dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/game_coleccion_logo"
+        android:scaleType="fitXY"
+        android:src="@drawable/coleccion_logo_i"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bg_select"
+        android:contentDescription="@string/choose_game_background"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:text="@string/choose_game_background"
+        android:textColor="@color/yellow"
+        android:background="@color/black"
+        android:fontFamily="@font/ocraextended"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/select_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cologo2"/>
+
+    <Spinner
+        android:id="@+id/select_bg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@id/bg_selected"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bg_select"/>
+
+    <ImageView
+        android:id="@+id/bg_selected"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/choose_game_background"
+        app:layout_constraintBottom_toTopOf="@id/time2_select"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_bg"/>
+
+    <TextView
+        android:id="@+id/time2_select"
+        android:contentDescription="@string/time"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:text="@string/choose_gt"
+        android:textColor="@color/yellow"
+        android:background="@color/black"
+        android:fontFamily="@font/ocraextended"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/select_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bg_selected"/>
+
+    <Spinner
+        android:id="@+id/select_datime"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@id/returns"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time2_select"/>
+
+    <ImageButton
+        android:id="@+id/returns"
+        android:contentDescription="@string/exit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:scaleType="fitXY"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/return_home1"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,14 +59,14 @@ class CardArea : ComponentActivity() {
     private lateinit var pButts: ImageButton
     private lateinit var eButts2: ImageButton
     private lateinit var hintButt: ImageButton
-    // lateinit var bgLinking: LinearLayout
-    lateinit var bgLinking: ConstraintLayout
+    lateinit var bgLinking: LinearLayout
+    // lateinit var bgLinking: ConstraintLayout
     private lateinit var viewFlip: ViewFlipper
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.play_layoutthree)
+        setContentView(R.layout.play_layout)
 
         viewFlip = findViewById(R.id.playFlipper)
         bgLinking = findViewById(R.id.board_layout2)

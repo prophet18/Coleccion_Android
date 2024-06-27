@@ -12,7 +12,7 @@ import androidx.activity.ComponentActivity
 class EntryScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.entry_screentwo)
+        setContentView(R.layout.entry_screen)
 
         val ngButton = findViewById<ImageButton>(R.id.new_game_button)
         val hsButton = findViewById<ImageButton>(R.id.high_score_button)

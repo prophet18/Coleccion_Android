@@ -1,0 +1,20 @@
+﻿The goal of Colección is to find sets of three cards that fulfill the requirements for a match as rapidly as possible.
+
+There are 4 properties that define the image on each card:
+
+Color - Each card has 1 of 4 possible colors:	
+	    Blue, Orange, Green, and Red
+
+Number - The number of shapes present on the card:
+	    1, 2, or 3
+
+Type - There are 4 kinds of shapes in the game:
+	  Triangles, Parallelograms,
+      Semicircles, and Rectangles
+
+Fill - Each shape will have 1 of 3 patterns: 
+	  Solid, Empty, or Grid
+
+A Colección is a set where 3 cards either share the same characteristics, or have different, unique characteristics, for all 4 properties.
+
+A Colección is not valid unless the requirements for ALL four properties are fulfilled!
