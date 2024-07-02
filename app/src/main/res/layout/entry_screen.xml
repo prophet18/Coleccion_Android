@@ -16,53 +16,42 @@
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="1dp"
-        android:orientation="vertical"
-        android:padding="1dp">
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/collection_logo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
             android:contentDescription="@string/coleccion_logo"
             android:scaleType="fitXY"
             android:src="@drawable/coleccion_logo_b"
             app:layout_constraintBottom_toTopOf="@+id/new_game_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.12"/>
 
         <ImageButton
             android:id="@+id/new_game_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/new_game_button"
-            android:scaleType="centerInside"
+            android:scaleType="fitXY"
             android:src="@drawable/new_game_parallelogram"
             app:layout_constraintBottom_toTopOf="@+id/high_score_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/collection_logo" />
+            app:layout_constraintTop_toBottomOf="@id/collection_logo"
+            app:layout_constraintWidth_percent="0.95"
+            app:layout_constraintHeight_percent="0.15"/>
 
         <ImageButton
             android:id="@+id/high_score_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/high_score_button"
             android:scaleType="fitXY"
@@ -70,16 +59,14 @@
             app:layout_constraintBottom_toTopOf="@+id/settings_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_game_button" />
+            app:layout_constraintTop_toBottomOf="@id/new_game_button"
+            app:layout_constraintWidth_percent="0.90"
+            app:layout_constraintHeight_percent="0.15"/>
 
         <ImageButton
             android:id="@+id/settings_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:paddingStart="50dp"
-            android:paddingEnd="50dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/settings_button"
             android:scaleType="fitXY"
@@ -87,16 +74,14 @@
             app:layout_constraintBottom_toTopOf="@+id/help_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/high_score_button" />
+            app:layout_constraintTop_toBottomOf="@id/high_score_button"
+            app:layout_constraintWidth_percent="0.90"
+            app:layout_constraintHeight_percent="0.15"/>
 
         <ImageButton
             android:id="@+id/help_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/help_button"
             android:scaleType="centerInside"
@@ -104,16 +89,14 @@
             app:layout_constraintBottom_toTopOf="@+id/exit_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settings_button" />
+            app:layout_constraintTop_toBottomOf="@id/settings_button"
+            app:layout_constraintWidth_percent="0.95"
+            app:layout_constraintHeight_percent="0.15"/>
 
         <ImageButton
             android:id="@+id/exit_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="4dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/exit_button"
             android:scaleType="centerInside"
@@ -121,7 +104,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/help_button" />
+            app:layout_constraintTop_toBottomOf="@id/help_button"
+            app:layout_constraintWidth_percent="0.90"
+            app:layout_constraintHeight_percent="0.15"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

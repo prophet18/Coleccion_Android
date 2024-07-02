@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ViewFlipper
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/playFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/board_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CardArea">
+
+        <TableRow
+            android:id="@+id/iconRow1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.07">
+
+            <ImageView
+                android:id="@+id/score_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/score_icon"
+                android:scaleType="fitXY"
+                android:src="@drawable/scoreicon2" />
+
+            <ImageView
+                android:id="@+id/timer_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/timer_icon"
+                android:scaleType="fitXY"
+                android:src="@drawable/gametimericon" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/textRow2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/iconRow1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRow3"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.05">
+
+            <TextView
+                android:id="@+id/score_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription="@string/game_score"
+                android:fontFamily="@font/ocraextended"
+                android:gravity="center"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/score"
+                android:textColor="#2A52BE"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/time_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription="@string/game_time_left_seconds"
+                android:fontFamily="@font/ocraextended"
+                android:gravity="center"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/time"
+                android:textColor="#FF4500"
+                android:textSize="28sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/buttonRow3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/textRow2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/random_button"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.07">
+
+            <ImageButton
+                android:id="@+id/pause_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/pause_button"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/pause_icon2" />
+
+            <ImageButton
+                android:id="@+id/hint_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/hint"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/hintbutton" />
+
+        </TableRow>
+
+        <ImageButton
+            android:id="@+id/random_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/randomize_button"
+            android:paddingStart="1dp"
+            android:paddingEnd="1dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ricontres"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRow3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cardRow1"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.06"/>
+
+        <TableRow
+            android:id="@+id/cardRow1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/random_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cardRow2"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.25">
+
+            <ImageButton
+                android:id="@+id/card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_one"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_two"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_three"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_four"
+                android:scaleType="fitXY" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/cardRow2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/cardRow1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cardRow3"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.25">
+
+            <ImageButton
+                android:id="@+id/card5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_five"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_six"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_seven"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_eight"
+                android:scaleType="fitXY" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/cardRow3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/cardRow2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.25">
+
+            <ImageButton
+                android:id="@+id/card9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_nine"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_ten"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_eleven"
+                android:scaleType="fitXY" />
+
+            <ImageButton
+                android:id="@+id/card12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="1dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/card_twelve"
+                android:scaleType="fitXY" />
+
+        </TableRow>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/coleccion_background_p_grid_1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/cologo1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="70dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/coleccion_logo"
+            android:scaleType="fitXY"
+            android:src="@drawable/coleccion_logo_b"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.12"/>
+
+        <ImageButton
+            android:id="@+id/resume_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="28dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/resume_button"
+            android:scaleType="fitXY"
+            android:src="@drawable/resume_parallelogram"
+            app:layout_constraintTop_toBottomOf="@+id/cologo1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/e_button"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.18"/>
+
+        <ImageButton
+            android:id="@+id/e_button"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/exit_button"
+            android:scaleType="fitXY"
+            android:src="@drawable/exit_to_menu_triangle"
+            app:layout_constraintTop_toBottomOf="@+id/resume_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/e_button2"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.18"/>
+
+        <ImageButton
+            android:id="@+id/e_button2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/exit_button"
+            android:scaleType="fitXY"
+            android:src="@drawable/exit_game_semicircle"
+            app:layout_constraintTop_toBottomOf="@+id/e_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.18"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ViewFlipper>

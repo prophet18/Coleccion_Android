@@ -23,7 +23,7 @@ class HelpScreens : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.help_layout)
+        setContentView(R.layout.help_layouts)
 
         viewFlip = findViewById(R.id.helpFlipper)
         eButto2 = findViewById(R.id.e_button2)
