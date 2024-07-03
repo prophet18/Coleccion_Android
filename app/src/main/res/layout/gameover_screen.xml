@@ -6,8 +6,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
-    android:padding="5dp"
     tools:context=".GameOverScreen">
 
     <ImageView
@@ -28,22 +26,26 @@
             android:id="@+id/goHeader"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             android:scaleType="fitXY"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="50dp"
             android:background="@android:color/transparent"
             android:contentDescription="@string/high_score_button"
             android:src="@drawable/gameoverbutton3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.1"/>
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.15"/>
 
         <ImageView
             android:id="@+id/final_score_icon"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/score_icon"
             android:scaleType="fitXY"
             android:src="@drawable/finalscore2"
@@ -51,8 +53,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/goHeader"
             app:layout_constraintBottom_toTopOf="@+id/score_value2"
-            app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.1"/>
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.15"/>
 
         <TextView
             android:id="@+id/score_value2"
@@ -63,18 +65,21 @@
             android:fontFamily="@font/ocraextended"
             android:gravity="center"
             android:textColor="#FFFF00"
-            android:textSize="40sp"
+            android:textSize="50sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/final_score_icon"
             app:layout_constraintBottom_toTopOf="@+id/final_timer_icon"
-            app:layout_constraintWidth_percent="0.95"
+            app:layout_constraintWidth_percent="0.9"
             app:layout_constraintHeight_percent="0.15"/>
 
-         <ImageView
+        <ImageView
             android:id="@+id/final_timer_icon"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/timer_icon"
             android:scaleType="fitXY"
             android:src="@drawable/gametime2"
@@ -82,8 +87,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/score_value2"
             app:layout_constraintBottom_toTopOf="@+id/time_value2"
-            app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.1"/>
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.15"/>
 
         <TextView
             android:id="@+id/time_value2"
@@ -99,7 +104,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/final_timer_icon"
             app:layout_constraintBottom_toTopOf="@+id/exit_button2"
-            app:layout_constraintWidth_percent="0.95"
+            app:layout_constraintWidth_percent="0.9"
             app:layout_constraintHeight_percent="0.15"/>
 
         <ImageButton
@@ -114,7 +119,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_percent="0.95"
+            app:layout_constraintWidth_percent="0.9"
             app:layout_constraintHeight_percent="0.08"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

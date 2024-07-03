@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+
+help_layout.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/helpFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/question_mark_dos"
+        android:id="@+id/helps_layout1"
+        tools:context=".HelpScreens" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:padding="1dp" >
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="2dp"
+                android:padding="2dp">
+                <ImageView
+                    android:id="@+id/help_info111"
+                    android:contentDescription="@string/help_info_111"
+                    android:layout_width="400dp"
+                    android:layout_height="90dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/how_2_play_icon1"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageView
+                    android:id="@+id/help_info6"
+                    android:contentDescription="@string/help_logo"
+                    android:layout_width="400dp"
+                    android:layout_height="140dp"
+                    android:src="@drawable/nuruleheader1"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageView
+                    android:id="@+id/help_info3"
+                    android:contentDescription="@string/help_logo"
+                    android:layout_width="400dp"
+                    android:layout_height="430dp"
+                    android:src="@drawable/rulesnuprops3"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageButton
+                    android:id="@+id/e_button2"
+                    android:contentDescription="@string/exit_button"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="1dp"
+                    android:src="@drawable/back_2_menu2"
+                    android:background="@android:color/transparent"/>
+                <ImageButton
+                    android:id="@+id/e_button22"
+                    android:contentDescription="@string/next_button"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="1dp"
+                    android:src="@drawable/nextpage1"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/question_mark_dos"
+        android:id="@+id/helps_layout2"
+        tools:context=".HelpScreens" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/help_info2"
+                    android:contentDescription="@string/help_logo"
+                    android:layout_width="400dp"
+                    android:layout_height="440dp"
+                    android:src="@drawable/helpexamplestwo"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <TextView
+                    android:id="@+id/examples"
+                    android:contentDescription="@string/examples"
+                    android:layout_width="350dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:textSize="35sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/yellow"
+                    android:background="@color/black"
+                    android:fontFamily="@font/ocraextended"
+                    android:text="@string/examples" />
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageView
+                    android:id="@+id/help_info14441"
+                    android:contentDescription="@string/help_info_4"
+                    android:layout_width="400dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/shapeexamplesone"
+                    android:background="@android:color/transparent"/>
+
+                <ImageView
+                    android:id="@+id/help_info1741"
+                    android:contentDescription="@string/help_info_4"
+                    android:layout_width="400dp"
+                    android:layout_height="175dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/shapeexamplestwo"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageButton
+                    android:id="@+id/e_button3"
+                    android:contentDescription="@string/back_to_help_1"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="1dp"
+                    android:src="@drawable/previouspage1"
+                    android:background="@android:color/transparent"/>
+                <ImageButton
+                    android:id="@+id/e_button222"
+                    android:contentDescription="@string/next_button"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="1dp"
+                    android:src="@drawable/nextpage1"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/question_mark_dos"
+        tools:context=".HelpScreens" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:padding="1dp" >
+
+            <TableRow
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/pgame"
+                    android:contentDescription="@string/playgame"
+                    android:layout_width="410dp"
+                    android:layout_height="70dp"
+                    android:textSize="35sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/yellow"
+                    android:background="@color/black"
+                    android:fontFamily="@font/ocraextended"
+                    android:text="@string/playgame" />
+            </TableRow>
+
+            <TableRow
+                android:layout_margin="2dp"
+                android:padding="2dp">
+                <ImageView
+                    android:id="@+id/help_info5"
+                    android:contentDescription="@string/help_logo"
+                    android:layout_width="410dp"
+                    android:layout_height="540dp"
+                    android:src="@drawable/helppartthree"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/msgage"
+                    android:contentDescription="@string/hmsge"
+                    android:layout_width="410dp"
+                    android:layout_height="50dp"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:background="@color/black"
+                    android:fontFamily="@font/ocraextended"
+                    android:text="@string/hmsge" />
+            </TableRow>
+
+            <TableRow
+                android:gravity="center"
+                android:layout_margin="1dp"
+                android:padding="1dp">
+                <ImageButton
+                    android:id="@+id/e_button32"
+                    android:contentDescription="@string/back_to_help_1"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="1dp"
+                    android:src="@drawable/previouspage1"
+                    android:background="@android:color/transparent"/>
+                <ImageButton
+                    android:id="@+id/e_button33"
+                    android:contentDescription="@string/exit_button"
+                    android:layout_width="390dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:layout_weight="1"
+                    android:paddingStart="1dp"
+                    android:paddingEnd="1dp"
+                    android:src="@drawable/back_2_menu1"
+                    android:background="@android:color/transparent"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</ViewFlipper>
+
+-->
+
+<!--
+game_over_layout.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:contentDescription="@string/high_score_button"
+            android:layout_width="390dp"
+            android:layout_height="120dp"
+            android:src="@drawable/gameoverbutton3"
+            android:background="@android:color/transparent"/>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <ImageView
+            android:id="@+id/final_score_icon"
+            android:contentDescription="@string/score_icon"
+            android:layout_width="380dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:paddingStart="1dp"
+            android:paddingEnd="1dp"
+            android:src="@drawable/finalscore2" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/score_value2"
+            android:contentDescription="@string/game_score"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textColor="#FFFF00"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:fontFamily="@font/ocraextended" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <ImageView
+            android:id="@+id/final_timer_icon"
+            android:contentDescription="@string/timer_icon"
+            android:layout_width="380dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:paddingStart="10dp"
+            android:paddingEnd="1dp"
+            android:src="@drawable/gametime2" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/time_value2"
+            android:contentDescription="@string/time"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textColor="#FFFF00"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:fontFamily="@font/ocraextended" />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <ImageButton
+            android:id="@+id/exit_button2"
+            android:contentDescription="@string/exit_button"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:src="@drawable/back_2_menu2"
+            android:background="@android:color/transparent" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+    </LinearLayout>
+</RelativeLayout>
+
+-->
+
+<!--
+hltwo.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/helpFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HelpScreens">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/helps_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/question_mark_dos"
+        tools:context=".HelpScreens">
+
+<ImageView
+android:id="@+id/help_info111"
+android:layout_width="0dp"
+android:layout_height="0dp"
+android:paddingStart="5dp"
+android:paddingEnd="5dp"
+android:layout_marginTop="8dp"
+android:contentDescription="@string/help_info_111"
+android:scaleType="centerInside"
+android:src="@drawable/how_2_play_icon1"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintWidth_percent="0.9"
+app:layout_constraintHeight_percent="0.2"/>
+
+<ImageView
+android:id="@+id/help_info6"
+android:layout_width="wrap_content"
+android:layout_height="129dp"
+android:paddingBottom="5dp"
+android:scaleType="fitXY"
+android:background="@android:color/transparent"
+android:contentDescription="@string/help_logo"
+android:src="@drawable/nuruleheader1"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/help_info111"
+app:layout_constraintBottom_toTopOf="@+id/help_info3"
+app:layout_constraintWidth_percent="0.3"
+app:layout_constraintHeight_percent="0.3"/>
+
+<ImageView
+android:id="@+id/help_info3"
+android:contentDescription="@string/help_logo"
+android:layout_width="wrap_content"
+android:layout_height="350dp"
+android:src="@drawable/rulesnuprops3"
+android:background="@android:color/transparent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/help_info6"
+app:layout_constraintBottom_toTopOf="@+id/buttonRow"
+app:layout_constraintWidth_percent="0.1"
+app:layout_constraintHeight_percent="0.1"/>
+
+<TableRow
+android:id="@+id/buttonRow"
+android:layout_marginBottom="8dp"
+android:layout_width="wrap_content"
+android:layout_height="55dp"
+android:gravity="center"
+android:padding="1dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintStart_toStartOf="parent">
+
+<ImageButton
+    android:id="@+id/e_button2"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_weight="1"
+    android:background="@android:color/transparent"
+    android:contentDescription="@string/exit_button"
+    android:paddingStart="1dp"
+    android:paddingEnd="1dp"
+    android:scaleType="fitXY"
+    android:src="@drawable/back_2_menu2" />
+
+<ImageButton
+    android:id="@+id/e_button22"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_weight="1"
+    android:background="@android:color/transparent"
+    android:contentDescription="@string/next_button"
+    android:paddingStart="1dp"
+    android:paddingEnd="1dp"
+    android:scaleType="fitXY"
+    android:src="@drawable/nextpage1" />
+</TableRow>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/helps_layout2"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/question_mark_dos"
+tools:context=".HelpScreens">
+
+<ImageView
+    android:id="@+id/help_info2"
+    android:layout_width="wrap_content"
+    android:layout_height="375dp"
+    android:layout_marginTop="8dp"
+    android:paddingBottom="5dp"
+    android:background="@android:color/transparent"
+    android:contentDescription="@string/help_logo"
+    android:src="@drawable/helpexamplestwo"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+<TextView
+    android:id="@+id/examples"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:background="@color/black"
+    android:contentDescription="@string/examples"
+    android:fontFamily="@font/ocraextended"
+    android:gravity="center"
+    android:text="@string/examples"
+    android:textColor="@color/yellow"
+    android:textSize="35sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/help_info2"
+    app:layout_constraintBottom_toTopOf="@+id/pRowTwo"/>
+
+<TableRow
+    android:id="@+id/pRowTwo"
+    android:layout_margin="1dp"
+    android:layout_height="150dp"
+    android:gravity="center"
+    android:padding="1dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/examples"
+    app:layout_constraintBottom_toTopOf="@+id/pRowThree"
+    android:layout_width="wrap_content">
+
+    <ImageView
+        android:id="@+id/help_info14441"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/help_info_4"
+        android:src="@drawable/shapeexamplesone" />
+
+    <ImageView
+        android:id="@+id/help_info1741"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/help_info_4"
+        android:src="@drawable/shapeexamplestwo" />
+</TableRow>
+
+<TableRow
+    android:id="@+id/pRowThree"
+    android:layout_margin="1dp"
+    android:gravity="center"
+    android:padding="1dp"
+    android:layout_height="55dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_width="wrap_content">
+
+    <ImageButton
+        android:id="@+id/e_button3"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/back_to_help_1"
+        android:paddingStart="1dp"
+        android:paddingEnd="1dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/previouspage1" />
+
+    <ImageButton
+        android:id="@+id/e_button222"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/next_button"
+        android:paddingStart="1dp"
+        android:paddingEnd="1dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/nextpage1" />
+</TableRow>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/linearLayout3"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/question_mark_dos"
+tools:context=".HelpScreens">
+
+<TextView
+    android:id="@+id/pgame"
+    android:layout_width="wrap_content"
+    android:layout_height="70dp"
+    android:layout_gravity="center"
+    android:layout_marginTop="5dp"
+    android:background="@color/black"
+    android:contentDescription="@string/playgame"
+    android:fontFamily="@font/ocraextended"
+    android:gravity="center"
+    android:text="@string/playgame"
+    android:textColor="@color/yellow"
+    android:textSize="31sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+<ImageView
+    android:id="@+id/help_info5"
+    android:layout_width="wrap_content"
+    android:layout_height="460dp"
+    android:paddingBottom="2dp"
+    android:background="@android:color/transparent"
+    android:contentDescription="@string/help_logo"
+    android:src="@drawable/helppartthree"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/pgame"
+    app:layout_constraintBottom_toTopOf="@+id/msgage"/>
+
+<TextView
+    android:id="@+id/msgage"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:layout_gravity="center"
+    android:background="@color/black"
+    android:contentDescription="@string/hmsge"
+    android:fontFamily="@font/ocraextended"
+    android:gravity="center"
+    android:text="@string/hmsge"
+    android:textColor="@color/white"
+    android:textSize="22sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/help_info5"
+    app:layout_constraintBottom_toTopOf="@+id/hFinalRow"/>
+
+<TableRow
+    android:id="@+id/hFinalRow"
+    android:layout_marginBottom="5dp"
+    android:gravity="center"
+    android:padding="1dp"
+    android:layout_width="wrap_content"
+    android:layout_height="55dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <ImageButton
+        android:id="@+id/e_button32"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/back_to_help_1"
+        android:paddingStart="1dp"
+        android:paddingEnd="1dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/previouspage1" />
+
+    <ImageButton
+        android:id="@+id/e_button33"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/exit_button"
+        android:paddingStart="1dp"
+        android:paddingEnd="1dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/back_2_menu1" />
+</TableRow>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ViewFlipper>
+
+-->
