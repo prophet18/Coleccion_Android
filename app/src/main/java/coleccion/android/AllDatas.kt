@@ -6,8 +6,11 @@ package coleccion.android
     The Object also contains the functions (methods) to create and append the high score files.
 */
 
+import android.content.Context
 import android.os.Build
 import android.os.CountDownTimer
+import android.view.WindowMetrics
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import coleccion.android.cards.ScorePile
 import java.io.File
@@ -16,6 +19,7 @@ import java.io.FileWriter
 import java.io.IOException
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import android.view.WindowManager
 
 object AllDatas {
 
@@ -40,6 +44,7 @@ object AllDatas {
         try {
             if (highScores.createNewFile() && csvHighScores.createNewFile()) {
                 println("Files created ")
+                /*
                 val addHS = BufferedWriter(FileWriter(highScores, true))
                 val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
                 // csvHS.write("$dAndTime,$scoreString,$gDuration,$bgStrins")
@@ -50,6 +55,8 @@ object AllDatas {
                 addHS.write("Date &\nTime" + " " + "Score" + " " + "Game\nDuration" + " " + "Background")
                 addHS.newLine()
                 addHS.close()
+                */
+
             } else {
                 println("Files already exist.")
             }
@@ -88,5 +95,23 @@ object AllDatas {
         val escapedCell = cell.replace("\"", "\"\"")
         // Enclose the cell content in double quotes if it contains special characters
         return "\"$escapedCell\""
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
+    fun textSizing(contexting : Context, tView : TextView, scaler : Double) {
+
+        // Get screen dimensions using WindowMetrics
+        val windowManager = contexting.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val windowMetrics: WindowMetrics = windowManager.currentWindowMetrics
+        val bounds = windowMetrics.bounds
+        val screenWidth = bounds.width()
+        val screenHeight = bounds.height()
+
+        // Calculate the new text size as a percentage of the smaller screen dimension
+        val newTextSize = (screenWidth.coerceAtMost(screenHeight) * scaler).toFloat()
+
+        // Set the new text size
+        tView.textSize = newTextSize
+
     }
 }

@@ -5,36 +5,49 @@ package coleccion.android
     Using Spinners, players can select the background and game duration they desire.
 */
 
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
+import android.view.WindowMetrics
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.annotation.RequiresApi
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class Settings : ComponentActivity() {
 
+    lateinit var settingLayout: ConstraintLayout
     private lateinit var spinning : Spinner
-    var bgChosen : ImageView? = null
-    var backgrounds : Array<String> = emptyArray()
-    private var return2home : ImageButton? = null
     private lateinit var spinning2 : Spinner
+    var bgChosen : ImageView? = null
+    private var return2home : ImageButton? = null
+    private lateinit var bSelect: TextView
+    private lateinit var tSelect: TextView
+    var backgrounds : Array<String> = emptyArray()
     var timeopts : Array<Int> = emptyArray()
     var bgSavings : String = "" 
     var gameTime2 : Int = 0
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.settings_layout)
+        setContentView(R.layout.settings_screen)
 
         backgrounds = arrayOf("Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest", "Coast", "Starry Night", "River Scene", "Ukraine")
         timeopts = arrayOf(30, 60, 90, 120, 150, 180, 210, 240, 270, 300)
 
         spinning = findViewById(R.id.select_bg);        bgChosen = findViewById(R.id.bg_selected)
         spinning2 = findViewById(R.id.select_datime);   return2home = findViewById(R.id.returns)
+        bSelect = findViewById(R.id.bg_select);         tSelect = findViewById(R.id.time2_select)
+        settingLayout = findViewById(R.id.newSettingsLayout)
 
         val adapting = ArrayAdapter(this, R.layout.spinner_item, backgrounds)
         adapting.setDropDownViewResource(R.layout.spinner_item)
@@ -74,11 +87,36 @@ class Settings : ComponentActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
         return2home!!.setOnClickListener { returningHome() }
+
+        // Calculate text size based on the TextView dimensions
+        AllDatas.textSizing(this, bSelect, 0.045)
+        AllDatas.textSizing(this, tSelect, 0.045)
+        // textSizing(bSelect)
+        // textSizing(tSelect)
+
     }
 
     private fun returningHome() {
         val intent1 = Intent(this, EntryScreen::class.java)
         finish()
         startActivity(intent1)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
+    private fun textSizingo(tView : TextView) {
+
+        // Get screen dimensions using WindowMetrics
+        val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val windowMetrics: WindowMetrics = windowManager.currentWindowMetrics
+        val bounds = windowMetrics.bounds
+        val screenWidth = bounds.width()
+        val screenHeight = bounds.height()
+
+        // Calculate the new text size as a percentage of the smaller screen dimension
+        val newTextSize = (screenWidth.coerceAtMost(screenHeight) * 0.045).toFloat()
+
+        // Set the new text size
+        tView.textSize = newTextSize
+
     }
 }

@@ -42,4 +42,8 @@
     <string name="playgame">\u00A0Gameplay\u00A0Overview\u00A0</string>
     <string name="hmsge">\u00A0Good\u00A0Luck,\u00A0and\u00A0Have\u00A0Fun!\u00A0</string>
     <string name="gifimg">Starfield</string>
+    <string name="dtime">DateNtime</string>
+    <string name="dtimetv">Date\u00A0&amp;&#10;Time</string>
+    <string name="gtimetv">Game&#10;Duration</string>
+    <string name="btime">Background</string>
 </resources>
