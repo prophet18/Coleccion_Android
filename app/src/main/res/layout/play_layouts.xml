@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- XML setup and organization of items on the game board,
+     and pause screen. -->
+
 <ViewFlipper
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -162,41 +165,45 @@
                 android:id="@+id/card1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_one"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_two"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_three"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_four"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
         </TableRow>
 
@@ -216,41 +223,45 @@
                 android:id="@+id/card5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_five"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_six"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_seven"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_eight"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
         </TableRow>
 
@@ -270,41 +281,45 @@
                 android:id="@+id/card9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_nine"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_ten"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_eleven"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
             <ImageButton
                 android:id="@+id/card12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:padding="2dp"
                 android:layout_margin="1dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/card_twelve"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:background="@android:color/transparent" />
 
         </TableRow>
 

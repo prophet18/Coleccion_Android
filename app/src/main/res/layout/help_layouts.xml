@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- XML setup and organization of items on the help pages. -->
+
 <ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/helpFlipper"
@@ -19,7 +21,9 @@
             android:id="@+id/help_info111"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="15dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:contentDescription="@string/help_info_111"
             android:scaleType="fitXY"
             android:src="@drawable/how_2_play_icon1"

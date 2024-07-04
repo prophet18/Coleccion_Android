@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- XML setup and organization of items on the high score screen. -->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -15,6 +17,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:padding="15dp"
         android:scaleType="fitXY"
@@ -27,114 +30,34 @@
         app:layout_constraintWidth_percent="1"
         app:layout_constraintHeight_percent="0.12"/>
 
-    <TableRow
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="3dp"
-        android:gravity="center"
-        android:id="@+id/tRow2"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hScores"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintWidth_percent="0.99"
-        app:layout_constraintHeight_percent="0.08">
-
-        <TextView
-            android:id="@+id/dtimes"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
-            android:layout_weight="1"
-            android:contentDescription="@string/dtime"
-            android:fontFamily="@font/ocraextended"
-            android:gravity="center"
-            android:textColor="@color/yellow"
-            android:text="@string/dtimetv"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/stimes"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:contentDescription="@string/scoretwo"
-            android:fontFamily="@font/ocraextended"
-            android:gravity="center"
-            android:textColor="@color/yellow"
-            android:text="@string/scoretwo"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:id="@+id/gdur"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:contentDescription="@string/time"
-            android:fontFamily="@font/ocraextended"
-            android:gravity="center"
-            android:textColor="@color/yellow"
-            android:text="@string/gtimetv"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/bground"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:contentDescription="@string/choose_game_background"
-            android:fontFamily="@font/ocraextended"
-            android:gravity="center"
-            android:textColor="@color/yellow"
-            android:text="@string/btime"
-            android:textSize="18sp"/>
-
-    </TableRow>
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@+id/e_button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tRow2"
-        app:layout_constraintWidth_percent="0.99"
-        app:layout_constraintHeight_percent="0.7">
+        app:layout_constraintTop_toBottomOf="@+id/hScores"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.78">
 
         <TableLayout
             android:id="@+id/highscoren_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="3dp"
+            android:padding="3dp"
             android:gravity="top"
             android:stretchColumns="*">
         </TableLayout>
 
-        <!--
-        <GridLayout
-            android:id="@+id/highscoren_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:rowCount="0"
-            android:orientation="horizontal"
-            android:padding="3dp"
-            android:layout_gravity="center"
-            android:useDefaultMargins="true" />
-        -->
     </ScrollView>
 
     <ImageButton
         android:id="@+id/e_button4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-
         android:background="@android:color/transparent"
         android:contentDescription="@string/exit_button"
         android:scaleType="fitXY"

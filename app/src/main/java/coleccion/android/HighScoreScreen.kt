@@ -6,7 +6,6 @@ package coleccion.android
     time, and background info.
 */
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Build
@@ -24,42 +23,24 @@ import java.io.IOException
 
 class HighScoreScreen : ComponentActivity() {
 
-    private lateinit var dTime1: TextView
-    private lateinit var sTime1: TextView
-    private lateinit var gSelect1: TextView
-    private lateinit var bSelect1: TextView
-
     private lateinit var eButto4 : ImageButton
     var fileName = "/data/data/coleccion.android/files/coleccionHighScores.csv"
 
-
-    @SuppressLint("MissingInflatedId")
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.highscore_layout)
 
         val tableLayout: TableLayout = findViewById(R.id.highscoren_layout)
-
         eButto4 = findViewById(R.id.e_button4)
-        dTime1 = findViewById(R.id.dtimes);        sTime1 = findViewById(R.id.stimes)
-        gSelect1 = findViewById(R.id.gdur);        bSelect1 = findViewById(R.id.bground)
-
         eButto4.setOnClickListener { returningHome2() }
-
-        AllDatas.textSizing(this, dTime1, 0.02)
-        AllDatas.textSizing(this, sTime1, 0.02)
-        AllDatas.textSizing(this, gSelect1, 0.02)
-        AllDatas.textSizing(this, bSelect1, 0.02)
 
         try {
             val reader = CSVReader(FileReader(fileName))
-            /*
             val header = reader.readNext() // Read the header row
             if (header != null) {
                 addHeaderRow(tableLayout, header)
             }
-            */
 
             var record: Array<String>?
             while (reader.readNext().also { record = it } != null) {
@@ -70,7 +51,7 @@ class HighScoreScreen : ComponentActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun addHeaderRow(tableLayout: TableLayout, header: Array<String>) {
         val headerRow = TableRow(this)
         for (column in header) {
@@ -82,7 +63,7 @@ class HighScoreScreen : ComponentActivity() {
         tableLayout.addView(headerRow)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun addDataRow(tableLayout: TableLayout, record: Array<String>?) {
         val dataRow = TableRow(this)
         if (record != null) {
@@ -96,7 +77,7 @@ class HighScoreScreen : ComponentActivity() {
         tableLayout.addView(dataRow)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun createTextView(text: String): TextView {
         val typeFont : Typeface = resources.getFont(R.font.ocraextended)
         val textView = TextView(this)
@@ -104,12 +85,13 @@ class HighScoreScreen : ComponentActivity() {
         textView.setPadding(10, 10, 10, 10)
         textView.gravity = Gravity.CENTER
         textView.textSize = 15.toFloat()
+        AllDatas.textSizing(this, textView, 0.012)
         textView.setTypeface(typeFont)
         textView.setTextColor(getColor(R.color.white))
         return textView
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(Build.VERSION_CODES.R)
     private fun createTextHeader(text: String): TextView {
         val typeFont : Typeface = resources.getFont(R.font.ocraextended)
         val textView = TextView(this)
@@ -117,6 +99,7 @@ class HighScoreScreen : ComponentActivity() {
         textView.setPadding(10, 10, 10, 10)
         textView.gravity = Gravity.CENTER
         textView.textSize = 18.toFloat()
+        AllDatas.textSizing(this, textView, 0.015)
         textView.setTypeface(typeFont)
         textView.setTextColor(getColor(R.color.yellow))
         return textView
@@ -128,4 +111,3 @@ class HighScoreScreen : ComponentActivity() {
         startActivity(intent1)
     }
 }
-

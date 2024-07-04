@@ -6,7 +6,6 @@ package coleccion.android
     The Coil utility is implemented to render a gif which serves as the background of the screen.
 */
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
@@ -27,7 +26,6 @@ class GameOverScreen : ComponentActivity() {
     private lateinit var timeReport2 : String
     private lateinit var bgView : ImageView
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.gameover_screen)

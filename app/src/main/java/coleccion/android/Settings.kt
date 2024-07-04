@@ -5,13 +5,10 @@ package coleccion.android
     Using Spinners, players can select the background and game duration they desire.
 */
 
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
-import android.view.WindowMetrics
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageButton
@@ -89,10 +86,8 @@ class Settings : ComponentActivity() {
         return2home!!.setOnClickListener { returningHome() }
 
         // Calculate text size based on the TextView dimensions
-        AllDatas.textSizing(this, bSelect, 0.045)
-        AllDatas.textSizing(this, tSelect, 0.045)
-        // textSizing(bSelect)
-        // textSizing(tSelect)
+        AllDatas.textSizing(this, bSelect, 0.04)
+        AllDatas.textSizing(this, tSelect, 0.04)
 
     }
 
@@ -102,21 +97,4 @@ class Settings : ComponentActivity() {
         startActivity(intent1)
     }
 
-    @RequiresApi(Build.VERSION_CODES.R)
-    private fun textSizingo(tView : TextView) {
-
-        // Get screen dimensions using WindowMetrics
-        val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val windowMetrics: WindowMetrics = windowManager.currentWindowMetrics
-        val bounds = windowMetrics.bounds
-        val screenWidth = bounds.width()
-        val screenHeight = bounds.height()
-
-        // Calculate the new text size as a percentage of the smaller screen dimension
-        val newTextSize = (screenWidth.coerceAtMost(screenHeight) * 0.045).toFloat()
-
-        // Set the new text size
-        tView.textSize = newTextSize
-
-    }
 }

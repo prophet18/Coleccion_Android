@@ -44,7 +44,7 @@ object AllDatas {
         try {
             if (highScores.createNewFile() && csvHighScores.createNewFile()) {
                 println("Files created ")
-                /*
+
                 val addHS = BufferedWriter(FileWriter(highScores, true))
                 val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
                 // csvHS.write("$dAndTime,$scoreString,$gDuration,$bgStrins")
@@ -55,7 +55,7 @@ object AllDatas {
                 addHS.write("Date &\nTime" + " " + "Score" + " " + "Game\nDuration" + " " + "Background")
                 addHS.newLine()
                 addHS.close()
-                */
+
 
             } else {
                 println("Files already exist.")

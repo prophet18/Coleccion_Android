@@ -1740,3 +1740,97 @@ play_layoutthree.xml
 
     </TableRow>
 -->
+
+<!--
+
+<TableRow
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:id="@+id/tRow2"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hScores"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintWidth_percent="0.99"
+        app:layout_constraintHeight_percent="0.08">
+
+        <TextView
+            android:id="@+id/dtimes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/dtime"
+            android:fontFamily="@font/ocraextended"
+            android:gravity="center"
+            android:textColor="@color/yellow"
+            android:text="@string/dtimetv"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/stimes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:contentDescription="@string/scoretwo"
+            android:fontFamily="@font/ocraextended"
+            android:gravity="center"
+            android:textColor="@color/yellow"
+            android:text="@string/scoretwo"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/gdur"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:contentDescription="@string/time"
+            android:fontFamily="@font/ocraextended"
+            android:gravity="center"
+            android:textColor="@color/yellow"
+            android:text="@string/gtimetv"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/bground"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:contentDescription="@string/choose_game_background"
+            android:fontFamily="@font/ocraextended"
+            android:gravity="center"
+            android:textColor="@color/yellow"
+            android:text="@string/btime"
+            android:textSize="18sp"/>
+
+    </TableRow>
+
+    <GridLayout
+            android:id="@+id/highscoren_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="0"
+            android:orientation="horizontal"
+            android:padding="3dp"
+            android:layout_gravity="center"
+            android:useDefaultMargins="true" />
+
+
+     private lateinit var dTime1: TextView
+    private lateinit var sTime1: TextView
+    private lateinit var gSelect1: TextView
+    private lateinit var bSelect1: TextView
+
+     dTime1 = findViewById(R.id.dtimes);        sTime1 = findViewById(R.id.stimes)
+        gSelect1 = findViewById(R.id.gdur);        bSelect1 = findViewById(R.id.bground)
+
+-->
