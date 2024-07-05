@@ -73,10 +73,10 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    implementation("io.coil-kt:coil:2.1.0")
-    implementation("io.coil-kt:coil-gif:2.1.0")
+    implementation("io.coil-kt:coil:2.6.0")
+    implementation("io.coil-kt:coil-gif:2.6.0")
 
-    implementation("com.opencsv:opencsv:5.5.2")
-    implementation("org.apache.commons:commons-csv:1.8")
+    implementation("com.opencsv:opencsv:5.9")
+    implementation("org.apache.commons:commons-csv:1.11.0")
 
 }
