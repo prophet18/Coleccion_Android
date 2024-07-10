@@ -1,6 +1,9 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    kotlin("android")
 }
 
 android {
@@ -11,24 +14,37 @@ android {
         applicationId = "coleccion.android"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
+        versionCode = 2
+        versionName = "1.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
     }
 
+    signingConfigs {
+        create("release") {
+            val props = Properties().apply {
+                load(FileInputStream(rootProject.file("gradle.properties")))
+            }
+            keyAlias = props["MYAPP_KEY_ALIAS"] as String
+            keyPassword = props["MYAPP_KEY_PASSWORD"] as String
+            storeFile = file(props["MYAPP_KEYSTORE_FILE"] as String)
+            storePassword = props["MYAPP_KEYSTORE_PASSWORD"] as String
+        }
+    }
+
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
