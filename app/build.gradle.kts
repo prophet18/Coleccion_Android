@@ -1,5 +1,9 @@
-import java.io.FileInputStream
-import java.util.Properties
+/*
+    Gradle Build file for app.
+ */
+
+// import java.io.FileInputStream
+// import java.util.Properties
 
 plugins {
     id("com.android.application")
@@ -22,6 +26,7 @@ android {
         }
     }
 
+    /*
     signingConfigs {
         create("release") {
             val props = Properties().apply {
@@ -33,11 +38,12 @@ android {
             storePassword = props["MYAPP_KEYSTORE_PASSWORD"] as String
         }
     }
+    */
 
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("release")
+    //        signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

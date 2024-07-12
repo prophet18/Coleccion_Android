@@ -1,6 +1,6 @@
 # Colección
 
-![Logo](fastlane/metadata/android/en-US/images/icon.png)
+![Logo](app/src/main/assets/coleccion_icon_52xs.png)
 
 ## **Colección** is a card matching game based on [Set](https://www.setgame.com/set/puzzle), with different (and additional) Shapes, Colors, and Fill Types.
 
@@ -26,7 +26,7 @@
 
 ## Screenshots
 
-![Screenshots](app/src/main/assets/coleccion_screenshots2.png)
+![Screenshots](app/src/main/assets/coleccion_screenshots3xs.png)
 
 ---
 
