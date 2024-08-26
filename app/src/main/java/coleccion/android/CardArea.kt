@@ -281,12 +281,14 @@ class CardArea : ComponentActivity() {
     }
 
     private fun returnMenuHome() {
+        saveGame()
         val intent1 = Intent(this, EntryScreen::class.java)
         finish()
         startActivity(intent1)
     }
 
     private fun returnAndroidHome() {
+        saveGame()
         finish()
     }
 
@@ -377,4 +379,12 @@ class CardArea : ComponentActivity() {
         buttonStates[AllDatas.indexKeep[2]] = false
         cardMap.clear(); buttonMap.clear(); imageButtons.clear(); AllDatas.indexKeep.clear()
     }
+
+    fun saveGame() {
+        AllDatas.boardBGdrawableSave = AllDatas.boardBGdrawable
+        AllDatas.boardBGinfoSave = AllDatas.boardBGinfo
+        AllDatas.scoreTrackSave = AllDatas.scoreTrack
+        AllDatas.gameTimeFormSave = AllDatas.gameTimeForm
+    }
+
 }

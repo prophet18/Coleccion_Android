@@ -27,7 +27,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintWidth_percent="0.99"
-            app:layout_constraintHeight_percent="0.07">
+            app:layout_constraintHeight_percent="0.065">
 
             <ImageView
                 android:id="@+id/score_icon"
@@ -61,7 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/buttonRow3"
             app:layout_constraintWidth_percent="0.99"
-            app:layout_constraintHeight_percent="0.05">
+            app:layout_constraintHeight_percent="0.045">
 
             <TextView
                 android:id="@+id/score_value"
@@ -147,7 +147,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/cardRow1"
             app:layout_constraintWidth_percent="0.99"
-            app:layout_constraintHeight_percent="0.06"/>
+            app:layout_constraintHeight_percent="0.07"/>
 
         <TableRow
             android:id="@+id/cardRow1"

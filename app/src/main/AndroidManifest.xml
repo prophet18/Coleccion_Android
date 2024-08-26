@@ -9,7 +9,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logoscol52"
-        android:label="Coleccion"
+        android:label="Coleccíon"
         android:supportsRtl="true"
         tools:targetApi="34">
 

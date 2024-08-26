@@ -15,12 +15,22 @@ class EntryScreen : ComponentActivity() {
         setContentView(R.layout.entry_screen)
 
         val ngButton = findViewById<ImageButton>(R.id.new_game_button)
+        val rgButton = findViewById<ImageButton>(R.id.continue_game_button)
         val hsButton = findViewById<ImageButton>(R.id.high_score_button)
         val setButton = findViewById<ImageButton>(R.id.settings_button)
         val helpButton = findViewById<ImageButton>(R.id.help_button)
         val exitButton = findViewById<ImageButton>(R.id.exit_button)
 
         ngButton.setOnClickListener {
+            AllDatas.timeRemaining = AllDatas.gameTimeInfo.toLong()
+            AllDatas.scoreTrack.clear()
+            val intent1 = Intent(this, CardArea::class.java)
+            startActivity(intent1)
+            finish()
+        }
+
+        rgButton.setOnClickListener {
+            loadGame()
             val intent1 = Intent(this, CardArea::class.java)
             startActivity(intent1)
             finish()
@@ -48,5 +58,14 @@ class EntryScreen : ComponentActivity() {
         exitButton.setOnClickListener {
             finish()
         }
+
+
+    }
+
+    fun loadGame() {
+        AllDatas.boardBGdrawable = AllDatas.boardBGdrawableSave
+        AllDatas.boardBGinfo = AllDatas.boardBGinfoSave
+        AllDatas.scoreTrack = AllDatas.scoreTrackSave
+        AllDatas.gameTimeForm = AllDatas.gameTimeFormSave
     }
 }

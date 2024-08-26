@@ -24,9 +24,12 @@ import android.view.WindowManager
 object AllDatas {
 
     var boardBGinfo : String = "Aurora"
+    var boardBGinfoSave : String = ""
     var gameTimeInfo : Int = 30000
     var gameTimeForm : Int = 30
+    var gameTimeFormSave : Int = 0
     var boardBGdrawable : Int = R.drawable.aurora_over_canada_2016
+    var boardBGdrawableSave : Int = 0
     var gameScoreInfo : Int = 0
     var collectionHighScoring : Int = 0
     var collectionTotalTime : Int = 0
@@ -35,6 +38,7 @@ object AllDatas {
     var csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
     lateinit var finalTimer : CountDownTimer
     var scoreTrack = ScorePile()
+    var scoreTrackSave = ScorePile()
     var indexKeep : MutableList<Int> = mutableListOf()
 
     fun createFile() {
