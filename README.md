@@ -1,8 +1,8 @@
 # Colección
 
-<div style="text-align: center;">
+<center>
   ![Logo](app/src/main/assets/coleccion_icon_52xs.png)
-</div>
+</center>
 
 ## **Colección** is a card matching game based on [Set](https://www.setgame.com/set/puzzle), with different (and additional) Shapes, Colors, and Fill Types.
 
