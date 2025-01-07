@@ -60,7 +60,6 @@ object AllDatas {
                 addHS.newLine()
                 addHS.close()
 
-
             } else {
                 println("Files already exist.")
             }
@@ -76,7 +75,7 @@ object AllDatas {
             val addHS = BufferedWriter(FileWriter(highScores, true))
             val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
             val currentDateTime = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy\nHH:mm")
+            val formatter = DateTimeFormatter.ofPattern("ddMMMyyyy\nHH:mm")
             val formattedDateTime = currentDateTime.format(formatter)
             addHS.write("$formattedDateTime $gameScoreInfo $gameTimeForm $boardBGinfo")
             addHS.newLine()

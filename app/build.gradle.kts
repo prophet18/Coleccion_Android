@@ -101,4 +101,9 @@ dependencies {
     implementation("com.opencsv:opencsv:5.9")
     implementation("org.apache.commons:commons-csv:1.11.0")
 
+    // https://github.com/skydoves/PowerSpinner
+    implementation("com.github.skydoves:powerspinner:1.2.7")
+
+    // https://github.com/AndroidPoet/Dropdown
+
 }
