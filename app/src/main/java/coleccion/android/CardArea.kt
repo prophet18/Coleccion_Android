@@ -26,9 +26,11 @@ import coleccion.android.cards.GameButton
 class CardArea : ComponentActivity() {
 
     var nca: Int = 0
-    var ii: Int = 0
-    var yy: Int = 0
-    var uu: Int = 12
+    var boardCardCount: Int = 0
+    var deckCardCount: Int = 0
+    var usedCardCount: Int = 12
+    private var remainingMillis: Long = 0
+    private var timer2: CountDownTimer? = null
     var deck = Deck()
     var cards = ArrayList<Card>()
     var buttonStates = HashMap<Int, Boolean>()
@@ -83,7 +85,7 @@ class CardArea : ComponentActivity() {
         pButts = findViewById(R.id.pause_button);           hintButt = findViewById(R.id.hint_button)
 
         makeDeck()
-        createCountDownTimer()
+        createCountDownTimer(AllDatas.timeRemaining)
         scoreValu.text = AllDatas.scoreTrack.scoreFinal()
 
         randButto.setOnClickListener { randomCards() };     pButts.setOnClickListener { onPaused() }
@@ -121,20 +123,20 @@ class CardArea : ComponentActivity() {
         var card: Card
         var gameButton: GameButton
         deck.shuffle()
-        while (yy < 144) {
+        while (deckCardCount < 144) {
             card = deck.peek()
             deck.pop()
             cards.add(card)
-            yy++
+            deckCardCount++
         }
-        while (ii < 12) {
-            gameButton = imagesMap[ii]?.let { GameButton(it, cards[ii]) }!!
-            buttonMapping[ii] = gameButton
-            buttonStates[ii] = false
-            ii++
+        while (boardCardCount < 12) {
+            gameButton = imagesMap[boardCardCount]?.let { GameButton(it, cards[boardCardCount]) }!!
+            buttonMapping[boardCardCount] = gameButton
+            buttonStates[boardCardCount] = false
+            boardCardCount++
         }
-        ii = 0
-        yy = 0
+        boardCardCount = 0
+        deckCardCount = 0
     }
 
     fun toggleCardState(cardId: Int) {
@@ -183,15 +185,24 @@ class CardArea : ComponentActivity() {
                         scoreValu.text = AllDatas.scoreTrack.scoreFinal()
                         AllDatas.gameScoreInfo = AllDatas.scoreTrack.scoreTotal()
 
-                        buttonMap[1]!!.replace(cards[uu])
-                        buttonMap[2]!!.replace(cards[uu + 1])
-                        buttonMap[3]!!.replace(cards[uu + 2])
-                        uu += 3
+                        buttonMap[1]!!.replace(cards[usedCardCount])
+                        buttonMap[2]!!.replace(cards[usedCardCount + 1])
+                        buttonMap[3]!!.replace(cards[usedCardCount + 2])
+                        usedCardCount += 3
                         imageButtons[1]!!.setImageResource(buttonMap[1]!!.card!!.image)
                         imageButtons[2]!!.setImageResource(buttonMap[2]!!.card!!.image)
                         imageButtons[3]!!.setImageResource(buttonMap[3]!!.card!!.image)
+
+                        if (AllDatas.gameType == "Easy") {
+                            addTime(3000)
+                        }
+
                     } else {
                         Toast.makeText(this, "W R O N G", Toast.LENGTH_SHORT).show()
+
+                        if (AllDatas.gameType == "Hard") {
+                            minusTime(1000)
+                        }
                     }
                     resetBoard()
                 }
@@ -225,35 +236,39 @@ class CardArea : ComponentActivity() {
 
     private fun randomCards() {
         nuDeck()
-        var crcr = uu
-        while (ii < 12) {
-            buttonMapping[ii]!!.replace(cards[crcr])
-            buttonMapping[ii]!!.gameImgBtn.setImageResource(cards[crcr].image)
-            buttonStates[ii] = false
+        var crcr = usedCardCount
+        while (boardCardCount < 12) {
+            buttonMapping[boardCardCount]!!.replace(cards[crcr])
+            buttonMapping[boardCardCount]!!.gameImgBtn.setImageResource(cards[crcr].image)
+            buttonStates[boardCardCount] = false
             crcr++
-            ii++
+            boardCardCount++
         }
-        uu += 12
+        usedCardCount += 12
         nca = 0
-        ii = 0
+        boardCardCount = 0
     }
 
     private fun nuDeck() {
-        if (uu >= 131) {
+        if (usedCardCount >= 132) {
             deck = Deck()
-            ii = 0 ;  yy = 0
+            boardCardCount = 0 ;  deckCardCount = 0
             cards.clear() ; buttonMapping.clear()
             makeDeck()
-            uu = 12
+            usedCardCount = 12
         }
     }
 
-    private fun createCountDownTimer() {
+    private fun createCountDownTimer(time: Long) {
         val intent1 = Intent(this, GameOverScreen::class.java)
 
-        AllDatas.finalTimer = object : CountDownTimer(AllDatas.timeRemaining, 1000) {
+        timer2?.cancel()
+
+        // AllDatas.finalTimer.cancel()
+
+        timer2 = object : CountDownTimer(time, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                AllDatas.timeRemaining = millisUntilFinished
+                remainingMillis = millisUntilFinished
                 timeValu.text = (millisUntilFinished / 1000).toString()
             }
 
@@ -266,17 +281,33 @@ class CardArea : ComponentActivity() {
                 startActivity(intent1)
                 finish()
             }
-        }
-        AllDatas.finalTimer.start()
+        }.start()
+        // AllDatas.finalTimer.start()
+
+    }
+
+    private fun addTime(deltaMillis: Long) {
+        remainingMillis += deltaMillis
+        // Don’t let the time go below 0
+        if (remainingMillis < 0) remainingMillis = 0
+        // Restart the timer with the new total
+        createCountDownTimer(remainingMillis)
+    }
+
+    private fun minusTime(deltaMillis: Long) {
+        remainingMillis -= deltaMillis
+        if (remainingMillis < 0) remainingMillis = 0
+        createCountDownTimer(remainingMillis)
     }
 
     private fun onPaused() {
-        AllDatas.finalTimer.cancel()
+        // AllDatas.finalTimer.cancel()
+        timer2?.cancel()
         viewFlip.showNext()
     }
 
     private fun onResumed() {
-        createCountDownTimer()
+        createCountDownTimer(remainingMillis)
         viewFlip.showPrevious()
     }
 
@@ -385,6 +416,19 @@ class CardArea : ComponentActivity() {
         AllDatas.boardBGinfoSave = AllDatas.boardBGinfo
         AllDatas.scoreTrackSave = AllDatas.scoreTrack
         AllDatas.gameTimeFormSave = AllDatas.gameTimeForm
+    }
+
+    // SharedPreferences approach, if desired:
+    private fun saveGameStateToPrefs() {
+        val prefs = getSharedPreferences("MyGamePrefs", MODE_PRIVATE)
+        prefs.edit()
+            .putLong("TIME_LEFT", remainingMillis)
+            .apply()
+    }
+
+    private fun loadGameStateFromPrefs() {
+        val prefs = getSharedPreferences("MyGamePrefs", MODE_PRIVATE)
+        remainingMillis = prefs.getLong("TIME_LEFT", 30000L)
     }
 
 }

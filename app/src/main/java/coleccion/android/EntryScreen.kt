@@ -22,7 +22,6 @@ class EntryScreen : ComponentActivity() {
         val exitButton = findViewById<ImageButton>(R.id.exit_button)
 
         ngButton.setOnClickListener {
-            AllDatas.timeRemaining = AllDatas.gameTimeInfo.toLong()
             AllDatas.scoreTrack.clear()
             val intent1 = Intent(this, CardArea::class.java)
             startActivity(intent1)

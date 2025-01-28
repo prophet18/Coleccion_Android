@@ -23,27 +23,27 @@ import android.view.WindowManager
 
 object AllDatas {
 
-    var boardBGinfo : String = "Aurora"
+    var boardBGinfo : String = ""
     var boardBGinfoSave : String = ""
-    var gameTimeInfo : Int = 30000
-    var gameTimeForm : Int = 30
+    var gameTimeForm : Int = 0
     var gameTimeFormSave : Int = 0
     var boardBGdrawable : Int = R.drawable.aurora_over_canada_2016
     var boardBGdrawableSave : Int = 0
     var gameScoreInfo : Int = 0
     var collectionHighScoring : Int = 0
     var collectionTotalTime : Int = 0
-    var timeRemaining : Long = 30000
+    var timeRemaining : Long = 0
     var highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
     var csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
-    lateinit var finalTimer : CountDownTimer
+    // var finalTimer : CountDownTimer
     var scoreTrack = ScorePile()
     var scoreTrackSave = ScorePile()
     var indexKeep : MutableList<Int> = mutableListOf()
+    var gameType : String = ""
 
     fun createFile() {
         val dAndTime = "Date &\nTime" ;     val scoreString = "Score"
-        val gDuration = "Game\nDuration" ;  val bgStrins = "Background"
+        val gDuration = "Game\nDuration" ;  val bgStrins = "Background" ;  val gtStrins = "Game\nType"
 
         try {
             if (highScores.createNewFile() && csvHighScores.createNewFile()) {
@@ -53,10 +53,11 @@ object AllDatas {
                 val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
                 // csvHS.write("$dAndTime,$scoreString,$gDuration,$bgStrins")
                 csvHS.write(escapeCsvCell(dAndTime) + "," + escapeCsvCell(scoreString) + "," +
-                        escapeCsvCell(gDuration) + "," + escapeCsvCell(bgStrins))
+                        escapeCsvCell(gDuration) + "," + escapeCsvCell(bgStrins) + "," + escapeCsvCell(gtStrins))
                 csvHS.newLine()
                 csvHS.close()
-                addHS.write("Date &\nTime" + " " + "Score" + " " + "Game\nDuration" + " " + "Background")
+                addHS.write("Date &\nTime" + " " + "Score" + " " + "Game\nDuration" + " " +
+                        "Background" + " " + "Game\nType")
                 addHS.newLine()
                 addHS.close()
 
@@ -77,12 +78,13 @@ object AllDatas {
             val currentDateTime = LocalDateTime.now()
             val formatter = DateTimeFormatter.ofPattern("ddMMMyyyy\nHH:mm")
             val formattedDateTime = currentDateTime.format(formatter)
-            addHS.write("$formattedDateTime $gameScoreInfo $gameTimeForm $boardBGinfo")
+            addHS.write("$formattedDateTime $gameScoreInfo $gameTimeForm $boardBGinfo $gameType")
             addHS.newLine()
             addHS.close()
             // csvHS.write("$formattedDateTime,$gameScoreInfo,$gameTimeForm,$boardBGinfo")
-            csvHS.write(escapeCsvCell(formattedDateTime) + "," + escapeCsvCell(gameScoreInfo.toString()) + "," +
-                    escapeCsvCell(gameTimeForm.toString()) + "," + escapeCsvCell(boardBGinfo))
+            csvHS.write(escapeCsvCell(formattedDateTime) + "," + escapeCsvCell(gameScoreInfo.toString()) +
+                    "," + escapeCsvCell(gameTimeForm.toString()) + "," + escapeCsvCell(boardBGinfo) + "," +
+                    escapeCsvCell(gameType))
             csvHS.newLine()
             csvHS.close()
 

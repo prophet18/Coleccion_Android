@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newSettingsLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/coleccion_background_p_z_1"
+    android:orientation="vertical"
+    tools:context=".Settings2" >
+
+    <ImageView
+        android:id="@+id/cologo2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/game_coleccion_logo"
+        android:scaleType="fitXY"
+        android:src="@drawable/coleccion_logo_i"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.12"/>
+
+    <com.skydoves.powerspinner.PowerSpinnerView
+        android:id="@+id/pspin1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cologo2"
+        android:background="@color/black"
+        android:gravity="center"
+        android:hint="Question 1"
+        android:padding="10dp"
+        android:textColor="@color/yellow"
+        android:textColorHint="@color/white"
+        android:textSize="14.5sp"
+        app:spinner_arrow_gravity="end"
+        app:spinner_arrow_padding="8dp"
+        app:spinner_divider_color="@color/orangered"
+        app:spinner_divider_show="true"
+        app:spinner_divider_size="0.4dp"
+        app:spinner_item_height="46dp"
+        app:spinner_popup_animation="dropdown"
+        app:spinner_popup_background="@color/ldblue"
+        app:spinner_popup_elevation="14dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
