@@ -106,8 +106,8 @@ class Settings : ComponentActivity() {
         return2home!!.setOnClickListener { returningHome() }
 
         // Calculate text size based on the TextView dimensions
-        AllDatas.textSizing(this, bSelect, 0.03)
-        AllDatas.textSizing(this, tSelect, 0.03)
+        AllDatas.textSizing(this, bSelect, 0.025)
+        AllDatas.textSizing(this, tSelect, 0.025)
 
     }
 

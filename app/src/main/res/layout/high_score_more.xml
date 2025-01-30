@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- XML setup and organization of items on the help pages. -->
+
+<ViewFlipper
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/highScoreFlipper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HighScoreScreen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/highScores_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/coleccion_background_p_z_1"
+        tools:context=".HighScoreScreens">
+
+        <ImageView
+            android:id="@+id/hScores"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="top"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/game_score"
+            android:src="@drawable/highscoreslogo1"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintWidth_percent="1"
+            app:layout_constraintHeight_percent="0.1"/>
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/statsnmore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.70"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hScores"
+            app:layout_constraintWidth_percent="1"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <TableLayout
+                android:id="@+id/highscoren_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="3dp"
+                android:gravity="top"
+                android:padding="3dp"
+                android:stretchColumns="*">
+            </TableLayout>
+
+        </ScrollView>
+
+        <ImageButton
+            android:id="@+id/statsnmore"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/snmores"
+            android:scaleType="fitXY"
+            android:src="@drawable/alts_nmore"
+            app:layout_constraintBottom_toTopOf="@id/e_button4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.1"/>
+
+        <ImageButton
+            android:id="@+id/e_button4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/exit_button"
+            android:scaleType="fitXY"
+            android:src="@drawable/back_2_menu2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statsnmore"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/highScores_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/coleccion_background_p_z_1"
+        tools:context=".HighScoreScreens">
+
+        <TextView
+            android:id="@+id/pgame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@color/black"
+            android:contentDescription="@string/playgame"
+            android:fontFamily="@font/ocraextended"
+            android:gravity="center"
+            android:text="@string/playgame"
+            android:textColor="@color/yellow"
+            android:textSize="31sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.07"/>
+
+        <ImageView
+            android:id="@+id/help_info5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/help_logo"
+            android:src="@drawable/helppartthree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pgame"
+            app:layout_constraintBottom_toTopOf="@+id/msgage"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.7"/>
+
+        <TextView
+            android:id="@+id/msgage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:background="@color/black"
+            android:contentDescription="@string/hmsge"
+            android:fontFamily="@font/ocraextended"
+            android:gravity="center"
+            android:text="@string/hmsge"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/help_info5"
+            app:layout_constraintBottom_toTopOf="@+id/dataDownload"
+            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintHeight_percent="0.07"/>
+
+        <ImageButton
+            android:id="@+id/dataDownload"
+            android:contentDescription="@string/ddown"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_marginBottom="1dp"
+            android:src="@drawable/data_download"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/hFinalRow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/msgage"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintHeight_percent="0.08"/>
+
+        <TableRow
+            android:id="@+id/hFinalRow"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dataDownload"
+            app:layout_constraintWidth_percent="0.95"
+            app:layout_constraintHeight_percent="0.08">
+
+            <ImageButton
+                android:id="@+id/e_button32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/back_to_help_1"
+                android:scaleType="fitXY"
+                android:src="@drawable/previouspage1" />
+
+            <ImageButton
+                android:id="@+id/e_button33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/exit_button"
+                android:scaleType="fitXY"
+                android:src="@drawable/back_2_menu1" />
+        </TableRow>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ViewFlipper>

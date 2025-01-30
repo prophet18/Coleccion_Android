@@ -42,6 +42,9 @@ class HighScoreScreen : ComponentActivity() {
             val header = reader.readNext() // Read the header row
             val rows = mutableListOf<Array<String>>()
             val topHead = arrayOf("Top\nScore", "Average\nScore", "Favorite\nBackground")
+            // "Game Type\nMost Played"
+            // "Cumulative\nGame Time\n(Minutes)"
+            // "Number of\nGames Played"
 
             if (header != null) {
                 addHeaderRow(tableLayout, header)
@@ -96,7 +99,7 @@ class HighScoreScreen : ComponentActivity() {
         textView.setPadding(5, 5, 5, 5)
         textView.gravity = Gravity.CENTER
         textView.textSize = 15.toFloat()
-        AllDatas.textSizing(this, textView, 0.018)
+        AllDatas.textSizing(this, textView, 0.01)
         textView.setTypeface(typeFont)
         textView.setTextColor(getColor(color.white))
         return textView
@@ -110,7 +113,7 @@ class HighScoreScreen : ComponentActivity() {
         textView.setPadding(5, 5, 5, 5)
         textView.gravity = Gravity.CENTER
         textView.textSize = 18.toFloat()
-        AllDatas.textSizing(this, textView, 0.02)
+        AllDatas.textSizing(this, textView, 0.015)
         textView.setTypeface(typeFont)
         textView.setTextColor(getColor(color.yellow))
         return textView
@@ -127,7 +130,10 @@ fun calculateStats(rows: List<Array<String>>): Array<String> {
     var highScore = Int.MIN_VALUE
     var totalScore = 0
     var count = 0
-    val frequencyMap = mutableMapOf<String, Int>()
+    val frequencyMapBackground = mutableMapOf<String, Int>()
+
+    val frequencyMapGType = mutableMapOf<String, Int>()
+    var totalGameTime = 0
 
     for (row in rows) {
         try {
@@ -137,7 +143,12 @@ fun calculateStats(rows: List<Array<String>>): Array<String> {
             if (score > highScore) {
                 highScore = score
             }
-            frequencyMap[row[3]] = frequencyMap.getOrDefault(row[3], 0) + 1
+            frequencyMapBackground[row[3]] = frequencyMapBackground.getOrDefault(row[3], 0) + 1
+
+            frequencyMapGType[row[4]] = frequencyMapGType.getOrDefault(row[4], 0) + 1
+            val gameTime = row[2].toInt()
+            totalGameTime += gameTime
+
         } catch (e: NumberFormatException) {
             e.printStackTrace()  // Handle invalid number format if needed
         }
@@ -145,9 +156,15 @@ fun calculateStats(rows: List<Array<String>>): Array<String> {
 
     val averageScore = if (count > 0) totalScore.toDouble() / count else 0.0
 
-    val shighScore = highScore.toString()
-    val saverageScore = String.format("%.2f", averageScore)
-    val sbg = frequencyMap.maxByOrNull { it.value }!!.key
+    val totalGameTimeMin = if (count > 0) totalGameTime.toDouble() / 60 else 0.0
 
-    return arrayOf(shighScore, saverageScore, sbg)
+    val sHighScore = highScore.toString()
+    val sAverageScore = String.format("%.2f", averageScore)
+    val bgFreq = frequencyMapBackground.maxByOrNull { it.value }!!.key
+
+    val gtypeFreq = frequencyMapGType.maxByOrNull { it.value }!!.key
+    val stotalGameTimeMin = totalGameTimeMin.toString()
+    val scount = count.toString()
+
+    return arrayOf(sHighScore, sAverageScore, bgFreq)
 }

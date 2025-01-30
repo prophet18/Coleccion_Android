@@ -48,4 +48,6 @@
     <string name="dtimetv">Date\u00A0&amp;&#10;Time</string>
     <string name="gtimetv">Game&#10;Duration</string>
     <string name="btime">Background</string>
+    <string name="ddown">Download Data</string>
+    <string name="snmores">More Score Info</string>
 </resources>

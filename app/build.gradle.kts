@@ -12,7 +12,7 @@ plugins {
 
 android {
     namespace = "coleccion.android"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "coleccion.android"
@@ -87,6 +87,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
     implementation("androidx.activity:activity-ktx:1.10.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
