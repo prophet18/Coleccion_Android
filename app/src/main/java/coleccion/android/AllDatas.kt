@@ -4,6 +4,10 @@ package coleccion.android
     AllDatas is the main information storage Object for the game.
     Background, Time, Score, and related info, are kept as variables here.
     The Object also contains the functions (methods) to create and append the high score files.
+
+    Color: Purple / Indigo = 55308d     Color: Yellow = ffff00
+    Color: Red = ff0000                 Color: Blue = 2a6099
+    Color: Green = 00a933               Color: Orange = ff8000
 */
 
 import android.content.Context
@@ -33,8 +37,8 @@ object AllDatas {
     var collectionHighScoring : Int = 0
     var collectionTotalTime : Int = 0
     var timeRemaining : Long = 0
-    var highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
-    var csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
+    val highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
+    val csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
     // var finalTimer : CountDownTimer
     var scoreTrack = ScorePile()
     var scoreTrackSave = ScorePile()

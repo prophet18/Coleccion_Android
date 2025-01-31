@@ -231,7 +231,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.99"
-            app:layout_constraintHeight_percent="0.07"/>
+            app:layout_constraintHeight_percent="0.08"/>
 
         <ImageView
             android:id="@+id/help_info5"
@@ -263,26 +263,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/help_info5"
-            app:layout_constraintBottom_toTopOf="@+id/dataDownload"
-            app:layout_constraintWidth_percent="0.99"
-            app:layout_constraintHeight_percent="0.07"/>
-
-        <ImageButton
-            android:id="@+id/dataDownload"
-            android:contentDescription="@string/ddown"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitXY"
-            android:paddingStart="5dp"
-            android:paddingEnd="5dp"
-            android:layout_marginBottom="1dp"
-            android:src="@drawable/data_download"
-            android:background="@android:color/transparent"
             app:layout_constraintBottom_toTopOf="@+id/hFinalRow"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/msgage"
-            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintWidth_percent="0.99"
             app:layout_constraintHeight_percent="0.08"/>
 
         <TableRow
@@ -293,7 +275,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dataDownload"
             app:layout_constraintWidth_percent="0.95"
             app:layout_constraintHeight_percent="0.08">
 

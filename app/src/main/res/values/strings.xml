@@ -49,5 +49,7 @@
     <string name="gtimetv">Game&#10;Duration</string>
     <string name="btime">Background</string>
     <string name="ddown">Download Data</string>
+    <string name="dups">Upload Data</string>
+    <string name="b2hss">Back to High Scores</string>
     <string name="snmores">More Score Info</string>
 </resources>

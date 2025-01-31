@@ -342,7 +342,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/coleccion_logo"
             android:scaleType="fitXY"
-            android:src="@drawable/coleccion_logo_b"
+            android:src="@drawable/coleccion_logo_d"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/highScores_layout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/coleccion_background_p_z_2"
+    tools:context=".HighScoreScreen">
+
+    <ImageView
+        android:id="@+id/cologo4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/game_coleccion_logo"
+        android:scaleType="fitXY"
+        android:src="@drawable/coleccion_logo_c"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.1"/>
+
+    <TableLayout
+        android:id="@+id/highscoren_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp"
+        android:gravity="top"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toTopOf="@+id/highscoren_layout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cologo4"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.2">
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/highscoren_layout3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginEnd="3dp"
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp"
+        android:gravity="top"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toTopOf="@+id/dataDownload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highscoren_layout2"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintHeight_percent="0.2">
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/dataDownload"
+        android:contentDescription="@string/ddown"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_marginBottom="1dp"
+        android:src="@drawable/xport_scores"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/dataUpload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highscoren_layout3"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.1"/>
+
+    <ImageButton
+        android:id="@+id/dataUpload"
+        android:contentDescription="@string/dups"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:layout_marginBottom="1dp"
+        android:src="@drawable/impport_scores"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/hsback"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataDownload"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.1"/>
+
+    <ImageButton
+        android:id="@+id/hsback"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/b2hss"
+        android:scaleType="fitXY"
+        android:src="@drawable/return2hs"
+        app:layout_constraintBottom_toTopOf="@id/e_button6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dataUpload"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.1"/>
+
+    <ImageButton
+        android:id="@+id/e_button6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/exit_button"
+        android:scaleType="fitXY"
+        android:src="@drawable/back_2_menu1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hsback"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.1"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
