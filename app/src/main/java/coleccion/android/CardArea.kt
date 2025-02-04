@@ -22,6 +22,8 @@ import coleccion.android.cards.Card
 import coleccion.android.cards.CheckMatch
 import coleccion.android.cards.Deck
 import coleccion.android.cards.GameButton
+import coleccion.android.cards.ScorePile
+import com.google.gson.Gson
 
 class CardArea : ComponentActivity() {
 
@@ -116,7 +118,6 @@ class CardArea : ComponentActivity() {
         buttonMapping[10]!!.gameImgBtn.setImageResource(buttonMapping[10]!!.cImg)
         buttonMapping[11]!!.gameImgBtn.setOnClickListener { toggleCardState(11) }
         buttonMapping[11]!!.gameImgBtn.setImageResource(buttonMapping[11]!!.cImg)
-
     }
 
     private fun makeDeck() {
@@ -139,7 +140,7 @@ class CardArea : ComponentActivity() {
         deckCardCount = 0
     }
 
-    fun toggleCardState(cardId: Int) {
+    private fun toggleCardState(cardId: Int) {
         // Toggle the state
         val currentState = buttonStates[cardId]
         val newState = !currentState!!
@@ -149,7 +150,7 @@ class CardArea : ComponentActivity() {
         updateCardUI(cardId, newState)
     }
 
-    fun updateCardUI(cardId: Int, isActive: Boolean) {
+    private fun updateCardUI(cardId: Int, isActive: Boolean) {
         val cardButton = buttonMapping[cardId]
 
         if (isActive) {
@@ -261,7 +262,6 @@ class CardArea : ComponentActivity() {
 
     private fun createCountDownTimer(time: Long) {
         val intent1 = Intent(this, GameOverScreen::class.java)
-
         timer2?.cancel()
 
         // AllDatas.finalTimer.cancel()
@@ -269,6 +269,7 @@ class CardArea : ComponentActivity() {
         timer2 = object : CountDownTimer(time, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 remainingMillis = millisUntilFinished
+                AllDatas.timeLeft = millisUntilFinished
                 timeValu.text = (millisUntilFinished / 1000).toString()
             }
 
@@ -283,7 +284,6 @@ class CardArea : ComponentActivity() {
             }
         }.start()
         // AllDatas.finalTimer.start()
-
     }
 
     private fun addTime(deltaMillis: Long) {
@@ -302,28 +302,27 @@ class CardArea : ComponentActivity() {
 
     private fun onPaused() {
         // AllDatas.finalTimer.cancel()
+        saveGameStateToPrefs()
         timer2?.cancel()
         viewFlip.showNext()
     }
 
     private fun onResumed() {
-        createCountDownTimer(remainingMillis)
+        createCountDownTimer(AllDatas.timeLeft)
         viewFlip.showPrevious()
     }
 
     private fun returnMenuHome() {
-        saveGame()
         val intent1 = Intent(this, EntryScreen::class.java)
         finish()
         startActivity(intent1)
     }
 
     private fun returnAndroidHome() {
-        saveGame()
         finish()
     }
 
-    fun findPossibleMatches(gameButtons: HashMap<Int, GameButton>):
+    private fun findPossibleMatches(gameButtons: HashMap<Int, GameButton>):
             List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>> {
         val cards = gameButtons.toList()
         val matches = mutableListOf<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>>()
@@ -344,7 +343,7 @@ class CardArea : ComponentActivity() {
         return matches
     }
 
-    fun selectMatch(matches: List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>>):
+    private fun selectMatch(matches: List<Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>>):
             Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>? {
         return if (matches.isNotEmpty()) {
             matches.random()
@@ -353,7 +352,7 @@ class CardArea : ComponentActivity() {
         }
     }
 
-    fun highlightTwoCards(match: Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>) {
+    private fun highlightTwoCards(match: Triple<Pair<Int, GameButton>, Pair<Int, GameButton>, Pair<Int, GameButton>>) {
         when (nca) {
             1 -> {
                 cardMap.remove(1)
@@ -388,7 +387,7 @@ class CardArea : ComponentActivity() {
         nca = 2
     }
 
-    fun giveHint(gameButtons: HashMap<Int, GameButton>) {
+    private fun giveHint(gameButtons: HashMap<Int, GameButton>) {
         val matches = findPossibleMatches(gameButtons)
         val selectedMatch = selectMatch(matches)
 
@@ -400,7 +399,7 @@ class CardArea : ComponentActivity() {
         }
     }
 
-    fun resetBoard() {
+    private fun resetBoard() {
         imageButtons[1]!!.setBackgroundColor(0x00000000)
         imageButtons[2]!!.setBackgroundColor(0x00000000)
         imageButtons[3]!!.setBackgroundColor(0x00000000)
@@ -411,24 +410,31 @@ class CardArea : ComponentActivity() {
         cardMap.clear(); buttonMap.clear(); imageButtons.clear(); AllDatas.indexKeep.clear()
     }
 
-    fun saveGame() {
-        AllDatas.boardBGdrawableSave = AllDatas.boardBGdrawable
-        AllDatas.boardBGinfoSave = AllDatas.boardBGinfo
-        AllDatas.scoreTrackSave = AllDatas.scoreTrack
-        AllDatas.gameTimeFormSave = AllDatas.gameTimeForm
-    }
-
-    // SharedPreferences approach, if desired:
     private fun saveGameStateToPrefs() {
         val prefs = getSharedPreferences("MyGamePrefs", MODE_PRIVATE)
+        val gson = Gson()
+        val jsonST = gson.toJson(AllDatas.scoreTrack)
         prefs.edit()
-            .putLong("TIME_LEFT", remainingMillis)
+            .putLong("TIME_LEFT", AllDatas.timeLeft)
+            .putString("BG_INFO", AllDatas.boardBGinfo)
+            .putInt("GAME_SCORE", AllDatas.gameScoreInfo)
+            .putString("SCORE_PILE", jsonST)
+            .putInt("BG_DRAWABLE", AllDatas.boardBGdrawable)
             .apply()
     }
 
     private fun loadGameStateFromPrefs() {
         val prefs = getSharedPreferences("MyGamePrefs", MODE_PRIVATE)
-        remainingMillis = prefs.getLong("TIME_LEFT", 30000L)
+        val gson = Gson()
+        val jsonSTS = prefs.getString("SCORE_PILE", null)
+        AllDatas.scoreTrack = gson.fromJson(jsonSTS, ScorePile::class.java)
+        AllDatas.timeLeft = prefs.getLong("TIME_LEFT", 30000L)
+        AllDatas.boardBGinfo = prefs.getString("BG_INFO", " ").toString()
+        AllDatas.gameScoreInfo = prefs.getInt("GAME_SCORE", 0)
+        AllDatas.boardBGdrawable = prefs.getInt("BG_DRAWABLE", 0)
     }
 
+
+
 }
+

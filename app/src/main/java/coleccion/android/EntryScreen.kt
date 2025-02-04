@@ -8,6 +8,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.activity.ComponentActivity
+import coleccion.android.cards.ScorePile
+import com.google.gson.Gson
 
 class EntryScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +31,8 @@ class EntryScreen : ComponentActivity() {
         }
 
         rgButton.setOnClickListener {
-            loadGame()
+            loadGameStateFromPrefs()
+            AllDatas.timeRemaining = AllDatas.timeLeft
             val intent1 = Intent(this, CardArea::class.java)
             startActivity(intent1)
             finish()
@@ -57,14 +60,18 @@ class EntryScreen : ComponentActivity() {
         exitButton.setOnClickListener {
             finish()
         }
-
-
     }
 
-    fun loadGame() {
-        AllDatas.boardBGdrawable = AllDatas.boardBGdrawableSave
-        AllDatas.boardBGinfo = AllDatas.boardBGinfoSave
-        AllDatas.scoreTrack = AllDatas.scoreTrackSave
-        AllDatas.gameTimeForm = AllDatas.gameTimeFormSave
+    private fun loadGameStateFromPrefs() {
+        val prefs = getSharedPreferences("MyGamePrefs", MODE_PRIVATE)
+        val gson = Gson()
+        val jsonSTS = prefs.getString("SCORE_PILE", null)
+        AllDatas.scoreTrack = gson.fromJson(jsonSTS, ScorePile::class.java)
+        AllDatas.timeLeft = prefs.getLong("TIME_LEFT", 30000L)
+        AllDatas.boardBGinfo = prefs.getString("BG_INFO", " ").toString()
+        AllDatas.gameScoreInfo = prefs.getInt("GAME_SCORE", 0)
+        AllDatas.boardBGdrawable = prefs.getInt("BG_DRAWABLE", 0)
     }
+
 }
+

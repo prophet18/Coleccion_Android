@@ -27,23 +27,21 @@ import android.view.WindowManager
 
 object AllDatas {
 
-    var boardBGinfo : String = ""
-    var boardBGinfoSave : String = ""
-    var gameTimeForm : Int = 0
-    var gameTimeFormSave : Int = 0
+    var boardBGinfo : String = "Aurora"
+    var gameTimeForm : Int = 60
     var boardBGdrawable : Int = R.drawable.aurora_over_canada_2016
-    var boardBGdrawableSave : Int = 0
     var gameScoreInfo : Int = 0
     var collectionHighScoring : Int = 0
     var collectionTotalTime : Int = 0
-    var timeRemaining : Long = 0
+    var timeRemaining : Long = 60000
+    var timeLeft : Long = 30000
     val highScores = File("/data/data/coleccion.android/files/coleccionHighScores.txt")
     val csvHighScores = File("/data/data/coleccion.android/files/coleccionHighScores.csv")
+    // val csvHighScores = File(filesDir, )
     // var finalTimer : CountDownTimer
     var scoreTrack = ScorePile()
-    var scoreTrackSave = ScorePile()
     var indexKeep : MutableList<Int> = mutableListOf()
-    var gameType : String = ""
+    var gameType : String = "Regular"
 
     fun createFile() {
         val dAndTime = "Date &\nTime" ;     val scoreString = "Score"
@@ -79,9 +77,7 @@ object AllDatas {
         try {
             val addHS = BufferedWriter(FileWriter(highScores, true))
             val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
-            val currentDateTime = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("ddMMMyyyy\nHH:mm")
-            val formattedDateTime = currentDateTime.format(formatter)
+            val formattedDateTime = makeDateTime(0)
             addHS.write("$formattedDateTime $gameScoreInfo $gameTimeForm $boardBGinfo $gameType")
             addHS.newLine()
             addHS.close()
@@ -121,6 +117,23 @@ object AllDatas {
 
         // Set the new text size
         tView.textSize = newTextSize
-
     }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun makeDateTime(type: Int): String {
+        val currentDateTime = LocalDateTime.now()
+        val formatter: DateTimeFormatter?
+
+        if (type == 0) {
+            formatter = DateTimeFormatter.ofPattern("ddMMMyyyy\nHH:mm")
+        } else {
+            formatter = DateTimeFormatter.ofPattern("ddMMMyyHHmm")
+        }
+
+        val formattedDateTime = currentDateTime.format(formatter)
+        return formattedDateTime
+    }
+
+
+
 }

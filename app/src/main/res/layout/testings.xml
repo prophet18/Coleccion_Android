@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cologo4"
         app:layout_constraintWidth_percent="1"
-        app:layout_constraintHeight_percent="0.2">
+        app:layout_constraintHeight_percent="0.175">
     </TableLayout>
 
     <TableLayout
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/highscoren_layout2"
         app:layout_constraintWidth_percent="1"
-        app:layout_constraintHeight_percent="0.2">
+        app:layout_constraintHeight_percent="0.175">
     </TableLayout>
 
     <ImageButton
@@ -75,8 +75,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/highscoren_layout3"
-        app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintHeight_percent="0.1"/>
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintHeight_percent="0.125"/>
 
     <ImageButton
         android:id="@+id/dataUpload"
@@ -93,8 +93,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dataDownload"
-        app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintHeight_percent="0.1"/>
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintHeight_percent="0.125"/>
 
     <ImageButton
         android:id="@+id/hsback"
@@ -108,8 +108,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dataUpload"
-        app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintHeight_percent="0.1"/>
+        app:layout_constraintWidth_percent="0.95"
+        app:layout_constraintHeight_percent="0.125"/>
 
     <ImageButton
         android:id="@+id/e_button6"
@@ -123,7 +123,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hsback"
-        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintWidth_percent="0.95"
         app:layout_constraintHeight_percent="0.1"/>
 
 

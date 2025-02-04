@@ -5,7 +5,6 @@ package coleccion.android
     Using Spinners, players can select the background and game duration they desire.
 */
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
