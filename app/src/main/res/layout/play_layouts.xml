@@ -71,12 +71,16 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/game_score"
                 android:fontFamily="@font/ocraextended"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:text="@string/score"
                 android:textColor="#2A52BE"
-                android:textSize="28sp" />
+                android:textSize="28sp"
+                android:background="#ffff00" />
 
             <TextView
                 android:id="@+id/time_value"
@@ -86,12 +90,16 @@
                 android:layout_weight="1"
                 android:contentDescription="@string/game_time_left_seconds"
                 android:fontFamily="@font/ocraextended"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:text="@string/time"
                 android:textColor="#FF4500"
-                android:textSize="28sp" />
+                android:textSize="28sp"
+                android:background="#ffff00"/>
 
         </TableRow>
 
@@ -158,15 +166,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/cardRow2"
-            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintWidth_percent="1"
             app:layout_constraintHeight_percent="0.25">
 
             <ImageButton
                 android:id="@+id/card1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_one"
                 android:scaleType="fitXY"
@@ -176,8 +184,8 @@
                 android:id="@+id/card2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_two"
                 android:scaleType="fitXY"
@@ -187,8 +195,8 @@
                 android:id="@+id/card3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_three"
                 android:scaleType="fitXY"
@@ -198,8 +206,8 @@
                 android:id="@+id/card4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_four"
                 android:scaleType="fitXY"
@@ -216,15 +224,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/cardRow3"
-            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintWidth_percent="1"
             app:layout_constraintHeight_percent="0.25">
 
             <ImageButton
                 android:id="@+id/card5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_five"
                 android:scaleType="fitXY"
@@ -234,8 +242,8 @@
                 android:id="@+id/card6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_six"
                 android:scaleType="fitXY"
@@ -245,8 +253,8 @@
                 android:id="@+id/card7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_seven"
                 android:scaleType="fitXY"
@@ -256,8 +264,8 @@
                 android:id="@+id/card8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_eight"
                 android:scaleType="fitXY"
@@ -274,15 +282,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintWidth_percent="0.99"
+            app:layout_constraintWidth_percent="1"
             app:layout_constraintHeight_percent="0.25">
 
             <ImageButton
                 android:id="@+id/card9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_nine"
                 android:scaleType="fitXY"
@@ -292,8 +300,8 @@
                 android:id="@+id/card10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_ten"
                 android:scaleType="fitXY"
@@ -303,8 +311,8 @@
                 android:id="@+id/card11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_eleven"
                 android:scaleType="fitXY"
@@ -314,8 +322,8 @@
                 android:id="@+id/card12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:layout_margin="1dp"
+                android:padding="3dp"
+                
                 android:layout_weight="1"
                 android:contentDescription="@string/card_twelve"
                 android:scaleType="fitXY"

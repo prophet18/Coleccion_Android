@@ -44,8 +44,8 @@ object AllDatas {
     var gameType : String = "Regular"
 
     fun createFile() {
-        val dAndTime = "Date &\nTime" ;     val scoreString = "Score"
-        val gDuration = "Game\nDuration" ;  val bgStrins = "Background" ;  val gtStrins = "Game\nType"
+        val dAndTime = "Date &\nTime" ;     val scoreString = "Score" ; val gtStrins = "Game\nType"
+        val gDuration = "Game\nDuration" ;  val bgStrins = "Background"
 
         try {
             if (highScores.createNewFile() && csvHighScores.createNewFile()) {
@@ -55,11 +55,12 @@ object AllDatas {
                 val csvHS = BufferedWriter(FileWriter(csvHighScores, true))
                 // csvHS.write("$dAndTime,$scoreString,$gDuration,$bgStrins")
                 csvHS.write(escapeCsvCell(dAndTime) + "," + escapeCsvCell(scoreString) + "," +
-                        escapeCsvCell(gDuration) + "," + escapeCsvCell(bgStrins) + "," + escapeCsvCell(gtStrins))
+                            escapeCsvCell(gDuration) + "," + escapeCsvCell(bgStrins) + "," +
+                            escapeCsvCell(gtStrins))
                 csvHS.newLine()
                 csvHS.close()
                 addHS.write("Date &\nTime" + " " + "Score" + " " + "Game\nDuration" + " " +
-                        "Background" + " " + "Game\nType")
+                            "Background" + " " + "Game\nType")
                 addHS.newLine()
                 addHS.close()
 
@@ -83,8 +84,8 @@ object AllDatas {
             addHS.close()
             // csvHS.write("$formattedDateTime,$gameScoreInfo,$gameTimeForm,$boardBGinfo")
             csvHS.write(escapeCsvCell(formattedDateTime) + "," + escapeCsvCell(gameScoreInfo.toString()) +
-                    "," + escapeCsvCell(gameTimeForm.toString()) + "," + escapeCsvCell(boardBGinfo) + "," +
-                    escapeCsvCell(gameType))
+                        "," + escapeCsvCell(gameTimeForm.toString()) + "," + escapeCsvCell(boardBGinfo) + "," +
+                        escapeCsvCell(gameType))
             csvHS.newLine()
             csvHS.close()
 
@@ -137,3 +138,4 @@ object AllDatas {
 
 
 }
+

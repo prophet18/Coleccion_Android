@@ -11,7 +11,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/coleccion_background_p_z_1"
     android:orientation="vertical"
-    tools:context=".Settings">
+    tools:context=".Settings" >
 
     <ImageView
         android:id="@+id/cologo2"
@@ -25,13 +25,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="1"
-        app:layout_constraintHeight_percent="0.1"/>
+        app:layout_constraintHeight_percent="0.1" />
 
     <TextView
         android:id="@+id/bg_select"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="5dp"
         android:contentDescription="@string/choose_game_background"
         android:fontFamily="@font/ocraextended"
         android:gravity="center"
@@ -44,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@id/cologo2"
         app:layout_constraintBottom_toTopOf="@id/select_bg"
         app:layout_constraintWidth_percent="1"
-        app:layout_constraintHeight_percent="0.1"/>
+        app:layout_constraintHeight_percent="0.08" />
 
     <Spinner
         android:id="@+id/select_bg"
@@ -62,6 +63,11 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/select_bg"
@@ -73,9 +79,9 @@
     <TextView
         android:id="@+id/time2_select"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_gravity="center"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="2dp"
         android:contentDescription="@string/time"
         android:fontFamily="@font/ocraextended"
         android:gravity="center"
@@ -88,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@id/bg_selected"
         app:layout_constraintBottom_toTopOf="@id/select_datime"
         app:layout_constraintWidth_percent="1"
-        app:layout_constraintHeight_percent="0.1"/>
+        app:layout_constraintHeight_percent="0.08" />
 
     <Spinner
         android:id="@+id/select_datime"
@@ -104,9 +110,9 @@
     <TextView
         android:id="@+id/gt2_select"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:layout_gravity="center"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="3dp"
         android:contentDescription="@string/gtype"
         android:fontFamily="@font/ocraextended"
         android:gravity="center"
@@ -119,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@id/select_datime"
         app:layout_constraintBottom_toTopOf="@id/select_dagt"
         app:layout_constraintWidth_percent="1"
-        app:layout_constraintHeight_percent="0.1"/>
+        app:layout_constraintHeight_percent="0.07" />
 
     <Spinner
         android:id="@+id/select_dagt"
@@ -138,8 +144,8 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
         android:layout_marginBottom="5dp"
         android:src="@drawable/return_home1"
         android:background="@android:color/transparent"
@@ -148,6 +154,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_dagt"
         app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintHeight_percent="0.12"/>
+        app:layout_constraintHeight_percent="0.1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

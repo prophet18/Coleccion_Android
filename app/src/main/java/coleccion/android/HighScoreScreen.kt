@@ -161,7 +161,6 @@ class HighScoreScreen : ComponentActivity() {
                 e.printStackTrace()  // Handle invalid number format if needed
             }
         }
-
         val averageScore = if (count > 0) totalScore.toDouble() / count else 0.0
         val sHighScore = highScore.toString()
         val sAverageScore = String.format("%.2f", averageScore)
@@ -199,7 +198,6 @@ class HighScoreScreen : ComponentActivity() {
     private fun exportData() {
         val formattedDateTime = makeDateTime(1)
         val fileName = lookupName()
-
         /*
         // Check that it starts and ends with what we expect
         if (fileName.startsWith("coleccionHighScores") && fileName.endsWith(".csv")) {
@@ -212,7 +210,6 @@ class HighScoreScreen : ComponentActivity() {
         }
 
          */
-
         val internalFile = File(filesDir, fileName)
         val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
         // val file = File(downloadsDir, "coleccionHighScores.csv")
@@ -251,7 +248,6 @@ class HighScoreScreen : ComponentActivity() {
 
     @RequiresApi(Build.VERSION_CODES.R)
     private fun createViews() {
-
         try {
             val fileName = lookupName2()
             val reader = CSVReader(FileReader(fileName))
@@ -259,7 +255,7 @@ class HighScoreScreen : ComponentActivity() {
             val rows = mutableListOf<Array<String>>()
             val topHead = arrayOf("Top\nScore", "Average\nScore", "Favorite\nBackground")
             val bottomHead = arrayOf("Number of\nGames Played", "Cumulative\nGame Time\n(Minutes)",
-                "Game Type\nMost Played")
+                                     "Game Type\nMost Played")
 
             if (header != null) {
                 addHeaderRow(tableLayout, header)
@@ -282,7 +278,6 @@ class HighScoreScreen : ComponentActivity() {
                 val bottomRow = calculateStats2(rows)
                 addDataRow(tableLayout3, bottomRow)
             }
-
             reader.close()
         } catch (e: IOException) {
             e.printStackTrace()
@@ -311,7 +306,6 @@ class HighScoreScreen : ComponentActivity() {
         val match = oldFiles.find {
             it.name.startsWith("coleccionHighScores") && it.name.endsWith(".csv")
         }
-
         return match?.absolutePath // e.g. "/data/data/your.package/files/coleccionHighScores_xxx.csv"
     }
 

@@ -43,7 +43,7 @@ class Settings : ComponentActivity() {
         setContentView(R.layout.settings_screen)
 
         backgrounds = arrayOf("Aurora", "Boston", "Space", "Sunset", "Mountains", "Forest",
-            "Coast", "Starry Night", "River Scene", "Ukraine")
+                              "Coast", "Starry Night", "River Scene", "Ukraine")
         timeopts = arrayOf(60, 120, 180, 240, 300)
         typeGame = arrayOf("Regular", "Easy", "Hard")
 
@@ -117,3 +117,4 @@ class Settings : ComponentActivity() {
     }
 
 }
+

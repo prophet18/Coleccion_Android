@@ -9,10 +9,8 @@ package coleccion.android
 
 import android.content.Intent
 import android.os.Build
-import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.ImageButton
-import android.widget.TextView
 import android.widget.Toast
 import android.widget.ViewFlipper
 import androidx.activity.ComponentActivity
@@ -24,6 +22,14 @@ import coleccion.android.cards.Deck
 import coleccion.android.cards.GameButton
 import coleccion.android.cards.ScorePile
 import com.google.gson.Gson
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.os.Bundle
+import android.view.View
+import android.widget.TextView
+import androidx.core.graphics.ColorUtils
+import androidx.palette.graphics.Palette
 
 class CardArea : ComponentActivity() {
 
@@ -68,9 +74,9 @@ class CardArea : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.play_layouts)
 
-        viewFlip = findViewById(R.id.playFlipper)
-        bgLinking = findViewById(R.id.board_layout2)
+        viewFlip = findViewById(R.id.playFlipper)  ;  bgLinking = findViewById(R.id.board_layout2)
         bgLinking.setBackgroundResource(AllDatas.boardBGdrawable)
+        // funky()
 
         nucOne = findViewById(R.id.card1);      nucTwo = findViewById(R.id.card2);      nucThree = findViewById(R.id.card3)
         nucFour = findViewById(R.id.card4);     nucFive = findViewById(R.id.card5);     nucSix = findViewById(R.id.card6)
@@ -194,16 +200,12 @@ class CardArea : ComponentActivity() {
                         imageButtons[2]!!.setImageResource(buttonMap[2]!!.card!!.image)
                         imageButtons[3]!!.setImageResource(buttonMap[3]!!.card!!.image)
 
-                        if (AllDatas.gameType == "Easy") {
-                            addTime(3000)
-                        }
+                        if (AllDatas.gameType == "Easy") { addTime(3000) }
 
                     } else {
                         Toast.makeText(this, "W R O N G", Toast.LENGTH_SHORT).show()
 
-                        if (AllDatas.gameType == "Hard") {
-                            minusTime(1000)
-                        }
+                        if (AllDatas.gameType == "Hard") { minusTime(1000) }
                     }
                     resetBoard()
                 }
@@ -251,12 +253,18 @@ class CardArea : ComponentActivity() {
     }
 
     private fun nuDeck() {
-        if (usedCardCount >= 132) {
+        if (usedCardCount >= 143) {
+            cards.clear()
             deck = Deck()
-            boardCardCount = 0 ;  deckCardCount = 0
-            cards.clear() ; buttonMapping.clear()
-            makeDeck()
-            usedCardCount = 12
+            var card: Card
+            deck.shuffle()
+            while (deckCardCount < 144) {
+                card = deck.peek()
+                deck.pop()
+                cards.add(card)
+                deckCardCount++
+            }
+            usedCardCount = 0 ;  deckCardCount = 0
         }
     }
 
@@ -432,6 +440,58 @@ class CardArea : ComponentActivity() {
         AllDatas.boardBGinfo = prefs.getString("BG_INFO", " ").toString()
         AllDatas.gameScoreInfo = prefs.getInt("GAME_SCORE", 0)
         AllDatas.boardBGdrawable = prefs.getInt("BG_DRAWABLE", 0)
+    }
+
+    private fun getBitmapFromView(view: View): Bitmap {
+        val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+        return bitmap
+    }
+
+    fun funky() {
+
+        // Wait until the views are laid out so that width, height, and positions are valid
+        bgLinking.post {
+            // Capture the entire background view as a bitmap
+            val fullBitmap = getBitmapFromView(bgLinking)
+
+            // Get the location of the timeValu on screen
+            val textLocation = IntArray(2)
+            timeValu.getLocationOnScreen(textLocation)
+
+            // Get the location of the background view on screen
+            val bgLocation = IntArray(2)
+            bgLinking.getLocationOnScreen(bgLocation)
+
+            // Calculate the timeValu's position relative to the background view
+            val relativeX = textLocation[0] - bgLocation[0]
+            val relativeY = textLocation[1] - bgLocation[1]
+
+            // Ensure the crop area is within the bounds of the background bitmap
+            val cropWidth = timeValu.width.coerceAtMost(fullBitmap.width - relativeX)
+            val cropHeight = timeValu.height.coerceAtMost(fullBitmap.height - relativeY)
+
+            // Crop the bitmap to the area behind the timeValu
+            val croppedBitmap = Bitmap.createBitmap(fullBitmap, relativeX, relativeY, cropWidth, cropHeight)
+
+            // Use the Palette API to generate a palette from the cropped bitmap
+            Palette.from(croppedBitmap).generate { palette ->
+                // Choose a swatch – try vibrant first, then dominant as a fallback
+                val swatch = palette?.vibrantSwatch ?: palette?.dominantSwatch
+                if (swatch != null) {
+                    // Extract the color and adjust its alpha (here, 50% opacity)
+                    val baseColor = swatch.rgb
+                    val semiTransparentColor = ColorUtils.setAlphaComponent(baseColor, 128)
+
+                    // Apply the semi-transparent color to the timeValu's background
+                    timeValu.setBackgroundColor(semiTransparentColor)
+                } else {
+                    // Optional: Fallback to a default semi-transparent color if no swatch is found
+                    timeValu.setBackgroundColor(Color.parseColor("#80FFFFFF"))
+                }
+            }
+        }
     }
 
 

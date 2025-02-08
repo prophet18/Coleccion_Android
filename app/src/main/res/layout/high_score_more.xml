@@ -12,9 +12,7 @@
     tools:context=".HighScoreScreen" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/highScores_layout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,7 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_gravity="top"
-            android:padding="10dp"
+            android:padding="12dp"
             android:layout_marginBottom="10dp"
             android:scaleType="fitXY"
             android:contentDescription="@string/game_score"
@@ -50,7 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hScores"
             app:layout_constraintWidth_percent="1"
-            tools:ignore="SpeakableTextPresentCheck">
+            tools:ignore="SpeakableTextPresentCheck" >
 
             <!--
 
@@ -86,7 +84,7 @@
                 android:layout_margin="2dp"
                 android:gravity="top"
                 android:padding="2dp"
-                android:stretchColumns="*">
+                android:stretchColumns="*" >
             </TableLayout>
 
         </ScrollView>
@@ -105,7 +103,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scrollView2"
             app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.125"/>
+            app:layout_constraintHeight_percent="0.125" />
 
         <ImageButton
             android:id="@+id/e_button4"
@@ -121,20 +119,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/statsnmore"
             app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.1"/>
+            app:layout_constraintHeight_percent="0.1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/highScores_layout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:background="@drawable/coleccion_background_p_z_2"
-        tools:context=".HighScoreScreen">
+        tools:context=".HighScoreScreen" >
 
         <ImageView
             android:id="@+id/cologo4"
@@ -148,7 +144,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="1"
-            app:layout_constraintHeight_percent="0.1"/>
+            app:layout_constraintHeight_percent="0.1" />
 
         <TableLayout
             android:id="@+id/highscoren_layout2"
@@ -165,7 +161,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cologo4"
             app:layout_constraintWidth_percent="1"
-            app:layout_constraintHeight_percent="0.175">
+            app:layout_constraintHeight_percent="0.175" >
         </TableLayout>
 
         <TableLayout
@@ -183,7 +179,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/highscoren_layout2"
             app:layout_constraintWidth_percent="1"
-            app:layout_constraintHeight_percent="0.175">
+            app:layout_constraintHeight_percent="0.175" >
         </TableLayout>
 
         <ImageButton
@@ -202,7 +198,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/highscoren_layout3"
             app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.125"/>
+            app:layout_constraintHeight_percent="0.125" />
 
         <ImageButton
             android:id="@+id/dataUpload"
@@ -220,7 +216,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dataDownload"
             app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.125"/>
+            app:layout_constraintHeight_percent="0.125" />
 
         <ImageButton
             android:id="@+id/hsback"
@@ -235,7 +231,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dataUpload"
             app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.125"/>
+            app:layout_constraintHeight_percent="0.125" />
 
         <ImageButton
             android:id="@+id/e_button6"
@@ -250,10 +246,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hsback"
             app:layout_constraintWidth_percent="0.95"
-            app:layout_constraintHeight_percent="0.1"/>
-
+            app:layout_constraintHeight_percent="0.1" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ViewFlipper>
+
